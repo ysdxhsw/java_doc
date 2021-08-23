@@ -1,0 +1,2504 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Spring Cloud Ribbon：负载均衡的服务调用 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="hystrix.html" />
+    
+    
+    <link rel="prev" href="eureka.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    序章
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../foreword/mall_foreword_01.html">
+            
+                <a href="../foreword/mall_foreword_01.html">
+            
+                    
+                    mall架构及功能概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../foreword/mall_foreword_02.html">
+            
+                <a href="../foreword/mall_foreword_02.html">
+            
+                    
+                    mall学习所需知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    架构篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architect/mall_arch_01.html">
+            
+                <a href="../architect/mall_arch_01.html">
+            
+                    
+                    mall整合SpringBoot+MyBatis搭建基本骨架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architect/mall_arch_02.html">
+            
+                <a href="../architect/mall_arch_02.html">
+            
+                    
+                    mall整合Swagger-UI实现在线API文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architect/mall_arch_03.html">
+            
+                <a href="../architect/mall_arch_03.html">
+            
+                    
+                    mall整合Redis实现缓存功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../architect/mall_arch_04.html">
+            
+                <a href="../architect/mall_arch_04.html">
+            
+                    
+                    mall整合SpringSecurity和JWT实现认证和授权（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../architect/mall_arch_05.html">
+            
+                <a href="../architect/mall_arch_05.html">
+            
+                    
+                    mall整合SpringSecurity和JWT实现认证和授权（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../architect/mall_arch_06.html">
+            
+                <a href="../architect/mall_arch_06.html">
+            
+                    
+                    mall整合SpringTask实现定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../architect/mall_arch_07.html">
+            
+                <a href="../architect/mall_arch_07.html">
+            
+                    
+                    mall整合Elasticsearch实现商品搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../architect/mall_arch_08.html">
+            
+                <a href="../architect/mall_arch_08.html">
+            
+                    
+                    mall整合Mongodb实现文档操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../architect/mall_arch_09.html">
+            
+                <a href="../architect/mall_arch_09.html">
+            
+                    
+                    mall整合RabbitMQ实现延迟消息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../architect/mall_arch_10.html">
+            
+                <a href="../architect/mall_arch_10.html">
+            
+                    
+                    mall整合OSS实现文件上传
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    业务篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../database/mall_database_overview.html">
+            
+                <a href="../database/mall_database_overview.html">
+            
+                    
+                    mall数据库表结构概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../database/mall_pms_01.html">
+            
+                <a href="../database/mall_pms_01.html">
+            
+                    
+                    商品模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../database/mall_pms_02.html">
+            
+                <a href="../database/mall_pms_02.html">
+            
+                    
+                    商品模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../database/mall_oms_01.html">
+            
+                <a href="../database/mall_oms_01.html">
+            
+                    
+                    订单模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../database/mall_oms_02.html">
+            
+                <a href="../database/mall_oms_02.html">
+            
+                    
+                    订单模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../database/mall_oms_03.html">
+            
+                <a href="../database/mall_oms_03.html">
+            
+                    
+                    订单模块数据库表解析（三）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../database/mall_sms_01.html">
+            
+                <a href="../database/mall_sms_01.html">
+            
+                    
+                    营销模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../database/mall_sms_02.html">
+            
+                <a href="../database/mall_sms_02.html">
+            
+                    
+                    营销模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../database/mall_sms_03.html">
+            
+                <a href="../database/mall_sms_03.html">
+            
+                    
+                    营销模块数据库表解析（三）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../database/mall_permission.html">
+            
+                <a href="../database/mall_permission.html">
+            
+                    
+                    权限管理功能设计与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../technology/product_sku.html">
+            
+                <a href="../technology/product_sku.html">
+            
+                    
+                    商品SKU功能设计与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    技术要点篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../technology/mybatis_mapper.html">
+            
+                <a href="../technology/mybatis_mapper.html">
+            
+                    
+                    MyBatis Generator使用过程中踩过的一个坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../technology/aop_log.html">
+            
+                <a href="../technology/aop_log.html">
+            
+                    
+                    SpringBoot应用中使用AOP记录接口访问日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../technology/mall_tiny_elk.html">
+            
+                <a href="../technology/mall_tiny_elk.html">
+            
+                    
+                    SpringBoot应用整合ELK实现日志收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../technology/springboot_cors.html">
+            
+                <a href="../technology/springboot_cors.html">
+            
+                    
+                    前后端分离项目，如何解决跨域问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../technology/java_stream.html">
+            
+                <a href="../technology/java_stream.html">
+            
+                    
+                    Java 8都出那么久了，Stream API了解下？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../technology/springsecurity_use.html">
+            
+                <a href="../technology/springsecurity_use.html">
+            
+                    
+                    仅需四步，整合SpringSecurity+JWT实现登录认证！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../technology/minio_use.html">
+            
+                <a href="../technology/minio_use.html">
+            
+                    
+                    前后端分离项目，如何优雅实现文件存储！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../technology/gateway_cors.html">
+            
+                <a href="../technology/gateway_cors.html">
+            
+                    
+                    前后端分离项目，引入Spring Cloud Gateway遇到的一个问题！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../technology/permission_back.html">
+            
+                <a href="../technology/permission_back.html">
+            
+                    
+                    手把手教你搞定权限管理，结合Spring Security实现接口的动态权限控制！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../technology/permission_front.html">
+            
+                <a href="../technology/permission_front.html">
+            
+                    
+                    手把手教你搞定权限管理，结合Vue实现菜单的动态权限控制！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../technology/springboot_validator.html">
+            
+                <a href="../technology/springboot_validator.html">
+            
+                    
+                    SpringBoot中处理校验逻辑的两种方式，真的很机智！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../technology/redis_permission.html">
+            
+                <a href="../technology/redis_permission.html">
+            
+                    
+                    使用Redis+AOP优化权限管理功能，这波操作贼爽！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../technology/product_search.html">
+            
+                <a href="../technology/product_search.html">
+            
+                    
+                    Elasticsearch项目实战，商品搜索功能设计与实现！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../technology/rabbitmq_delay.html">
+            
+                <a href="../technology/rabbitmq_delay.html">
+            
+                    
+                    RabbitMQ实现延迟消息居然如此简单，整个插件就完事了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../technology/swagger_upgrade.html">
+            
+                <a href="../technology/swagger_upgrade.html">
+            
+                    
+                    给Swagger升级了新版本，没想到居然有这么多坑！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../technology/elasticsearch_upgrade.html">
+            
+                <a href="../technology/elasticsearch_upgrade.html">
+            
+                    
+                    Elasticsearch 升级 7.x 版本后，我感觉掉坑里了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../technology/mall_permission_question.html">
+            
+                <a href="../technology/mall_permission_question.html">
+            
+                    
+                    搞定Mall项目中的权限管理功能，弄懂这些问题就妥了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    部署篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../deploy/mall_deploy_windows.html">
+            
+                <a href="../deploy/mall_deploy_windows.html">
+            
+                    
+                    mall在Windows环境下的部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../deploy/mall_deploy_docker.html">
+            
+                <a href="../deploy/mall_deploy_docker.html">
+            
+                    
+                    mall在Linux环境下的部署（基于Docker容器）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../deploy/mall_deploy_docker_compose.html">
+            
+                <a href="../deploy/mall_deploy_docker_compose.html">
+            
+                    
+                    mall在Linux环境下的部署（基于Docker Compose）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../deploy/mall_deploy_jenkins.html">
+            
+                <a href="../deploy/mall_deploy_jenkins.html">
+            
+                    
+                    mall在Linux环境下的自动化部署（基于Jenkins）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../deploy/mall_deploy_web.html">
+            
+                <a href="../deploy/mall_deploy_web.html">
+            
+                    
+                    mall前端项目的安装与部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../deploy/mall_swarm_deploy_windows.html">
+            
+                <a href="../deploy/mall_swarm_deploy_windows.html">
+            
+                    
+                    mall-swarm在Windows环境下的部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../deploy/mall_swarm_deploy_docker.html">
+            
+                <a href="../deploy/mall_swarm_deploy_docker.html">
+            
+                    
+                    mall-swarm在Linux环境下的部署（基于Docker容器）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../deploy/mall_swarm_deploy_jenkins.html">
+            
+                <a href="../deploy/mall_swarm_deploy_jenkins.html">
+            
+                    
+                    微服务架构下的自动化部署，使用Jenkins来实现！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../deploy/mall_swarm_deploy_k8s.html">
+            
+                <a href="../deploy/mall_swarm_deploy_k8s.html">
+            
+                    
+                    mall-swarm微服务项目在K8S下的实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../technology/springboot_auto_deploy.html">
+            
+                <a href="../technology/springboot_auto_deploy.html">
+            
+                    
+                    我常用的自动化部署技巧，贼好用，推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    进阶篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="springcloud.html">
+            
+                <a href="springcloud.html">
+            
+                    
+                    Spring Cloud 整体架构概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="eureka.html">
+            
+                <a href="eureka.html">
+            
+                    
+                    Spring Cloud Eureka：服务注册与发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.3" data-path="ribbon.html">
+            
+                <a href="ribbon.html">
+            
+                    
+                    Spring Cloud Ribbon：负载均衡的服务调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="hystrix.html">
+            
+                <a href="hystrix.html">
+            
+                    
+                    Spring Cloud Hystrix：服务容错保护
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="hystrix_dashboard.html">
+            
+                <a href="hystrix_dashboard.html">
+            
+                    
+                    Hystrix Dashboard：断路器执行监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="feign.html">
+            
+                <a href="feign.html">
+            
+                    
+                    Spring Cloud OpenFeign：基于Ribbon和Hystrix的声明式服务调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="zuul.html">
+            
+                <a href="zuul.html">
+            
+                    
+                    Spring Cloud Zuul：API网关服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    Spring Cloud Config：外部集中化配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="bus.html">
+            
+                <a href="bus.html">
+            
+                    
+                    Spring Cloud Bus：消息总线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="sleuth.html">
+            
+                <a href="sleuth.html">
+            
+                    
+                    Spring Cloud Sleuth：分布式请求链路跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="consul.html">
+            
+                <a href="consul.html">
+            
+                    
+                    Spring Cloud Consul：服务治理与配置中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="gateway.html">
+            
+                <a href="gateway.html">
+            
+                    
+                    Spring Cloud Gateway：新一代API网关服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="admin.html">
+            
+                <a href="admin.html">
+            
+                    
+                    Spring Boot Admin：微服务应用监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="oauth2.html">
+            
+                <a href="oauth2.html">
+            
+                    
+                    Spring Cloud Security：Oauth2使用入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="oauth2_jwt.html">
+            
+                <a href="oauth2_jwt.html">
+            
+                    
+                    Spring Cloud Security：Oauth2结合JWT使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="oauth2_sso.html">
+            
+                <a href="oauth2_sso.html">
+            
+                    
+                    Spring Cloud Security：Oauth2实现单点登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="nacos.html">
+            
+                <a href="nacos.html">
+            
+                    
+                    Spring Cloud Alibaba：Nacos 作为注册中心和配置中心使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="sentinel.html">
+            
+                <a href="sentinel.html">
+            
+                    
+                    Spring Cloud Alibaba：Sentinel实现熔断与限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="seata.html">
+            
+                <a href="seata.html">
+            
+                    
+                    使用Seata彻底解决Spring Cloud中的分布式事务问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="gateway_oauth2.html">
+            
+                <a href="gateway_oauth2.html">
+            
+                    
+                    微服务权限终极解决方案，Spring Cloud Gateway + Oauth2 实现统一认证和鉴权！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="oauth2_custom.html">
+            
+                <a href="oauth2_custom.html">
+            
+                    
+                    我扒了半天源码，终于找到了Oauth2自定义处理结果的最佳方案！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="knife4j_cloud.html">
+            
+                <a href="knife4j_cloud.html">
+            
+                    
+                    微服务聚合Swagger文档，这波操作是真的香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    参考篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../reference/mysql.html">
+            
+                <a href="../reference/mysql.html">
+            
+                    
+                    开发者必备Mysql命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../reference/linux_command.html">
+            
+                <a href="../reference/linux_command.html">
+            
+                    
+                    还在百度Linux命令？推荐一套我用起来特顺手的命令！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../reference/linux_firewall.html">
+            
+                <a href="../reference/linux_firewall.html">
+            
+                    
+                    Linux防火墙Firewall和Iptables的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../reference/docker_command.html">
+            
+                <a href="../reference/docker_command.html">
+            
+                    
+                    还在百度Docker命令？推荐一套我用起来特顺手的命令！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../reference/docker_maven.html">
+            
+                <a href="../reference/docker_maven.html">
+            
+                    
+                    使用Maven插件为SpringBoot应用构建Docker镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../reference/docker_file.html">
+            
+                <a href="../reference/docker_file.html">
+            
+                    
+                    使用DockerFile为SpringBoot应用构建Docker镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../reference/docker_compose.html">
+            
+                <a href="../reference/docker_compose.html">
+            
+                    
+                    使用Docker Compose部署SpringBoot应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../reference/hutool.html">
+            
+                <a href="../reference/hutool.html">
+            
+                    
+                    Hutool中那些常用的工具类和方法 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../reference/nginx.html">
+            
+                <a href="../reference/nginx.html">
+            
+                    
+                    Nginx的这些妙用，你肯定有不知道的！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="../reference/jenkins.html">
+            
+                <a href="../reference/jenkins.html">
+            
+                    
+                    使用Jenkins一键打包部署SpringBoot应用，就是这么6！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="../reference/jenkins_vue.html">
+            
+                <a href="../reference/jenkins_vue.html">
+            
+                    
+                    使用Jenkins一键打包部署前端应用，就是这么6！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="../reference/minio.html">
+            
+                <a href="../reference/minio.html">
+            
+                    
+                    Github标星19K+Star，10分钟自建对象存储服务！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.13" data-path="../reference/mysql_master_slave.html">
+            
+                <a href="../reference/mysql_master_slave.html">
+            
+                    
+                    MySql主从复制，从原理到实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.14" data-path="../reference/gaea.html">
+            
+                <a href="../reference/gaea.html">
+            
+                    
+                    你还在代码里做读写分离么，试试这个中间件吧！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.15" data-path="../reference/spring_data_redis.html">
+            
+                <a href="../reference/spring_data_redis.html">
+            
+                    
+                    Spring Data Redis 最佳实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.16" data-path="../reference/redis_cluster.html">
+            
+                <a href="../reference/redis_cluster.html">
+            
+                    
+                    Docker环境下秒建Redis集群，连SpringBoot也整上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.17" data-path="../reference/elasticsearch_start.html">
+            
+                <a href="../reference/elasticsearch_start.html">
+            
+                    
+                    Elasticsearch快速入门，掌握这些刚刚好！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.18" data-path="../reference/mongodb_start.html">
+            
+                <a href="../reference/mongodb_start.html">
+            
+                    
+                    MongoDB快速入门，掌握这些刚刚好！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.19" data-path="../reference/gogs_start.html">
+            
+                <a href="../reference/gogs_start.html">
+            
+                    
+                    Github标星34K+Star，这款开源项目助你秒建Git服务！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.20" data-path="../reference/rabbitmq_start.html">
+            
+                <a href="../reference/rabbitmq_start.html">
+            
+                    
+                    连RabbitMQ的5种核心消息模式都不懂，也敢说自己会用消息队列！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.21" data-path="../reference/mall_elk_advance.html">
+            
+                <a href="../reference/mall_elk_advance.html">
+            
+                    
+                    你居然还去服务器上捞日志，搭个日志收集系统难道不香么！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.22" data-path="../reference/efk_fluent.html">
+            
+                <a href="../reference/efk_fluent.html">
+            
+                    
+                    性能优越的轻量级日志收集工具，微软、亚马逊都在用！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.23" data-path="../reference/jose_jwt_start.html">
+            
+                <a href="../reference/jose_jwt_start.html">
+            
+                    
+                    听说你的JWT库用起来特别扭，推荐一款贼好用的！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.24" data-path="../reference/knife4j_start.html">
+            
+                <a href="../reference/knife4j_start.html">
+            
+                    
+                    给Swagger换了个新皮肤，瞬间高大上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.25" data-path="../reference/docker_protect_socket.html">
+            
+                <a href="../reference/docker_protect_socket.html">
+            
+                    
+                    Docker服务开放了这个端口，服务器分分钟变肉机！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.26" data-path="../reference/elk_security.html">
+            
+                <a href="../reference/elk_security.html">
+            
+                    
+                    居然有人想白嫖我的日志，赶紧开启安全保护压压惊！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.27" data-path="../reference/filebeat_start.html">
+            
+                <a href="../reference/filebeat_start.html">
+            
+                    
+                    面对成百上千台服务器产生的日志，试试这款轻量级日志搬运神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.28" data-path="../reference/maven_docker_fabric8.html">
+            
+                <a href="../reference/maven_docker_fabric8.html">
+            
+                    
+                    还在手动部署SpringBoot应用？试试这个自动化插件！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.29" data-path="../reference/hutool_start.html">
+            
+                <a href="../reference/hutool_start.html">
+            
+                    
+                    不要再重复造轮子了，这款开源工具类库贼好使！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.30" data-path="../reference/mybatis_plus_start.html">
+            
+                <a href="../reference/mybatis_plus_start.html">
+            
+                    
+                    还在手写CRUD代码？这款开源框架助你解放双手！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.31" data-path="../reference/power_job_start.html">
+            
+                <a href="../reference/power_job_start.html">
+            
+                    
+                    还在手写任务调度代码？试试这款可视化分布式调度框架！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.32" data-path="../reference/elastic_apm_start.html">
+            
+                <a href="../reference/elastic_apm_start.html">
+            
+                    
+                    微服务应用性能如何？APM监控工具来告诉你！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.33" data-path="../reference/rabbitmq_mqtt_start.html">
+            
+                <a href="../reference/rabbitmq_mqtt_start.html">
+            
+                    
+                    RabbitMQ实现即时通讯居然如此简单！连后端代码都省得写了？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.34" data-path="../reference/quartz_start.html">
+            
+                <a href="../reference/quartz_start.html">
+            
+                    
+                    SpringBoot官方支持任务调度框架，轻量级用起来也挺香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.35" data-path="../reference/nginx_https_start.html">
+            
+                <a href="../reference/nginx_https_start.html">
+            
+                    
+                    Nginx如何支持HTTPS？手把手教贼简单！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.36" data-path="../reference/swagger_starter.html">
+            
+                <a href="../reference/swagger_starter.html">
+            
+                    
+                    还在手动整合Swagger？Swagger官方Starter是真的香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.37" data-path="../reference/canal_start.html">
+            
+                <a href="../reference/canal_start.html">
+            
+                    
+                    MySQL如何实时同步数据到ES？试试这款阿里开源的神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.38" data-path="../reference/springboot_start.html">
+            
+                <a href="../reference/springboot_start.html">
+            
+                    
+                    肝了一周总结的SpringBoot实战教程，太实用了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.39" data-path="../reference/elasticsearch_sql_start.html">
+            
+                <a href="../reference/elasticsearch_sql_start.html">
+            
+                    
+                    Elasticsearch官方已支持SQL查询，用起来贼方便！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.40" data-path="../reference/springboot_docker_plugin.html">
+            
+                <a href="../reference/springboot_docker_plugin.html">
+            
+                    
+                    还在使用第三方Docker插件？SpringBoot官方插件真香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.41" data-path="../reference/yapi_start.html">
+            
+                <a href="../reference/yapi_start.html">
+            
+                    
+                    当Swagger遇上YApi，瞬间高大上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.42" data-path="../reference/harbor_start.html">
+            
+                <a href="../reference/harbor_start.html">
+            
+                    
+                    DockerHub访问慢怎么破？自建个企业级镜像仓库试试！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.43" data-path="../reference/mybatis_generator_start.html">
+            
+                <a href="../reference/mybatis_generator_start.html">
+            
+                    
+                    解放双手！MyBatis官方代码生成工具给力！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.44" data-path="../reference/lombok_start.html">
+            
+                <a href="../reference/lombok_start.html">
+            
+                    
+                    Lombok有啥牛皮的？SpringBoot和IDEA官方都要支持它！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.45" data-path="../reference/mybatis_dynamic_sql.html">
+            
+                <a href="../reference/mybatis_dynamic_sql.html">
+            
+                    
+                    干掉mapper.xml！MyBatis新特性动态SQL真香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.46" data-path="../reference/flyway_start.html">
+            
+                <a href="../reference/flyway_start.html">
+            
+                    
+                    数据库迁移搞炸了！没用这款开源神器的锅？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    工具篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../reference/idea.html">
+            
+                <a href="../reference/idea.html">
+            
+                    
+                    IDEA常用设置及推荐插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../reference/navicat.html">
+            
+                <a href="../reference/navicat.html">
+            
+                    
+                    Navicat实用功能：数据备份与结构同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../reference/postman.html">
+            
+                <a href="../reference/postman.html">
+            
+                    
+                    Postman：API接口调试利器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../reference/gitlab.html">
+            
+                <a href="../reference/gitlab.html">
+            
+                    
+                    10分钟搭建自己的Git仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../reference/idea_git.html">
+            
+                <a href="../reference/idea_git.html">
+            
+                    
+                    IDEA中的Git操作，看这一篇就够了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../reference/linux_install.html">
+            
+                <a href="../reference/linux_install.html">
+            
+                    
+                    虚拟机安装及使用Linux，看这一篇就够了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../reference/zentao.html">
+            
+                <a href="../reference/zentao.html">
+            
+                    
+                    推荐一个项目管理工具，落地基于Scrum的敏捷开发！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../reference/idea_springboot.html">
+            
+                <a href="../reference/idea_springboot.html">
+            
+                    
+                    IDEA中创建和启动SpringBoot应用的正确姿势
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../reference/my_tools.html">
+            
+                <a href="../reference/my_tools.html">
+            
+                    
+                    盘点下我用的顺手的那些工具！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../reference/navicat_designer.html">
+            
+                <a href="../reference/navicat_designer.html">
+            
+                    
+                    我用起来顺手的数据库设计工具，这次推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../reference/idea_plugins.html">
+            
+                <a href="../reference/idea_plugins.html">
+            
+                    
+                    我常用的IDEA插件大公开，个个是精品！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../reference/datagrip_start.html">
+            
+                <a href="../reference/datagrip_start.html">
+            
+                    
+                    IDEA同款数据库管理工具，提示太全了，用起来贼香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../reference/my_web_tools.html">
+            
+                <a href="../reference/my_web_tools.html">
+            
+                    
+                    写了100多篇原创文章，我常用的在线工具网站推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../reference/arthas_start.html">
+            
+                <a href="../reference/arthas_start.html">
+            
+                    
+                    线上项目出BUG没法调试？推荐这款阿里开源的诊断神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="../reference/my_debug_skill.html">
+            
+                <a href="../reference/my_debug_skill.html">
+            
+                    
+                    被我用烂的DEBUG调试技巧，专治各种搜索不到的问题！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="../reference/redis_desktop_start.html">
+            
+                <a href="../reference/redis_desktop_start.html">
+            
+                    
+                    Github标星 8K+，免费又好用的Redis客户端工具！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="../reference/swagger_postman.html">
+            
+                <a href="../reference/swagger_postman.html">
+            
+                    
+                    Swagger界面丑、功能弱怎么破？用Postman增强下就给力了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="../reference/mysql_workbench.html">
+            
+                <a href="../reference/mysql_workbench.html">
+            
+                    
+                    干掉Navicat！MySQL官方客户端到底行不行？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Spring Cloud Ribbon：负载均衡的服务调用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x5B66;&#x4E60;&#x4E0D;&#x8D70;&#x5F2F;&#x8DEF;&#xFF0C;<a href="#&#x516C;&#x4F17;&#x53F7;">&#x5173;&#x6CE8;&#x516C;&#x4F17;&#x53F7;</a> &#x56DE;&#x590D;&#x300C;&#x5B66;&#x4E60;&#x8DEF;&#x7EBF;&#x300D;&#xFF0C;&#x83B7;&#x53D6;mall&#x9879;&#x76EE;&#x4E13;&#x5C5E;&#x5B66;&#x4E60;&#x8DEF;&#x7EBF;&#xFF01;</p>
+<h1 id="spring-cloud-ribbon&#xFF1A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x670D;&#x52A1;&#x8C03;&#x7528;">Spring Cloud Ribbon&#xFF1A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x670D;&#x52A1;&#x8C03;&#x7528;</h1>
+<blockquote>
+<p>Spring Cloud Ribbon &#x662F;Spring Cloud Netflix &#x5B50;&#x9879;&#x76EE;&#x7684;&#x6838;&#x5FC3;&#x7EC4;&#x4EF6;&#x4E4B;&#x4E00;&#xFF0C;&#x4E3B;&#x8981;&#x7ED9;&#x670D;&#x52A1;&#x95F4;&#x8C03;&#x7528;&#x53CA;API&#x7F51;&#x5173;&#x8F6C;&#x53D1;&#x63D0;&#x4F9B;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x672C;&#x6587;&#x5C06;&#x5BF9;&#x5176;&#x7528;&#x6CD5;&#x8FDB;&#x884C;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x3002;</p>
+</blockquote>
+<h2 id="ribbon&#x7B80;&#x4ECB;">Ribbon&#x7B80;&#x4ECB;</h2>
+<p>&#x5728;&#x5FAE;&#x670D;&#x52A1;&#x67B6;&#x6784;&#x4E2D;&#xFF0C;&#x5F88;&#x591A;&#x670D;&#x52A1;&#x90FD;&#x4F1A;&#x90E8;&#x7F72;&#x591A;&#x4E2A;&#xFF0C;&#x5176;&#x4ED6;&#x670D;&#x52A1;&#x53BB;&#x8C03;&#x7528;&#x8BE5;&#x670D;&#x52A1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x662F;&#x4E2A;&#x4E0D;&#x5F97;&#x4E0D;&#x53BB;&#x8003;&#x8651;&#x7684;&#x95EE;&#x9898;&#x3002;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x7CFB;&#x7EDF;&#x7684;&#x53EF;&#x7528;&#x6027;&#x548C;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;RestTemplate&#x6765;&#x8C03;&#x7528;&#x5176;&#x4ED6;&#x670D;&#x52A1;&#x65F6;&#xFF0C;Ribbon&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x5B9E;&#x73B0;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x529F;&#x80FD;&#x3002;</p>
+<h2 id="resttemplate&#x7684;&#x4F7F;&#x7528;">RestTemplate&#x7684;&#x4F7F;&#x7528;</h2>
+<blockquote>
+<p>RestTemplate&#x662F;&#x4E00;&#x4E2A;HTTP&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x8C03;&#x7528;HTTP&#x63A5;&#x53E3;&#xFF0C;&#x652F;&#x6301;GET&#x3001;POST&#x3001;PUT&#x3001;DELETE&#x7B49;&#x65B9;&#x6CD5;&#x3002;</p>
+</blockquote>
+<h3 id="get&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;">GET&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;</h3>
+<pre><code class="lang-java">&lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getForObject</span><span class="hljs-params">(String url, Class&lt;T&gt; responseType, Object... uriVariables)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getForObject</span><span class="hljs-params">(String url, Class&lt;T&gt; responseType, Map&lt;String, ?&gt; uriVariables)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">T <span class="hljs-title">getForObject</span><span class="hljs-params">(URI url, Class&lt;T&gt; responseType)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">ResponseEntity&lt;T&gt; <span class="hljs-title">getForEntity</span><span class="hljs-params">(String url, Class&lt;T&gt; responseType, Object... uriVariables)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">ResponseEntity&lt;T&gt; <span class="hljs-title">getForEntity</span><span class="hljs-params">(String url, Class&lt;T&gt; responseType, Map&lt;String, ?&gt; uriVariables)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">ResponseEntity&lt;T&gt; <span class="hljs-title">getForEntity</span><span class="hljs-params">(URI var1, Class&lt;T&gt; responseType)</span></span>;
+</code></pre>
+<h4 id="getforobject&#x65B9;&#x6CD5;">getForObject&#x65B9;&#x6CD5;</h4>
+<p>&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x4E3A;&#x54CD;&#x5E94;&#x4F53;&#x4E2D;&#x6570;&#x636E;&#x8F6C;&#x5316;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4E3E;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/{id}&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">getUser</span><span class="hljs-params">(@PathVariable Long id)</span> </span>{
+    <span class="hljs-keyword">return</span> restTemplate.getForObject(userServiceUrl + <span class="hljs-string">&quot;/user/{1}&quot;</span>, CommonResult.class, id);
+}
+</code></pre>
+<h4 id="getforentity&#x65B9;&#x6CD5;">getForEntity&#x65B9;&#x6CD5;</h4>
+<p>&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x4E3A;ResponseEntity&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x54CD;&#x5E94;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x91CD;&#x8981;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982;&#x54CD;&#x5E94;&#x5934;&#x3001;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801;&#x3001;&#x54CD;&#x5E94;&#x4F53;&#x7B49;&#xFF0C;&#x4E3E;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/getEntityByUsername&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">getEntityByUsername</span><span class="hljs-params">(@RequestParam String username)</span> </span>{
+    ResponseEntity&lt;CommonResult&gt; entity = restTemplate.getForEntity(userServiceUrl + <span class="hljs-string">&quot;/user/getByUsername?username={1}&quot;</span>, CommonResult.class, username);
+    <span class="hljs-keyword">if</span> (entity.getStatusCode().is2xxSuccessful()) {
+        <span class="hljs-keyword">return</span> entity.getBody();
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult(<span class="hljs-string">&quot;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&quot;</span>, <span class="hljs-number">500</span>);
+    }
+}
+</code></pre>
+<h3 id="post&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;">POST&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;</h3>
+<pre><code class="lang-java">&lt;T&gt; <span class="hljs-function">T <span class="hljs-title">postForObject</span><span class="hljs-params">(String url, @Nullable Object request, Class&lt;T&gt; responseType, Object... uriVariables)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">T <span class="hljs-title">postForObject</span><span class="hljs-params">(String url, @Nullable Object request, Class&lt;T&gt; responseType, Map&lt;String, ?&gt; uriVariables)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">T <span class="hljs-title">postForObject</span><span class="hljs-params">(URI url, @Nullable Object request, Class&lt;T&gt; responseType)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">ResponseEntity&lt;T&gt; <span class="hljs-title">postForEntity</span><span class="hljs-params">(String url, @Nullable Object request, Class&lt;T&gt; responseType, Object... uriVariables)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">ResponseEntity&lt;T&gt; <span class="hljs-title">postForEntity</span><span class="hljs-params">(String url, @Nullable Object request, Class&lt;T&gt; responseType, Map&lt;String, ?&gt; uriVariables)</span></span>;
+
+&lt;T&gt; <span class="hljs-function">ResponseEntity&lt;T&gt; <span class="hljs-title">postForEntity</span><span class="hljs-params">(URI url, @Nullable Object request, Class&lt;T&gt; responseType)</span></span>;
+</code></pre>
+<h4 id="postforobject&#x793A;&#x4F8B;">postForObject&#x793A;&#x4F8B;</h4>
+<pre><code class="lang-java"><span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">&quot;/create&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">create</span><span class="hljs-params">(@RequestBody User user)</span> </span>{
+    <span class="hljs-keyword">return</span> restTemplate.postForObject(userServiceUrl + <span class="hljs-string">&quot;/user/create&quot;</span>, user, CommonResult.class);
+}
+</code></pre>
+<h4 id="postforentity&#x793A;&#x4F8B;">postForEntity&#x793A;&#x4F8B;</h4>
+<pre><code class="lang-java"><span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">&quot;/create&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">create</span><span class="hljs-params">(@RequestBody User user)</span> </span>{
+    <span class="hljs-keyword">return</span> restTemplate.postForEntity(userServiceUrl + <span class="hljs-string">&quot;/user/create&quot;</span>, user, CommonResult.class).getBody();
+}
+</code></pre>
+<h3 id="put&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;">PUT&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;</h3>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(String url, @Nullable Object request, Object... uriVariables)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(String url, @Nullable Object request, Map&lt;String, ?&gt; uriVariables)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(URI url, @Nullable Object request)</span></span>;
+</code></pre>
+<h4 id="put&#x8BF7;&#x6C42;&#x793A;&#x4F8B;">PUT&#x8BF7;&#x6C42;&#x793A;&#x4F8B;</h4>
+<pre><code class="lang-java"><span class="hljs-meta">@PutMapping</span>(<span class="hljs-string">&quot;/update&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">update</span><span class="hljs-params">(@RequestBody User user)</span> </span>{
+    restTemplate.put(userServiceUrl + <span class="hljs-string">&quot;/user/update&quot;</span>, user);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult(<span class="hljs-string">&quot;&#x64CD;&#x4F5C;&#x6210;&#x529F;&quot;</span>,<span class="hljs-number">200</span>);
+}
+</code></pre>
+<h3 id="delete&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;">DELETE&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;</h3>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">(String url, Object... uriVariables)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">(String url, Map&lt;String, ?&gt; uriVariables)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">(URI url)</span></span>;
+</code></pre>
+<h4 id="delete&#x8BF7;&#x6C42;&#x793A;&#x4F8B;">DELETE&#x8BF7;&#x6C42;&#x793A;&#x4F8B;</h4>
+<pre><code class="lang-java"><span class="hljs-meta">@DeleteMapping</span>(<span class="hljs-string">&quot;/delete/{id}&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">delete</span><span class="hljs-params">(@PathVariable Long id)</span> </span>{
+   restTemplate.delete(userServiceUrl + <span class="hljs-string">&quot;/user/delete/{1}&quot;</span>, <span class="hljs-keyword">null</span>, id);
+   <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult(<span class="hljs-string">&quot;&#x64CD;&#x4F5C;&#x6210;&#x529F;&quot;</span>,<span class="hljs-number">200</span>);
+}
+</code></pre>
+<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;user-service&#x6A21;&#x5757;">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;user-service&#x6A21;&#x5757;</h2>
+<blockquote>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;user-service&#xFF0C;&#x7528;&#x4E8E;&#x7ED9;Ribbon&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x3002;</p>
+</blockquote>
+<h3 id="&#x5728;pomxml&#x4E2D;&#x6DFB;&#x52A0;&#x76F8;&#x5173;&#x4F9D;&#x8D56;">&#x5728;pom.xml&#x4E2D;&#x6DFB;&#x52A0;&#x76F8;&#x5173;&#x4F9D;&#x8D56;</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h3 id="&#x5728;applicationyml&#x8FDB;&#x884C;&#x914D;&#x7F6E;">&#x5728;application.yml&#x8FDB;&#x884C;&#x914D;&#x7F6E;</h3>
+<blockquote>
+<p>&#x4E3B;&#x8981;&#x662F;&#x914D;&#x7F6E;&#x4E86;&#x7AEF;&#x53E3;&#x548C;&#x6CE8;&#x518C;&#x4E2D;&#x5FC3;&#x5730;&#x5740;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-yaml"><span class="hljs-attr">server:</span>
+<span class="hljs-attr">  port:</span> <span class="hljs-number">8201</span>
+<span class="hljs-attr">spring:</span>
+<span class="hljs-attr">  application:</span>
+<span class="hljs-attr">    name:</span> user-service
+<span class="hljs-attr">eureka:</span>
+<span class="hljs-attr">  client:</span>
+<span class="hljs-attr">    register-with-eureka:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    fetch-registry:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    service-url:</span>
+<span class="hljs-attr">      defaultZone:</span> http://localhost:<span class="hljs-number">8001</span>/eureka/
+</code></pre>
+<h3 id="&#x6DFB;&#x52A0;usercontroller&#x7528;&#x4E8E;&#x63D0;&#x4F9B;&#x8C03;&#x7528;&#x63A5;&#x53E3;">&#x6DFB;&#x52A0;UserController&#x7528;&#x4E8E;&#x63D0;&#x4F9B;&#x8C03;&#x7528;&#x63A5;&#x53E3;</h3>
+<blockquote>
+<p>UserController&#x7C7B;&#x5B9A;&#x4E49;&#x4E86;&#x5BF9;User&#x5BF9;&#x8C61;&#x5E38;&#x89C1;&#x7684;CRUD&#x63A5;&#x53E3;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Created by macro on 2019/8/29.
+ */</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/user&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> </span>{
+
+    <span class="hljs-keyword">private</span> Logger LOGGER = LoggerFactory.getLogger(<span class="hljs-keyword">this</span>.getClass());
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> UserService userService;
+
+    <span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">&quot;/create&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">create</span><span class="hljs-params">(@RequestBody User user)</span> </span>{
+        userService.create(user);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult(<span class="hljs-string">&quot;&#x64CD;&#x4F5C;&#x6210;&#x529F;&quot;</span>, <span class="hljs-number">200</span>);
+    }
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/{id}&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;User&gt; <span class="hljs-title">getUser</span><span class="hljs-params">(@PathVariable Long id)</span> </span>{
+        User user = userService.getUser(id);
+        LOGGER.info(<span class="hljs-string">&quot;&#x6839;&#x636E;id&#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF0C;&#x7528;&#x6237;&#x540D;&#x79F0;&#x4E3A;&#xFF1A;{}&quot;</span>,user.getUsername());
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult&lt;&gt;(user);
+    }
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/getUserByIds&quot;</span>)
+    <span class="hljs-keyword">public</span> CommonResult&lt;List&lt;User&gt;&gt; getUserByIds(<span class="hljs-meta">@RequestParam</span> List&lt;Long&gt; ids) {
+        List&lt;User&gt; userList= userService.getUserByIds(ids);
+        LOGGER.info(<span class="hljs-string">&quot;&#x6839;&#x636E;ids&#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF0C;&#x7528;&#x6237;&#x5217;&#x8868;&#x4E3A;&#xFF1A;{}&quot;</span>,userList);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult&lt;&gt;(userList);
+    }
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/getByUsername&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;User&gt; <span class="hljs-title">getByUsername</span><span class="hljs-params">(@RequestParam String username)</span> </span>{
+        User user = userService.getByUsername(username);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult&lt;&gt;(user);
+    }
+
+    <span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">&quot;/update&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">update</span><span class="hljs-params">(@RequestBody User user)</span> </span>{
+        userService.update(user);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult(<span class="hljs-string">&quot;&#x64CD;&#x4F5C;&#x6210;&#x529F;&quot;</span>, <span class="hljs-number">200</span>);
+    }
+
+    <span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">&quot;/delete/{id}&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">delete</span><span class="hljs-params">(@PathVariable Long id)</span> </span>{
+        userService.delete(id);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult(<span class="hljs-string">&quot;&#x64CD;&#x4F5C;&#x6210;&#x529F;&quot;</span>, <span class="hljs-number">200</span>);
+    }
+}
+</code></pre>
+<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ribbon-service&#x6A21;&#x5757;">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ribbon-service&#x6A21;&#x5757;</h2>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ribbon-service&#x6A21;&#x5757;&#x6765;&#x8C03;&#x7528;user-service&#x6A21;&#x5757;&#x6F14;&#x793A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x3002;</p>
+</blockquote>
+<h3 id="&#x5728;pomxml&#x4E2D;&#x6DFB;&#x52A0;&#x76F8;&#x5173;&#x4F9D;&#x8D56;">&#x5728;pom.xml&#x4E2D;&#x6DFB;&#x52A0;&#x76F8;&#x5173;&#x4F9D;&#x8D56;</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-ribbon<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h3 id="&#x5728;applicationyml&#x8FDB;&#x884C;&#x914D;&#x7F6E;">&#x5728;application.yml&#x8FDB;&#x884C;&#x914D;&#x7F6E;</h3>
+<blockquote>
+<p>&#x4E3B;&#x8981;&#x662F;&#x914D;&#x7F6E;&#x4E86;&#x7AEF;&#x53E3;&#x3001;&#x6CE8;&#x518C;&#x4E2D;&#x5FC3;&#x5730;&#x5740;&#x53CA;user-service&#x7684;&#x8C03;&#x7528;&#x8DEF;&#x5F84;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-yaml"><span class="hljs-attr">server:</span>
+<span class="hljs-attr">  port:</span> <span class="hljs-number">8301</span>
+<span class="hljs-attr">spring:</span>
+<span class="hljs-attr">  application:</span>
+<span class="hljs-attr">    name:</span> ribbon-service
+<span class="hljs-attr">eureka:</span>
+<span class="hljs-attr">  client:</span>
+<span class="hljs-attr">    register-with-eureka:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    fetch-registry:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    service-url:</span>
+<span class="hljs-attr">      defaultZone:</span> http://localhost:<span class="hljs-number">8001</span>/eureka/
+<span class="hljs-attr">service-url:</span>
+<span class="hljs-attr">  user-service:</span> http://user-service
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;loadbalanced&#x6CE8;&#x89E3;&#x8D4B;&#x4E88;resttemplate&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x80FD;&#x529B;">&#x4F7F;&#x7528;@LoadBalanced&#x6CE8;&#x89E3;&#x8D4B;&#x4E88;RestTemplate&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x80FD;&#x529B;</h3>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x4F7F;&#x7528;Ribbon&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x529F;&#x80FD;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x548C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;RestTemplate&#x6CA1;&#x4EC0;&#x4E48;&#x4E24;&#x6837;&#xFF0C;&#x53EA;&#x9700;&#x7ED9;RestTemplate&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;@LoadBalanced&#x5373;&#x53EF;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Created by macro on 2019/8/29.
+ */</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RibbonConfig</span> </span>{
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@LoadBalanced</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> RestTemplate <span class="hljs-title">restTemplate</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RestTemplate();
+    }
+}
+</code></pre>
+<h3 id="&#x6DFB;&#x52A0;userribboncontroller&#x7C7B;">&#x6DFB;&#x52A0;UserRibbonController&#x7C7B;</h3>
+<blockquote>
+<p>&#x6CE8;&#x5165;RestTemplate&#xFF0C;&#x4F7F;&#x7528;&#x5176;&#x8C03;&#x7528;user-service&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x76F8;&#x5173;&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x91CC;&#x5BF9;GET&#x548C;POST&#x8C03;&#x7528;&#x8FDB;&#x884C;&#x4E86;&#x6F14;&#x793A;&#xFF0C;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x5747;&#x53EF;&#x53C2;&#x8003;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Created by macro on 2019/8/29.
+ */</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/user&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserRibbonController</span> </span>{
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> RestTemplate restTemplate;
+    <span class="hljs-meta">@Value</span>(<span class="hljs-string">&quot;${service-url.user-service}&quot;</span>)
+    <span class="hljs-keyword">private</span> String userServiceUrl;
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/{id}&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">getUser</span><span class="hljs-params">(@PathVariable Long id)</span> </span>{
+        <span class="hljs-keyword">return</span> restTemplate.getForObject(userServiceUrl + <span class="hljs-string">&quot;/user/{1}&quot;</span>, CommonResult.class, id);
+    }
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/getByUsername&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">getByUsername</span><span class="hljs-params">(@RequestParam String username)</span> </span>{
+        <span class="hljs-keyword">return</span> restTemplate.getForObject(userServiceUrl + <span class="hljs-string">&quot;/user/getByUsername?username={1}&quot;</span>, CommonResult.class, username);
+    }
+
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;/getEntityByUsername&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">getEntityByUsername</span><span class="hljs-params">(@RequestParam String username)</span> </span>{
+        ResponseEntity&lt;CommonResult&gt; entity = restTemplate.getForEntity(userServiceUrl + <span class="hljs-string">&quot;/user/getByUsername?username={1}&quot;</span>, CommonResult.class, username);
+        <span class="hljs-keyword">if</span> (entity.getStatusCode().is2xxSuccessful()) {
+            <span class="hljs-keyword">return</span> entity.getBody();
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult(<span class="hljs-string">&quot;&#x64CD;&#x4F5C;&#x5931;&#x8D25;&quot;</span>, <span class="hljs-number">500</span>);
+        }
+    }
+
+    <span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">&quot;/create&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">create</span><span class="hljs-params">(@RequestBody User user)</span> </span>{
+        <span class="hljs-keyword">return</span> restTemplate.postForObject(userServiceUrl + <span class="hljs-string">&quot;/user/create&quot;</span>, user, CommonResult.class);
+    }
+
+    <span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">&quot;/update&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">update</span><span class="hljs-params">(@RequestBody User user)</span> </span>{
+        <span class="hljs-keyword">return</span> restTemplate.postForObject(userServiceUrl + <span class="hljs-string">&quot;/user/update&quot;</span>, user, CommonResult.class);
+    }
+
+    <span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">&quot;/delete/{id}&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult <span class="hljs-title">delete</span><span class="hljs-params">(@PathVariable Long id)</span> </span>{
+        <span class="hljs-keyword">return</span> restTemplate.postForObject(userServiceUrl + <span class="hljs-string">&quot;/user/delete/{1}&quot;</span>, <span class="hljs-keyword">null</span>, CommonResult.class, id);
+    }
+}
+</code></pre>
+<h2 id="&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x529F;&#x80FD;&#x6F14;&#x793A;">&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x529F;&#x80FD;&#x6F14;&#x793A;</h2>
+<ul>
+<li>&#x542F;&#x52A8;eureka-server&#x4E8E;8001&#x7AEF;&#x53E3;&#xFF1B;</li>
+<li>&#x542F;&#x52A8;user-service&#x4E8E;8201&#x7AEF;&#x53E3;&#xFF1B;</li>
+<li>&#x542F;&#x52A8;&#x53E6;&#x4E00;&#x4E2A;user-service&#x4E8E;8202&#x7AEF;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4FEE;&#x6539;IDEA&#x4E2D;&#x7684;SpringBoot&#x7684;&#x542F;&#x52A8;&#x914D;&#x7F6E;&#x5B9E;&#x73B0;&#xFF1A;</li>
+</ul>
+<p><img src="../images/springcloud_ribbon_01.png" alt=""></p>
+<ul>
+<li>&#x6B64;&#x65F6;&#x8FD0;&#x884C;&#x4E2D;&#x7684;&#x670D;&#x52A1;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ul>
+<p><img src="../images/springcloud_ribbon_02.png" alt=""></p>
+<ul>
+<li>&#x8C03;&#x7528;&#x63A5;&#x53E3;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#xFF1A;<a href="http://localhost:8301/user/1" target="_blank">http://localhost:8301/user/1</a></li>
+</ul>
+<p><img src="../images/springcloud_ribbon_05.png" alt=""></p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x8FD0;&#x884C;&#x5728;8201&#x548C;8202&#x7684;user-service&#x63A7;&#x5236;&#x53F0;&#x4EA4;&#x66FF;&#x6253;&#x5370;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;</li>
+</ul>
+<p><img src="../images/springcloud_ribbon_03.png" alt=""></p>
+<p><img src="../images/springcloud_ribbon_04.png" alt=""></p>
+<h2 id="ribbon&#x7684;&#x5E38;&#x7528;&#x914D;&#x7F6E;">Ribbon&#x7684;&#x5E38;&#x7528;&#x914D;&#x7F6E;</h2>
+<h3 id="&#x5168;&#x5C40;&#x914D;&#x7F6E;">&#x5168;&#x5C40;&#x914D;&#x7F6E;</h3>
+<pre><code class="lang-yaml"><span class="hljs-attr">ribbon:</span>
+<span class="hljs-attr">  ConnectTimeout:</span> <span class="hljs-number">1000</span> <span class="hljs-comment">#&#x670D;&#x52A1;&#x8BF7;&#x6C42;&#x8FDE;&#x63A5;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#xFF09;</span>
+<span class="hljs-attr">  ReadTimeout:</span> <span class="hljs-number">3000</span> <span class="hljs-comment">#&#x670D;&#x52A1;&#x8BF7;&#x6C42;&#x5904;&#x7406;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#xFF09;</span>
+<span class="hljs-attr">  OkToRetryOnAllOperations:</span> <span class="hljs-literal">true</span> <span class="hljs-comment">#&#x5BF9;&#x8D85;&#x65F6;&#x8BF7;&#x6C42;&#x542F;&#x7528;&#x91CD;&#x8BD5;&#x673A;&#x5236;</span>
+<span class="hljs-attr">  MaxAutoRetriesNextServer:</span> <span class="hljs-number">1</span> <span class="hljs-comment">#&#x5207;&#x6362;&#x91CD;&#x8BD5;&#x5B9E;&#x4F8B;&#x7684;&#x6700;&#x5927;&#x4E2A;&#x6570;</span>
+<span class="hljs-attr">  MaxAutoRetries:</span> <span class="hljs-number">1</span> <span class="hljs-comment"># &#x5207;&#x6362;&#x5B9E;&#x4F8B;&#x540E;&#x91CD;&#x8BD5;&#x6700;&#x5927;&#x6B21;&#x6570;</span>
+<span class="hljs-attr">  NFLoadBalancerRuleClassName:</span> com.netflix.loadbalancer.RandomRule <span class="hljs-comment">#&#x4FEE;&#x6539;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B97;&#x6CD5;</span>
+</code></pre>
+<h3 id="&#x6307;&#x5B9A;&#x670D;&#x52A1;&#x8FDB;&#x884C;&#x914D;&#x7F6E;">&#x6307;&#x5B9A;&#x670D;&#x52A1;&#x8FDB;&#x884C;&#x914D;&#x7F6E;</h3>
+<blockquote>
+<p>&#x4E0E;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;ribbon&#x8282;&#x70B9;&#x6302;&#x5728;&#x670D;&#x52A1;&#x540D;&#x79F0;&#x4E0B;&#x9762;&#xFF0C;&#x5982;&#x4E0B;&#x662F;&#x5BF9;ribbon-service&#x8C03;&#x7528;user-service&#x65F6;&#x7684;&#x5355;&#x72EC;&#x914D;&#x7F6E;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-yaml"><span class="hljs-attr">user-service:</span>
+<span class="hljs-attr">  ribbon:</span>
+<span class="hljs-attr">    ConnectTimeout:</span> <span class="hljs-number">1000</span> <span class="hljs-comment">#&#x670D;&#x52A1;&#x8BF7;&#x6C42;&#x8FDE;&#x63A5;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#xFF09;</span>
+<span class="hljs-attr">    ReadTimeout:</span> <span class="hljs-number">3000</span> <span class="hljs-comment">#&#x670D;&#x52A1;&#x8BF7;&#x6C42;&#x5904;&#x7406;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#xFF09;</span>
+<span class="hljs-attr">    OkToRetryOnAllOperations:</span> <span class="hljs-literal">true</span> <span class="hljs-comment">#&#x5BF9;&#x8D85;&#x65F6;&#x8BF7;&#x6C42;&#x542F;&#x7528;&#x91CD;&#x8BD5;&#x673A;&#x5236;</span>
+<span class="hljs-attr">    MaxAutoRetriesNextServer:</span> <span class="hljs-number">1</span> <span class="hljs-comment">#&#x5207;&#x6362;&#x91CD;&#x8BD5;&#x5B9E;&#x4F8B;&#x7684;&#x6700;&#x5927;&#x4E2A;&#x6570;</span>
+<span class="hljs-attr">    MaxAutoRetries:</span> <span class="hljs-number">1</span> <span class="hljs-comment"># &#x5207;&#x6362;&#x5B9E;&#x4F8B;&#x540E;&#x91CD;&#x8BD5;&#x6700;&#x5927;&#x6B21;&#x6570;</span>
+<span class="hljs-attr">    NFLoadBalancerRuleClassName:</span> com.netflix.loadbalancer.RandomRule <span class="hljs-comment">#&#x4FEE;&#x6539;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B97;&#x6CD5;</span>
+</code></pre>
+<h2 id="ribbon&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;">Ribbon&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;</h2>
+<blockquote>
+<p>&#x6240;&#x8C13;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#xFF0C;&#x5C31;&#x662F;&#x5F53;A&#x670D;&#x52A1;&#x8C03;&#x7528;B&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x6B64;&#x65F6;B&#x670D;&#x52A1;&#x6709;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x65F6;A&#x670D;&#x52A1;&#x4EE5;&#x4F55;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x9009;&#x62E9;&#x8C03;&#x7528;&#x7684;B&#x5B9E;&#x4F8B;&#xFF0C;ribbon&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B56;&#x7565;&#x3002;</p>
+</blockquote>
+<ul>
+<li>com.netflix.loadbalancer.RandomRule&#xFF1A;&#x4ECE;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;&#x4EE5;&#x968F;&#x673A;&#x7684;&#x65B9;&#x5F0F;&#xFF1B;</li>
+<li>com.netflix.loadbalancer.RoundRobinRule&#xFF1A;&#x4EE5;&#x7EBF;&#x6027;&#x8F6E;&#x8BE2;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5C31;&#x662F;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x4ECE;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;&#x6309;&#x987A;&#x5E8F;&#x9009;&#x53D6;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x9009;&#x7B2C;&#x4E00;&#x4E2A;&#xFF0C;&#x7B2C;&#x4E8C;&#x6B21;&#x9009;&#x7B2C;&#x4E8C;&#x4E2A;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#xFF0C;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x4EE5;&#x540E;&#x518D;&#x4ECE;&#x5934;&#x6765;&#x8FC7;&#xFF1B;</li>
+<li>com.netflix.loadbalancer.RetryRule&#xFF1A;&#x5728;RoundRobinRule&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x6DFB;&#x52A0;&#x91CD;&#x8BD5;&#x673A;&#x5236;&#xFF0C;&#x5373;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x91CD;&#x8BD5;&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x53CD;&#x590D;&#x4F7F;&#x7528;&#x7EBF;&#x6027;&#x8F6E;&#x8BE2;&#x7B56;&#x7565;&#x6765;&#x9009;&#x62E9;&#x53EF;&#x7528;&#x5B9E;&#x4F8B;&#xFF1B;</li>
+<li>com.netflix.loadbalancer.WeightedResponseTimeRule&#xFF1A;&#x5BF9;RoundRobinRule&#x7684;&#x6269;&#x5C55;&#xFF0C;&#x54CD;&#x5E94;&#x901F;&#x5EA6;&#x8D8A;&#x5FEB;&#x7684;&#x5B9E;&#x4F8B;&#x9009;&#x62E9;&#x6743;&#x91CD;&#x8D8A;&#x5927;&#xFF0C;&#x8D8A;&#x5BB9;&#x6613;&#x88AB;&#x9009;&#x62E9;&#xFF1B;</li>
+<li>com.netflix.loadbalancer.BestAvailableRule&#xFF1A;&#x9009;&#x62E9;&#x5E76;&#x53D1;&#x8F83;&#x5C0F;&#x7684;&#x5B9E;&#x4F8B;&#xFF1B;</li>
+<li>com.netflix.loadbalancer.AvailabilityFilteringRule&#xFF1A;&#x5148;&#x8FC7;&#x6EE4;&#x6389;&#x6545;&#x969C;&#x5B9E;&#x4F8B;&#xFF0C;&#x518D;&#x9009;&#x62E9;&#x5E76;&#x53D1;&#x8F83;&#x5C0F;&#x7684;&#x5B9E;&#x4F8B;&#xFF1B;</li>
+<li>com.netflix.loadbalancer.ZoneAwareLoadBalancer&#xFF1A;&#x91C7;&#x7528;&#x53CC;&#x91CD;&#x8FC7;&#x6EE4;&#xFF0C;&#x540C;&#x65F6;&#x8FC7;&#x6EE4;&#x4E0D;&#x662F;&#x540C;&#x4E00;&#x533A;&#x57DF;&#x7684;&#x5B9E;&#x4F8B;&#x548C;&#x6545;&#x969C;&#x5B9E;&#x4F8B;&#xFF0C;&#x9009;&#x62E9;&#x5E76;&#x53D1;&#x8F83;&#x5C0F;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</li>
+</ul>
+<h2 id="&#x4F7F;&#x7528;&#x5230;&#x7684;&#x6A21;&#x5757;">&#x4F7F;&#x7528;&#x5230;&#x7684;&#x6A21;&#x5757;</h2>
+<pre><code class="lang-lua">springcloud-learning
+&#x251C;&#x2500;&#x2500; eureka-server <span class="hljs-comment">-- eureka&#x6CE8;&#x518C;&#x4E2D;&#x5FC3;</span>
+&#x251C;&#x2500;&#x2500; user-service <span class="hljs-comment">-- &#x63D0;&#x4F9B;User&#x5BF9;&#x8C61;CRUD&#x63A5;&#x53E3;&#x7684;&#x670D;&#x52A1;</span>
+&#x2514;&#x2500;&#x2500; ribbon-service <span class="hljs-comment">-- ribbon&#x670D;&#x52A1;&#x8C03;&#x7528;&#x6D4B;&#x8BD5;&#x670D;&#x52A1;</span>
+</code></pre>
+<h2 id="&#x9879;&#x76EE;&#x6E90;&#x7801;&#x5730;&#x5740;">&#x9879;&#x76EE;&#x6E90;&#x7801;&#x5730;&#x5740;</h2>
+<p><a href="https://github.com/macrozheng/springcloud-learning" target="_blank">https://github.com/macrozheng/springcloud-learning</a></p>
+<h2 id="&#x516C;&#x4F17;&#x53F7;">&#x516C;&#x4F17;&#x53F7;</h2>
+<p><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/banner/qrcode_for_macrozheng_258.jpg" alt="&#x516C;&#x4F17;&#x53F7;&#x56FE;&#x7247;"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="eureka.html" class="navigation navigation-prev " aria-label="Previous page: Spring Cloud Eureka：服务注册与发现">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="hystrix.html" class="navigation navigation-next " aria-label="Next page: Spring Cloud Hystrix：服务容错保护">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spring Cloud Ribbon：负载均衡的服务调用","level":"1.7.3","depth":2,"next":{"title":"Spring Cloud Hystrix：服务容错保护","level":"1.7.4","depth":2,"path":"cloud/hystrix.md","ref":"cloud/hystrix.md","articles":[]},"previous":{"title":"Spring Cloud Eureka：服务注册与发现","level":"1.7.2","depth":2,"path":"cloud/eureka.md","ref":"cloud/eureka.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cloud/ribbon.md","mtime":"2021-08-23T04:11:09.405Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-23T04:32:57.691Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

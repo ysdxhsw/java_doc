@@ -1,0 +1,3010 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>干掉mapper.xml！MyBatis新特性动态SQL真香！ · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="flyway_start.html" />
+    
+    
+    <link rel="prev" href="lombok_start.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    序章
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../foreword/mall_foreword_01.html">
+            
+                <a href="../foreword/mall_foreword_01.html">
+            
+                    
+                    mall架构及功能概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../foreword/mall_foreword_02.html">
+            
+                <a href="../foreword/mall_foreword_02.html">
+            
+                    
+                    mall学习所需知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    架构篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architect/mall_arch_01.html">
+            
+                <a href="../architect/mall_arch_01.html">
+            
+                    
+                    mall整合SpringBoot+MyBatis搭建基本骨架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architect/mall_arch_02.html">
+            
+                <a href="../architect/mall_arch_02.html">
+            
+                    
+                    mall整合Swagger-UI实现在线API文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architect/mall_arch_03.html">
+            
+                <a href="../architect/mall_arch_03.html">
+            
+                    
+                    mall整合Redis实现缓存功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../architect/mall_arch_04.html">
+            
+                <a href="../architect/mall_arch_04.html">
+            
+                    
+                    mall整合SpringSecurity和JWT实现认证和授权（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../architect/mall_arch_05.html">
+            
+                <a href="../architect/mall_arch_05.html">
+            
+                    
+                    mall整合SpringSecurity和JWT实现认证和授权（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../architect/mall_arch_06.html">
+            
+                <a href="../architect/mall_arch_06.html">
+            
+                    
+                    mall整合SpringTask实现定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../architect/mall_arch_07.html">
+            
+                <a href="../architect/mall_arch_07.html">
+            
+                    
+                    mall整合Elasticsearch实现商品搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../architect/mall_arch_08.html">
+            
+                <a href="../architect/mall_arch_08.html">
+            
+                    
+                    mall整合Mongodb实现文档操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../architect/mall_arch_09.html">
+            
+                <a href="../architect/mall_arch_09.html">
+            
+                    
+                    mall整合RabbitMQ实现延迟消息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../architect/mall_arch_10.html">
+            
+                <a href="../architect/mall_arch_10.html">
+            
+                    
+                    mall整合OSS实现文件上传
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    业务篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../database/mall_database_overview.html">
+            
+                <a href="../database/mall_database_overview.html">
+            
+                    
+                    mall数据库表结构概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../database/mall_pms_01.html">
+            
+                <a href="../database/mall_pms_01.html">
+            
+                    
+                    商品模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../database/mall_pms_02.html">
+            
+                <a href="../database/mall_pms_02.html">
+            
+                    
+                    商品模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../database/mall_oms_01.html">
+            
+                <a href="../database/mall_oms_01.html">
+            
+                    
+                    订单模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../database/mall_oms_02.html">
+            
+                <a href="../database/mall_oms_02.html">
+            
+                    
+                    订单模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../database/mall_oms_03.html">
+            
+                <a href="../database/mall_oms_03.html">
+            
+                    
+                    订单模块数据库表解析（三）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../database/mall_sms_01.html">
+            
+                <a href="../database/mall_sms_01.html">
+            
+                    
+                    营销模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../database/mall_sms_02.html">
+            
+                <a href="../database/mall_sms_02.html">
+            
+                    
+                    营销模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../database/mall_sms_03.html">
+            
+                <a href="../database/mall_sms_03.html">
+            
+                    
+                    营销模块数据库表解析（三）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../database/mall_permission.html">
+            
+                <a href="../database/mall_permission.html">
+            
+                    
+                    权限管理功能设计与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../technology/product_sku.html">
+            
+                <a href="../technology/product_sku.html">
+            
+                    
+                    商品SKU功能设计与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    技术要点篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../technology/mybatis_mapper.html">
+            
+                <a href="../technology/mybatis_mapper.html">
+            
+                    
+                    MyBatis Generator使用过程中踩过的一个坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../technology/aop_log.html">
+            
+                <a href="../technology/aop_log.html">
+            
+                    
+                    SpringBoot应用中使用AOP记录接口访问日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../technology/mall_tiny_elk.html">
+            
+                <a href="../technology/mall_tiny_elk.html">
+            
+                    
+                    SpringBoot应用整合ELK实现日志收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../technology/springboot_cors.html">
+            
+                <a href="../technology/springboot_cors.html">
+            
+                    
+                    前后端分离项目，如何解决跨域问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../technology/java_stream.html">
+            
+                <a href="../technology/java_stream.html">
+            
+                    
+                    Java 8都出那么久了，Stream API了解下？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../technology/springsecurity_use.html">
+            
+                <a href="../technology/springsecurity_use.html">
+            
+                    
+                    仅需四步，整合SpringSecurity+JWT实现登录认证！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../technology/minio_use.html">
+            
+                <a href="../technology/minio_use.html">
+            
+                    
+                    前后端分离项目，如何优雅实现文件存储！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../technology/gateway_cors.html">
+            
+                <a href="../technology/gateway_cors.html">
+            
+                    
+                    前后端分离项目，引入Spring Cloud Gateway遇到的一个问题！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../technology/permission_back.html">
+            
+                <a href="../technology/permission_back.html">
+            
+                    
+                    手把手教你搞定权限管理，结合Spring Security实现接口的动态权限控制！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../technology/permission_front.html">
+            
+                <a href="../technology/permission_front.html">
+            
+                    
+                    手把手教你搞定权限管理，结合Vue实现菜单的动态权限控制！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../technology/springboot_validator.html">
+            
+                <a href="../technology/springboot_validator.html">
+            
+                    
+                    SpringBoot中处理校验逻辑的两种方式，真的很机智！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../technology/redis_permission.html">
+            
+                <a href="../technology/redis_permission.html">
+            
+                    
+                    使用Redis+AOP优化权限管理功能，这波操作贼爽！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../technology/product_search.html">
+            
+                <a href="../technology/product_search.html">
+            
+                    
+                    Elasticsearch项目实战，商品搜索功能设计与实现！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../technology/rabbitmq_delay.html">
+            
+                <a href="../technology/rabbitmq_delay.html">
+            
+                    
+                    RabbitMQ实现延迟消息居然如此简单，整个插件就完事了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../technology/swagger_upgrade.html">
+            
+                <a href="../technology/swagger_upgrade.html">
+            
+                    
+                    给Swagger升级了新版本，没想到居然有这么多坑！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../technology/elasticsearch_upgrade.html">
+            
+                <a href="../technology/elasticsearch_upgrade.html">
+            
+                    
+                    Elasticsearch 升级 7.x 版本后，我感觉掉坑里了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../technology/mall_permission_question.html">
+            
+                <a href="../technology/mall_permission_question.html">
+            
+                    
+                    搞定Mall项目中的权限管理功能，弄懂这些问题就妥了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    部署篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../deploy/mall_deploy_windows.html">
+            
+                <a href="../deploy/mall_deploy_windows.html">
+            
+                    
+                    mall在Windows环境下的部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../deploy/mall_deploy_docker.html">
+            
+                <a href="../deploy/mall_deploy_docker.html">
+            
+                    
+                    mall在Linux环境下的部署（基于Docker容器）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../deploy/mall_deploy_docker_compose.html">
+            
+                <a href="../deploy/mall_deploy_docker_compose.html">
+            
+                    
+                    mall在Linux环境下的部署（基于Docker Compose）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../deploy/mall_deploy_jenkins.html">
+            
+                <a href="../deploy/mall_deploy_jenkins.html">
+            
+                    
+                    mall在Linux环境下的自动化部署（基于Jenkins）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../deploy/mall_deploy_web.html">
+            
+                <a href="../deploy/mall_deploy_web.html">
+            
+                    
+                    mall前端项目的安装与部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../deploy/mall_swarm_deploy_windows.html">
+            
+                <a href="../deploy/mall_swarm_deploy_windows.html">
+            
+                    
+                    mall-swarm在Windows环境下的部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../deploy/mall_swarm_deploy_docker.html">
+            
+                <a href="../deploy/mall_swarm_deploy_docker.html">
+            
+                    
+                    mall-swarm在Linux环境下的部署（基于Docker容器）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../deploy/mall_swarm_deploy_jenkins.html">
+            
+                <a href="../deploy/mall_swarm_deploy_jenkins.html">
+            
+                    
+                    微服务架构下的自动化部署，使用Jenkins来实现！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../deploy/mall_swarm_deploy_k8s.html">
+            
+                <a href="../deploy/mall_swarm_deploy_k8s.html">
+            
+                    
+                    mall-swarm微服务项目在K8S下的实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../technology/springboot_auto_deploy.html">
+            
+                <a href="../technology/springboot_auto_deploy.html">
+            
+                    
+                    我常用的自动化部署技巧，贼好用，推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    进阶篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../cloud/springcloud.html">
+            
+                <a href="../cloud/springcloud.html">
+            
+                    
+                    Spring Cloud 整体架构概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../cloud/eureka.html">
+            
+                <a href="../cloud/eureka.html">
+            
+                    
+                    Spring Cloud Eureka：服务注册与发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../cloud/ribbon.html">
+            
+                <a href="../cloud/ribbon.html">
+            
+                    
+                    Spring Cloud Ribbon：负载均衡的服务调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../cloud/hystrix.html">
+            
+                <a href="../cloud/hystrix.html">
+            
+                    
+                    Spring Cloud Hystrix：服务容错保护
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../cloud/hystrix_dashboard.html">
+            
+                <a href="../cloud/hystrix_dashboard.html">
+            
+                    
+                    Hystrix Dashboard：断路器执行监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../cloud/feign.html">
+            
+                <a href="../cloud/feign.html">
+            
+                    
+                    Spring Cloud OpenFeign：基于Ribbon和Hystrix的声明式服务调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../cloud/zuul.html">
+            
+                <a href="../cloud/zuul.html">
+            
+                    
+                    Spring Cloud Zuul：API网关服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../cloud/config.html">
+            
+                <a href="../cloud/config.html">
+            
+                    
+                    Spring Cloud Config：外部集中化配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../cloud/bus.html">
+            
+                <a href="../cloud/bus.html">
+            
+                    
+                    Spring Cloud Bus：消息总线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../cloud/sleuth.html">
+            
+                <a href="../cloud/sleuth.html">
+            
+                    
+                    Spring Cloud Sleuth：分布式请求链路跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="../cloud/consul.html">
+            
+                <a href="../cloud/consul.html">
+            
+                    
+                    Spring Cloud Consul：服务治理与配置中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="../cloud/gateway.html">
+            
+                <a href="../cloud/gateway.html">
+            
+                    
+                    Spring Cloud Gateway：新一代API网关服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="../cloud/admin.html">
+            
+                <a href="../cloud/admin.html">
+            
+                    
+                    Spring Boot Admin：微服务应用监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="../cloud/oauth2.html">
+            
+                <a href="../cloud/oauth2.html">
+            
+                    
+                    Spring Cloud Security：Oauth2使用入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="../cloud/oauth2_jwt.html">
+            
+                <a href="../cloud/oauth2_jwt.html">
+            
+                    
+                    Spring Cloud Security：Oauth2结合JWT使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="../cloud/oauth2_sso.html">
+            
+                <a href="../cloud/oauth2_sso.html">
+            
+                    
+                    Spring Cloud Security：Oauth2实现单点登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="../cloud/nacos.html">
+            
+                <a href="../cloud/nacos.html">
+            
+                    
+                    Spring Cloud Alibaba：Nacos 作为注册中心和配置中心使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="../cloud/sentinel.html">
+            
+                <a href="../cloud/sentinel.html">
+            
+                    
+                    Spring Cloud Alibaba：Sentinel实现熔断与限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="../cloud/seata.html">
+            
+                <a href="../cloud/seata.html">
+            
+                    
+                    使用Seata彻底解决Spring Cloud中的分布式事务问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="../cloud/gateway_oauth2.html">
+            
+                <a href="../cloud/gateway_oauth2.html">
+            
+                    
+                    微服务权限终极解决方案，Spring Cloud Gateway + Oauth2 实现统一认证和鉴权！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="../cloud/oauth2_custom.html">
+            
+                <a href="../cloud/oauth2_custom.html">
+            
+                    
+                    我扒了半天源码，终于找到了Oauth2自定义处理结果的最佳方案！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="../cloud/knife4j_cloud.html">
+            
+                <a href="../cloud/knife4j_cloud.html">
+            
+                    
+                    微服务聚合Swagger文档，这波操作是真的香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    参考篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="mysql.html">
+            
+                <a href="mysql.html">
+            
+                    
+                    开发者必备Mysql命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="linux_command.html">
+            
+                <a href="linux_command.html">
+            
+                    
+                    还在百度Linux命令？推荐一套我用起来特顺手的命令！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="linux_firewall.html">
+            
+                <a href="linux_firewall.html">
+            
+                    
+                    Linux防火墙Firewall和Iptables的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="docker_command.html">
+            
+                <a href="docker_command.html">
+            
+                    
+                    还在百度Docker命令？推荐一套我用起来特顺手的命令！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="docker_maven.html">
+            
+                <a href="docker_maven.html">
+            
+                    
+                    使用Maven插件为SpringBoot应用构建Docker镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="docker_file.html">
+            
+                <a href="docker_file.html">
+            
+                    
+                    使用DockerFile为SpringBoot应用构建Docker镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="docker_compose.html">
+            
+                <a href="docker_compose.html">
+            
+                    
+                    使用Docker Compose部署SpringBoot应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="hutool.html">
+            
+                <a href="hutool.html">
+            
+                    
+                    Hutool中那些常用的工具类和方法 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="nginx.html">
+            
+                <a href="nginx.html">
+            
+                    
+                    Nginx的这些妙用，你肯定有不知道的！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="jenkins.html">
+            
+                <a href="jenkins.html">
+            
+                    
+                    使用Jenkins一键打包部署SpringBoot应用，就是这么6！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="jenkins_vue.html">
+            
+                <a href="jenkins_vue.html">
+            
+                    
+                    使用Jenkins一键打包部署前端应用，就是这么6！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="minio.html">
+            
+                <a href="minio.html">
+            
+                    
+                    Github标星19K+Star，10分钟自建对象存储服务！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.13" data-path="mysql_master_slave.html">
+            
+                <a href="mysql_master_slave.html">
+            
+                    
+                    MySql主从复制，从原理到实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.14" data-path="gaea.html">
+            
+                <a href="gaea.html">
+            
+                    
+                    你还在代码里做读写分离么，试试这个中间件吧！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.15" data-path="spring_data_redis.html">
+            
+                <a href="spring_data_redis.html">
+            
+                    
+                    Spring Data Redis 最佳实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.16" data-path="redis_cluster.html">
+            
+                <a href="redis_cluster.html">
+            
+                    
+                    Docker环境下秒建Redis集群，连SpringBoot也整上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.17" data-path="elasticsearch_start.html">
+            
+                <a href="elasticsearch_start.html">
+            
+                    
+                    Elasticsearch快速入门，掌握这些刚刚好！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.18" data-path="mongodb_start.html">
+            
+                <a href="mongodb_start.html">
+            
+                    
+                    MongoDB快速入门，掌握这些刚刚好！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.19" data-path="gogs_start.html">
+            
+                <a href="gogs_start.html">
+            
+                    
+                    Github标星34K+Star，这款开源项目助你秒建Git服务！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.20" data-path="rabbitmq_start.html">
+            
+                <a href="rabbitmq_start.html">
+            
+                    
+                    连RabbitMQ的5种核心消息模式都不懂，也敢说自己会用消息队列！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.21" data-path="mall_elk_advance.html">
+            
+                <a href="mall_elk_advance.html">
+            
+                    
+                    你居然还去服务器上捞日志，搭个日志收集系统难道不香么！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.22" data-path="efk_fluent.html">
+            
+                <a href="efk_fluent.html">
+            
+                    
+                    性能优越的轻量级日志收集工具，微软、亚马逊都在用！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.23" data-path="jose_jwt_start.html">
+            
+                <a href="jose_jwt_start.html">
+            
+                    
+                    听说你的JWT库用起来特别扭，推荐一款贼好用的！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.24" data-path="knife4j_start.html">
+            
+                <a href="knife4j_start.html">
+            
+                    
+                    给Swagger换了个新皮肤，瞬间高大上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.25" data-path="docker_protect_socket.html">
+            
+                <a href="docker_protect_socket.html">
+            
+                    
+                    Docker服务开放了这个端口，服务器分分钟变肉机！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.26" data-path="elk_security.html">
+            
+                <a href="elk_security.html">
+            
+                    
+                    居然有人想白嫖我的日志，赶紧开启安全保护压压惊！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.27" data-path="filebeat_start.html">
+            
+                <a href="filebeat_start.html">
+            
+                    
+                    面对成百上千台服务器产生的日志，试试这款轻量级日志搬运神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.28" data-path="maven_docker_fabric8.html">
+            
+                <a href="maven_docker_fabric8.html">
+            
+                    
+                    还在手动部署SpringBoot应用？试试这个自动化插件！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.29" data-path="hutool_start.html">
+            
+                <a href="hutool_start.html">
+            
+                    
+                    不要再重复造轮子了，这款开源工具类库贼好使！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.30" data-path="mybatis_plus_start.html">
+            
+                <a href="mybatis_plus_start.html">
+            
+                    
+                    还在手写CRUD代码？这款开源框架助你解放双手！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.31" data-path="power_job_start.html">
+            
+                <a href="power_job_start.html">
+            
+                    
+                    还在手写任务调度代码？试试这款可视化分布式调度框架！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.32" data-path="elastic_apm_start.html">
+            
+                <a href="elastic_apm_start.html">
+            
+                    
+                    微服务应用性能如何？APM监控工具来告诉你！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.33" data-path="rabbitmq_mqtt_start.html">
+            
+                <a href="rabbitmq_mqtt_start.html">
+            
+                    
+                    RabbitMQ实现即时通讯居然如此简单！连后端代码都省得写了？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.34" data-path="quartz_start.html">
+            
+                <a href="quartz_start.html">
+            
+                    
+                    SpringBoot官方支持任务调度框架，轻量级用起来也挺香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.35" data-path="nginx_https_start.html">
+            
+                <a href="nginx_https_start.html">
+            
+                    
+                    Nginx如何支持HTTPS？手把手教贼简单！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.36" data-path="swagger_starter.html">
+            
+                <a href="swagger_starter.html">
+            
+                    
+                    还在手动整合Swagger？Swagger官方Starter是真的香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.37" data-path="canal_start.html">
+            
+                <a href="canal_start.html">
+            
+                    
+                    MySQL如何实时同步数据到ES？试试这款阿里开源的神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.38" data-path="springboot_start.html">
+            
+                <a href="springboot_start.html">
+            
+                    
+                    肝了一周总结的SpringBoot实战教程，太实用了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.39" data-path="elasticsearch_sql_start.html">
+            
+                <a href="elasticsearch_sql_start.html">
+            
+                    
+                    Elasticsearch官方已支持SQL查询，用起来贼方便！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.40" data-path="springboot_docker_plugin.html">
+            
+                <a href="springboot_docker_plugin.html">
+            
+                    
+                    还在使用第三方Docker插件？SpringBoot官方插件真香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.41" data-path="yapi_start.html">
+            
+                <a href="yapi_start.html">
+            
+                    
+                    当Swagger遇上YApi，瞬间高大上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.42" data-path="harbor_start.html">
+            
+                <a href="harbor_start.html">
+            
+                    
+                    DockerHub访问慢怎么破？自建个企业级镜像仓库试试！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.43" data-path="mybatis_generator_start.html">
+            
+                <a href="mybatis_generator_start.html">
+            
+                    
+                    解放双手！MyBatis官方代码生成工具给力！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.44" data-path="lombok_start.html">
+            
+                <a href="lombok_start.html">
+            
+                    
+                    Lombok有啥牛皮的？SpringBoot和IDEA官方都要支持它！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.45" data-path="mybatis_dynamic_sql.html">
+            
+                <a href="mybatis_dynamic_sql.html">
+            
+                    
+                    干掉mapper.xml！MyBatis新特性动态SQL真香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.46" data-path="flyway_start.html">
+            
+                <a href="flyway_start.html">
+            
+                    
+                    数据库迁移搞炸了！没用这款开源神器的锅？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    工具篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="idea.html">
+            
+                <a href="idea.html">
+            
+                    
+                    IDEA常用设置及推荐插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="navicat.html">
+            
+                <a href="navicat.html">
+            
+                    
+                    Navicat实用功能：数据备份与结构同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="postman.html">
+            
+                <a href="postman.html">
+            
+                    
+                    Postman：API接口调试利器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="gitlab.html">
+            
+                <a href="gitlab.html">
+            
+                    
+                    10分钟搭建自己的Git仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="idea_git.html">
+            
+                <a href="idea_git.html">
+            
+                    
+                    IDEA中的Git操作，看这一篇就够了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="linux_install.html">
+            
+                <a href="linux_install.html">
+            
+                    
+                    虚拟机安装及使用Linux，看这一篇就够了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="zentao.html">
+            
+                <a href="zentao.html">
+            
+                    
+                    推荐一个项目管理工具，落地基于Scrum的敏捷开发！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="idea_springboot.html">
+            
+                <a href="idea_springboot.html">
+            
+                    
+                    IDEA中创建和启动SpringBoot应用的正确姿势
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="my_tools.html">
+            
+                <a href="my_tools.html">
+            
+                    
+                    盘点下我用的顺手的那些工具！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="navicat_designer.html">
+            
+                <a href="navicat_designer.html">
+            
+                    
+                    我用起来顺手的数据库设计工具，这次推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="idea_plugins.html">
+            
+                <a href="idea_plugins.html">
+            
+                    
+                    我常用的IDEA插件大公开，个个是精品！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="datagrip_start.html">
+            
+                <a href="datagrip_start.html">
+            
+                    
+                    IDEA同款数据库管理工具，提示太全了，用起来贼香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="my_web_tools.html">
+            
+                <a href="my_web_tools.html">
+            
+                    
+                    写了100多篇原创文章，我常用的在线工具网站推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="arthas_start.html">
+            
+                <a href="arthas_start.html">
+            
+                    
+                    线上项目出BUG没法调试？推荐这款阿里开源的诊断神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="my_debug_skill.html">
+            
+                <a href="my_debug_skill.html">
+            
+                    
+                    被我用烂的DEBUG调试技巧，专治各种搜索不到的问题！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="redis_desktop_start.html">
+            
+                <a href="redis_desktop_start.html">
+            
+                    
+                    Github标星 8K+，免费又好用的Redis客户端工具！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="swagger_postman.html">
+            
+                <a href="swagger_postman.html">
+            
+                    
+                    Swagger界面丑、功能弱怎么破？用Postman增强下就给力了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="mysql_workbench.html">
+            
+                <a href="mysql_workbench.html">
+            
+                    
+                    干掉Navicat！MySQL官方客户端到底行不行？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >干掉mapper.xml！MyBatis新特性动态SQL真香！</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x5B66;&#x4E60;&#x4E0D;&#x8D70;&#x5F2F;&#x8DEF;&#xFF0C;<a href="#&#x516C;&#x4F17;&#x53F7;">&#x5173;&#x6CE8;&#x516C;&#x4F17;&#x53F7;</a> &#x56DE;&#x590D;&#x300C;&#x5B66;&#x4E60;&#x8DEF;&#x7EBF;&#x300D;&#xFF0C;&#x83B7;&#x53D6;mall&#x9879;&#x76EE;&#x4E13;&#x5C5E;&#x5B66;&#x4E60;&#x8DEF;&#x7EBF;&#xFF01;</p>
+<h1 id="&#x5E72;&#x6389;mapperxml&#xFF01;mybatis&#x65B0;&#x7279;&#x6027;&#x52A8;&#x6001;sql&#x771F;&#x9999;&#xFF01;">&#x5E72;&#x6389;mapper.xml&#xFF01;MyBatis&#x65B0;&#x7279;&#x6027;&#x52A8;&#x6001;SQL&#x771F;&#x9999;&#xFF01;</h1>
+<blockquote>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;MyBatis&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x5728;mapper.xml&#x4E2D;&#x4E66;&#x5199;&#x5927;&#x91CF;&#x7684;SQL&#x8BED;&#x53E5;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;MyBatis Generator&#xFF08;MBG&#xFF09;&#x4F5C;&#x4E3A;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5668;&#x65F6;&#xFF0C;&#x4E5F;&#x4F1A;&#x751F;&#x6210;&#x5927;&#x91CF;&#x7684;mapper.xml&#x6587;&#x4EF6;&#x3002;&#x5176;&#x5B9E;&#x4ECE;MBG 1.3.6&#x7248;&#x672C;&#x4EE5;&#x540E;&#xFF0C;MyBatis&#x5B98;&#x65B9;&#x5DF2;&#x7ECF;&#x63A8;&#x8350;&#x4F7F;&#x7528;Dynamic SQL&#xFF0C;&#x4F7F;&#x7528;&#x8FD9;&#x4E00;&#x65B0;&#x7279;&#x6027;&#x57FA;&#x672C;&#x5C31;&#x4E0D;&#x7528;&#x5199;mapper.xml&#x6587;&#x4EF6;&#x4E86;&#xFF0C;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#xFF0C;&#x63A8;&#x8350;&#x7ED9;&#x5927;&#x5BB6;&#xFF01;</p>
+</blockquote>
+<h2 id="dynamic-sql&#x7B80;&#x4ECB;">Dynamic SQL&#x7B80;&#x4ECB;</h2>
+<p>&#x5728;&#x6211;&#x4EEC;&#x4F7F;&#x7528;Spring&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6709;XML&#x548C;Java&#x4E24;&#x79CD;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x3002;&#x5728;&#x4F7F;&#x7528;SpringBoot&#x65F6;&#xFF0C;&#x5DF2;&#x7ECF;&#x63A8;&#x8350;&#x4F7F;&#x7528;Java&#x914D;&#x7F6E;&#xFF0C;&#x57FA;&#x672C;&#x4E0D;&#x7528;xml&#x914D;&#x7F6E;&#x4E86;&#x3002;&#x4F7F;&#x7528;Dynamic SQL&#x5C31;&#x597D;&#x6BD4;&#x662F;&#x4F7F;&#x7528;Java&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x64CD;&#x4F5C;MyBatis&#x3002;Dynamic SQL&#x662F;&#x7528;&#x4E8E;&#x751F;&#x6210;&#x52A8;&#x6001;SQL&#x8BED;&#x53E5;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x63D0;&#x5021;&#x4F7F;&#x7528;Java API&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;SQL&#x64CD;&#x4F5C;&#xFF0C;&#x652F;&#x6301;&#x590D;&#x6742;&#x67E5;&#x8BE2;&#x548C;&#x591A;&#x8868;&#x67E5;&#x8BE2;&#x3002;</p>
+<p>Dynamic SQL&#x5177;&#x6709;&#x5982;&#x4E0B;&#x7279;&#x6027;&#xFF1A;</p>
+<ul>
+<li>&#x7C7B;&#x578B;&#x5B89;&#x5168;&#xFF1A;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x548C;&#x6570;&#x636E;&#x5E93;&#x5B57;&#x6BB5;&#x7C7B;&#x578B;&#x76F8;&#x5339;&#x914D;&#xFF1B;</li>
+<li>&#x5BCC;&#x6709;&#x8868;&#x73B0;&#x529B;&#xFF1A;&#x8BED;&#x53E5;&#x7684;&#x6784;&#x5EFA;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x5730;&#x4F20;&#x8FBE;&#x5176;&#x542B;&#x4E49;&#xFF1B; </li>
+<li>&#x4F7F;&#x7528;&#x7075;&#x6D3B;&#xFF1A;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;and&#xFF0C;or&#x548C;nested&#x6761;&#x4EF6;&#x7684;&#x4EFB;&#x610F;&#x7EC4;&#x5408;&#x6765;&#x6784;&#x5EFA;where&#x5B50;&#x53E5;&#xFF1B;</li>
+<li>&#x6269;&#x5C55;&#x6027;&#x5F3A;&#xFF1A;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x4E3A;MyBatis3, Spring JDBC&#x548C;&#x7EAF;JDBC&#x6846;&#x67B6;&#x751F;&#x6210;SQL&#x8BED;&#x53E5;&#xFF1B;</li>
+<li>&#x8F7B;&#x91CF;&#x7EA7;&#xFF1A;&#x53EA;&#x9700;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;&#x4F9D;&#x8D56;&#x9879;&#xFF0C;&#x6CA1;&#x6709;&#x4F20;&#x9012;&#x4F9D;&#x8D56;&#x3002;</li>
+</ul>
+<h2 id="&#x5F00;&#x59CB;&#x4F7F;&#x7528;">&#x5F00;&#x59CB;&#x4F7F;&#x7528;</h2>
+<blockquote>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5165;&#x95E8;&#x793A;&#x4F8B;&#x5C06;Dynamic SQL&#x7528;&#x8D77;&#x6765;&#xFF0C;&#x8BE5;&#x793A;&#x4F8B;&#x4F1A;&#x5305;&#x542B;&#x57FA;&#x7840;&#x7684;CRUD&#x64CD;&#x4F5C;&#x3002;&#x5BF9;MBG&#x4F7F;&#x7528;&#x4E0D;&#x4E86;&#x89E3;&#x7684;&#x670B;&#x53CB;&#x53EF;&#x4EE5;&#x5148;&#x770B;&#x4E0B;&#x4E4B;&#x524D;&#x7684;&#x6587;&#x7AE0;<a href="https://mp.weixin.qq.com/s/Wqstw_YTUBSi3sGIHZZmLQ" target="_blank">&#x300A;&#x89E3;&#x653E;&#x53CC;&#x624B;&#xFF01;MyBatis&#x5B98;&#x65B9;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5DE5;&#x5177;&#x7ED9;&#x529B;&#xFF01;&#x300B;</a></p>
+</blockquote>
+<h3 id="&#x96C6;&#x6210;dynamic-sql">&#x96C6;&#x6210;Dynamic SQL</h3>
+<ul>
+<li>&#x5728;<code>pom.xml</code>&#x4E2D;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4F9D;&#x8D56;&#xFF0C;&#x5BF9;&#x6BD4;&#x4E4B;&#x524D;&#x4F7F;&#x7528;MBG&#xFF0C;&#x4EC5;&#x4EC5;&#x591A;&#x6DFB;&#x52A0;&#x4E86;MyBatis&#x7684;&#x52A8;&#x6001;SQL&#x4F9D;&#x8D56;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--SpringBoot&#x6574;&#x5408;MyBatis--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--MyBatis&#x5206;&#x9875;&#x63D2;&#x4EF6;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.pagehelper<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>pagehelper-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.3.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--&#x96C6;&#x6210;druid&#x8FDE;&#x63A5;&#x6C60;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1.10<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- MyBatis &#x751F;&#x6210;&#x5668; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.generator<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-generator-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.4.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- MyBatis &#x52A8;&#x6001;SQL&#x652F;&#x6301; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.dynamic-sql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-dynamic-sql<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--Mysql&#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>8.0.15<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x5728;<code>application.yml</code>&#x4E2D;&#x5BF9;&#x6570;&#x636E;&#x6E90;&#x548C;MyBatis&#x7684;<code>mapper.xml</code>&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF0C;&#x53EA;&#x9700;&#x914D;&#x7F6E;&#x81EA;&#x5B9A;&#x4E49;mapper.xml&#x8DEF;&#x5F84;&#x5373;&#x53EF;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-yaml"><span class="hljs-attr">spring:</span>
+<span class="hljs-attr">  datasource:</span>
+<span class="hljs-attr">    url:</span> jdbc:mysql://localhost:<span class="hljs-number">3306</span>/mall?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf<span class="hljs-bullet">-8</span>&amp;serverTimezone=Asia/Shanghai
+<span class="hljs-attr">    username:</span> root
+<span class="hljs-attr">    password:</span> root
+
+<span class="hljs-attr">mybatis:</span>
+<span class="hljs-attr">  mapper-locations:</span>
+<span class="hljs-attr">    - classpath:</span>dao/*.xml
+</code></pre>
+<ul>
+<li>&#x6DFB;&#x52A0;Java&#x914D;&#x7F6E;&#xFF0C;&#x7528;&#x4E8E;&#x626B;&#x63CF;Mapper&#x63A5;&#x53E3;&#x8DEF;&#x5F84;&#xFF0C;MBG&#x751F;&#x6210;&#x7684;&#x653E;&#x5728;<code>mapper</code>&#x5305;&#x4E0B;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x653E;&#x5728;<code>dao</code>&#x5305;&#x4E0B;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * MyBatis&#x914D;&#x7F6E;&#x7C7B;
+ * Created by macro on 2019/4/8.
+ */</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@MapperScan</span>({<span class="hljs-string">&quot;com.macro.mall.tiny.mbg.mapper&quot;</span>,<span class="hljs-string">&quot;com.macro.mall.tiny.dao&quot;</span>})
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBatisConfig</span> </span>{
+}
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5668;">&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5668;</h3>
+<ul>
+<li>&#x5728;&#x4F7F;&#x7528;MBG&#x751F;&#x6210;&#x4EE3;&#x7801;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#xFF0C;&#x9996;&#x5148;&#x5728;<code>generator.properties</code>&#x6587;&#x4EF6;&#x4E2D;&#x914D;&#x7F6E;&#x597D;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x4FE1;&#x606F;&#xFF1B;</li>
+</ul>
+<pre><code>jdbc.driverClass=com.mysql.cj.jdbc.Driver
+jdbc.connectionURL=jdbc:mysql://localhost:3306/mall?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai
+jdbc.userId=root
+jdbc.password=root
+</code></pre><ul>
+<li>&#x7136;&#x540E;&#x5728;<code>generatorConfig.xml</code>&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;MBG&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF0C;&#x914D;&#x7F6E;&#x5C5E;&#x6027;&#x8BF4;&#x660E;&#x76F4;&#x63A5;&#x53C2;&#x8003;&#x6CE8;&#x91CA;&#x5373;&#x53EF;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE generatorConfiguration
+        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">generatorConfiguration</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;generator.properties&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">context</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;MySqlContext&quot;</span> <span class="hljs-attr">targetRuntime</span>=<span class="hljs-string">&quot;MyBatis3DynamicSQL&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;beginningDelimiter&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;`&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;endingDelimiter&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;`&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;javaFileEncoding&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>/&gt;</span>
+        <span class="hljs-comment">&lt;!-- &#x4E3A;&#x6A21;&#x578B;&#x751F;&#x6210;&#x5E8F;&#x5217;&#x5316;&#x65B9;&#x6CD5;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;org.mybatis.generator.plugins.SerializablePlugin&quot;</span>/&gt;</span>
+        <span class="hljs-comment">&lt;!-- &#x4E3A;&#x751F;&#x6210;&#x7684;Java&#x6A21;&#x578B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;toString&#x65B9;&#x6CD5; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;org.mybatis.generator.plugins.ToStringPlugin&quot;</span>/&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x751F;&#x6210;model&#x7684;&#x4EE3;&#x7801;&#x6CE8;&#x91CA;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">commentGenerator</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;com.macro.mall.tiny.mbg.CommentGenerator&quot;</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- &#x662F;&#x5426;&#x53BB;&#x9664;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x6CE8;&#x91CA; true&#xFF1A;&#x662F; &#xFF1A; false:&#x5426; --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;suppressAllComments&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;suppressDate&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;addRemarkComments&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">commentGenerator</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x914D;&#x7F6E;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">jdbcConnection</span> <span class="hljs-attr">driverClass</span>=<span class="hljs-string">&quot;${jdbc.driverClass}&quot;</span>
+                        <span class="hljs-attr">connectionURL</span>=<span class="hljs-string">&quot;${jdbc.connectionURL}&quot;</span>
+                        <span class="hljs-attr">userId</span>=<span class="hljs-string">&quot;${jdbc.userId}&quot;</span>
+                        <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;${jdbc.password}&quot;</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x89E3;&#x51B3;mysql&#x9A71;&#x52A8;&#x5347;&#x7EA7;&#x5230;8.0&#x540E;&#x4E0D;&#x751F;&#x6210;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;&#x4EE3;&#x7801;&#x7684;&#x95EE;&#x9898;--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;nullCatalogMeansCurrent&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">jdbcConnection</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x6307;&#x5B9A;&#x751F;&#x6210;model&#x7684;&#x8DEF;&#x5F84;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">javaModelGenerator</span> <span class="hljs-attr">targetPackage</span>=<span class="hljs-string">&quot;com.macro.mall.tiny.mbg.model&quot;</span> <span class="hljs-attr">targetProject</span>=<span class="hljs-string">&quot;mall-tiny-dynamic-sql\src\main\java&quot;</span>/&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x6307;&#x5B9A;&#x751F;&#x6210;mapper&#x63A5;&#x53E3;&#x7684;&#x7684;&#x8DEF;&#x5F84;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">javaClientGenerator</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;XMLMAPPER&quot;</span> <span class="hljs-attr">targetPackage</span>=<span class="hljs-string">&quot;com.macro.mall.tiny.mbg.mapper&quot;</span>
+                             <span class="hljs-attr">targetProject</span>=<span class="hljs-string">&quot;mall-tiny-dynamic-sql\src\main\java&quot;</span>/&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x751F;&#x6210;&#x5168;&#x90E8;&#x8868;tableName&#x8BBE;&#x4E3A;%--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">tableName</span>=<span class="hljs-string">&quot;ums_admin&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">generatedKey</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">sqlStatement</span>=<span class="hljs-string">&quot;MySql&quot;</span> <span class="hljs-attr">identity</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">tableName</span>=<span class="hljs-string">&quot;ums_role&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">generatedKey</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">sqlStatement</span>=<span class="hljs-string">&quot;MySql&quot;</span> <span class="hljs-attr">identity</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">tableName</span>=<span class="hljs-string">&quot;ums_admin_role_relation&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">generatedKey</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">sqlStatement</span>=<span class="hljs-string">&quot;MySql&quot;</span> <span class="hljs-attr">identity</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">context</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">generatorConfiguration</span>&gt;</span>
+</code></pre>
+<ul>
+<li><p>&#x4E0E;&#x4E4B;&#x524D;&#x4F7F;&#x7528;MBG&#x6709;&#x6240;&#x4E0D;&#x540C;&#xFF0C;<code>targetRuntime</code>&#x9700;&#x8981;&#x6539;&#x4E3A;<code>MyBatis3DynamicSql</code>&#xFF0C;&#x7528;&#x4E8E;&#x914D;&#x7F6E;&#x751F;&#x6210;mapper.xml&#x8DEF;&#x5F84;&#x7684;<code>sqlMapGenerator</code>&#x6807;&#x7B7E;&#x4E5F;&#x4E0D;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E86;&#xFF1B;</p>
+</li>
+<li><p>&#x4E4B;&#x524D;&#x4F7F;&#x7528;MBG&#x65F6;&#x81EA;&#x5B9A;&#x4E49;&#x4E86;&#x5B9E;&#x4F53;&#x7C7B;&#x6CE8;&#x89E3;&#x7684;&#x751F;&#x6210;&#xFF0C;&#x5199;&#x4E86;&#x4E2A;&#x7C7B;CommentGenerator&#x7EE7;&#x627F;DefaultCommentGenerator&#xFF0C;&#x5728;<code>addFieldComment</code>&#x65B9;&#x6CD5;&#x4E2D;&#x5C06;Swagger&#x6CE8;&#x89E3;&#x5199;&#x5165;&#x5230;&#x4E86;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x4E0A;&#xFF1B;</p>
+</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x91CA;&#x751F;&#x6210;&#x5668;
+ * Created by macro on 2018/4/26.
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommentGenerator</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">DefaultCommentGenerator</span> </span>{
+    <span class="hljs-comment">/**
+     * &#x7ED9;&#x5B57;&#x6BB5;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addFieldComment</span><span class="hljs-params">(Field field, IntrospectedTable introspectedTable,
+                                IntrospectedColumn introspectedColumn)</span> </span>{
+        String remarks = introspectedColumn.getRemarks();
+        <span class="hljs-comment">//&#x6839;&#x636E;&#x53C2;&#x6570;&#x548C;&#x5907;&#x6CE8;&#x4FE1;&#x606F;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6DFB;&#x52A0;&#x5907;&#x6CE8;&#x4FE1;&#x606F;</span>
+        <span class="hljs-keyword">if</span>(addRemarkComments&amp;&amp;StringUtility.stringHasValue(remarks)){
+            <span class="hljs-comment">//&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x9700;&#x8981;&#x8F6C;&#x4E49;</span>
+            <span class="hljs-keyword">if</span>(remarks.contains(<span class="hljs-string">&quot;\&quot;&quot;</span>)){
+                remarks = remarks.replace(<span class="hljs-string">&quot;\&quot;&quot;</span>,<span class="hljs-string">&quot;&apos;&quot;</span>);
+            }
+            <span class="hljs-comment">//&#x7ED9;model&#x7684;&#x5B57;&#x6BB5;&#x6DFB;&#x52A0;swagger&#x6CE8;&#x89E3;</span>
+            field.addJavaDocLine(<span class="hljs-string">&quot;@ApiModelProperty(value = \&quot;&quot;</span>+remarks+<span class="hljs-string">&quot;\&quot;)&quot;</span>);
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>&#x5728;&#x4F7F;&#x7528;Dynamic SQL&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x65E0;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x5728;<code>addFieldAnnotation</code>&#x4E2D;&#x5C06;Swagger&#x6CE8;&#x89E3;&#x5199;&#x5165;&#x5230;&#x4E86;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x4E0A;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x91CA;&#x751F;&#x6210;&#x5668;
+ * Created by macro on 2018/4/26.
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommentGenerator</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">DefaultCommentGenerator</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addFieldAnnotation</span><span class="hljs-params">(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn, Set&lt;FullyQualifiedJavaType&gt; imports)</span> </span>{
+        <span class="hljs-keyword">if</span> (!addRemarkComments || CollUtil.isEmpty(imports)) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">long</span> count = imports.stream()
+                .filter(item -&gt; API_MODEL_PROPERTY_FULL_CLASS_NAME.equals(item.getFullyQualifiedName()))
+                .count();
+        <span class="hljs-keyword">if</span> (count &lt;= <span class="hljs-number">0L</span>) {
+            <span class="hljs-keyword">return</span>;
+        }
+        String remarks = introspectedColumn.getRemarks();
+        <span class="hljs-comment">//&#x6839;&#x636E;&#x53C2;&#x6570;&#x548C;&#x5907;&#x6CE8;&#x4FE1;&#x606F;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6DFB;&#x52A0;&#x5907;&#x6CE8;&#x4FE1;&#x606F;</span>
+        <span class="hljs-keyword">if</span> (StringUtility.stringHasValue(remarks)) {
+            <span class="hljs-comment">//&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x9700;&#x8981;&#x8F6C;&#x4E49;</span>
+            <span class="hljs-keyword">if</span> (remarks.contains(<span class="hljs-string">&quot;\&quot;&quot;</span>)) {
+                remarks = remarks.replace(<span class="hljs-string">&quot;\&quot;&quot;</span>, <span class="hljs-string">&quot;&apos;&quot;</span>);
+            }
+            <span class="hljs-comment">//&#x7ED9;model&#x7684;&#x5B57;&#x6BB5;&#x6DFB;&#x52A0;swagger&#x6CE8;&#x89E3;</span>
+            field.addJavaDocLine(<span class="hljs-string">&quot;@ApiModelProperty(value = \&quot;&quot;</span> + remarks + <span class="hljs-string">&quot;\&quot;)&quot;</span>);
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>&#x4E00;&#x5207;&#x51C6;&#x5907;&#x5C31;&#x7EEA;&#xFF0C;&#x6267;&#x884C;Generator&#x7C7B;&#x7684;main&#x65B9;&#x6CD5;&#xFF0C;&#x751F;&#x6210;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x4FE1;&#x606F;&#x5982;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x751F;&#x6210;mapper.xml&#x6587;&#x4EF6;&#x548C;Example&#x7C7B;&#xFF0C;&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F;&#x751F;&#x6210;&#x4E86;DynamicSqlSupport&#x7C7B;&#x3002;</li>
+</ul>
+<p><img src="../images/mybatis_dynamic_sql_01.png" alt=""></p>
+<h3 id="&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x7684;crud&#x64CD;&#x4F5C;">&#x5B9E;&#x73B0;&#x57FA;&#x672C;&#x7684;CRUD&#x64CD;&#x4F5C;</h3>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x662F;<code>mall-tiny</code>&#x9879;&#x76EE;&#x4E2D;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x529F;&#x80FD;&#x76F8;&#x5173;&#x8868;&#xFF0C;&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="https://mp.weixin.qq.com/s/tN3zjoKQxg1U19D4Slih8w" target="_blank">&#x300A;&#x8FD8;&#x5728;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x642D;&#x5EFA;&#x9879;&#x76EE;&#xFF1F;&#x624B;&#x64B8;&#x4E86;&#x6B3E;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x811A;&#x624B;&#x67B6;&#xFF01;&#x300B;</a>&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x67E5;&#x770B;&#x4E0B;MBG&#x751F;&#x6210;&#x7684;Mapper&#x63A5;&#x53E3;&#xFF0C;&#x6BD4;&#x4E4B;&#x524D;&#x4F7F;&#x7528;MBG&#x65F6;&#x589E;&#x52A0;&#x4E86;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x4E86;&#x4E00;&#x4E9B;&#x9ED8;&#x8BA4;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#xFF0C;&#x53EF;&#x89C1;&#x4E4B;&#x524D;&#x5728;mapper.xml&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x90FD;&#x5DF2;&#x7ECF;&#x8F6C;&#x79FB;&#x5230;Mapper&#x63A5;&#x53E3;&#x4E2D;&#x53BB;&#x4E86;&#xFF0C;&#x5355;&#x8868;CRUD&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-meta">@Mapper</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UmsAdminMapper</span> </span>{
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    BasicColumn[] selectList = BasicColumn.columnList(id, username, password, icon, email, nickName, note, createTime, loginTime, status);
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-meta">@SelectProvider</span>(type=SqlProviderAdapter.class, method=<span class="hljs-string">&quot;select&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">count</span><span class="hljs-params">(SelectStatementProvider selectStatement)</span></span>;
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-meta">@DeleteProvider</span>(type=SqlProviderAdapter.class, method=<span class="hljs-string">&quot;delete&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">delete</span><span class="hljs-params">(DeleteStatementProvider deleteStatement)</span></span>;
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-meta">@InsertProvider</span>(type=SqlProviderAdapter.class, method=<span class="hljs-string">&quot;insert&quot;</span>)
+    <span class="hljs-meta">@SelectKey</span>(statement=<span class="hljs-string">&quot;SELECT LAST_INSERT_ID()&quot;</span>, keyProperty=<span class="hljs-string">&quot;record.id&quot;</span>, before=<span class="hljs-keyword">false</span>, resultType=Long.class)
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">insert</span><span class="hljs-params">(InsertStatementProvider&lt;UmsAdmin&gt; insertStatement)</span></span>;
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-meta">@SelectProvider</span>(type=SqlProviderAdapter.class, method=<span class="hljs-string">&quot;select&quot;</span>)
+    <span class="hljs-meta">@ResultMap</span>(<span class="hljs-string">&quot;UmsAdminResult&quot;</span>)
+    <span class="hljs-function">Optional&lt;UmsAdmin&gt; <span class="hljs-title">selectOne</span><span class="hljs-params">(SelectStatementProvider selectStatement)</span></span>;
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-meta">@SelectProvider</span>(type=SqlProviderAdapter.class, method=<span class="hljs-string">&quot;select&quot;</span>)
+    <span class="hljs-meta">@Results</span>(id=<span class="hljs-string">&quot;UmsAdminResult&quot;</span>, value = {
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;id&quot;</span>, property=<span class="hljs-string">&quot;id&quot;</span>, jdbcType=JdbcType.BIGINT, id=<span class="hljs-keyword">true</span>),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;username&quot;</span>, property=<span class="hljs-string">&quot;username&quot;</span>, jdbcType=JdbcType.VARCHAR),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;password&quot;</span>, property=<span class="hljs-string">&quot;password&quot;</span>, jdbcType=JdbcType.VARCHAR),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;icon&quot;</span>, property=<span class="hljs-string">&quot;icon&quot;</span>, jdbcType=JdbcType.VARCHAR),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;email&quot;</span>, property=<span class="hljs-string">&quot;email&quot;</span>, jdbcType=JdbcType.VARCHAR),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;nick_name&quot;</span>, property=<span class="hljs-string">&quot;nickName&quot;</span>, jdbcType=JdbcType.VARCHAR),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;note&quot;</span>, property=<span class="hljs-string">&quot;note&quot;</span>, jdbcType=JdbcType.VARCHAR),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;create_time&quot;</span>, property=<span class="hljs-string">&quot;createTime&quot;</span>, jdbcType=JdbcType.TIMESTAMP),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;login_time&quot;</span>, property=<span class="hljs-string">&quot;loginTime&quot;</span>, jdbcType=JdbcType.TIMESTAMP),
+        <span class="hljs-meta">@Result</span>(column=<span class="hljs-string">&quot;status&quot;</span>, property=<span class="hljs-string">&quot;status&quot;</span>, jdbcType=JdbcType.INTEGER)
+    })
+    <span class="hljs-function">List&lt;UmsAdmin&gt; <span class="hljs-title">selectMany</span><span class="hljs-params">(SelectStatementProvider selectStatement)</span></span>;
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-meta">@UpdateProvider</span>(type=SqlProviderAdapter.class, method=<span class="hljs-string">&quot;update&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">update</span><span class="hljs-params">(UpdateStatementProvider updateStatement)</span></span>;
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">long</span> <span class="hljs-title">count</span><span class="hljs-params">(CountDSLCompleter completer)</span> </span>{
+        <span class="hljs-keyword">return</span> MyBatis3Utils.countFrom(<span class="hljs-keyword">this</span>::count, umsAdmin, completer);
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">delete</span><span class="hljs-params">(DeleteDSLCompleter completer)</span> </span>{
+        <span class="hljs-keyword">return</span> MyBatis3Utils.deleteFrom(<span class="hljs-keyword">this</span>::delete, umsAdmin, completer);
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">deleteByPrimaryKey</span><span class="hljs-params">(Long id_)</span> </span>{
+        <span class="hljs-keyword">return</span> delete(c -&gt; 
+            c.where(id, isEqualTo(id_))
+        );
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">insert</span><span class="hljs-params">(UmsAdmin record)</span> </span>{
+        <span class="hljs-keyword">return</span> MyBatis3Utils.insert(<span class="hljs-keyword">this</span>::insert, record, umsAdmin, c -&gt;
+            c.map(username).toProperty(<span class="hljs-string">&quot;username&quot;</span>)
+            .map(password).toProperty(<span class="hljs-string">&quot;password&quot;</span>)
+            .map(icon).toProperty(<span class="hljs-string">&quot;icon&quot;</span>)
+            .map(email).toProperty(<span class="hljs-string">&quot;email&quot;</span>)
+            .map(nickName).toProperty(<span class="hljs-string">&quot;nickName&quot;</span>)
+            .map(note).toProperty(<span class="hljs-string">&quot;note&quot;</span>)
+            .map(createTime).toProperty(<span class="hljs-string">&quot;createTime&quot;</span>)
+            .map(loginTime).toProperty(<span class="hljs-string">&quot;loginTime&quot;</span>)
+            .map(status).toProperty(<span class="hljs-string">&quot;status&quot;</span>)
+        );
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">insertSelective</span><span class="hljs-params">(UmsAdmin record)</span> </span>{
+        <span class="hljs-keyword">return</span> MyBatis3Utils.insert(<span class="hljs-keyword">this</span>::insert, record, umsAdmin, c -&gt;
+            c.map(username).toPropertyWhenPresent(<span class="hljs-string">&quot;username&quot;</span>, record::getUsername)
+            .map(password).toPropertyWhenPresent(<span class="hljs-string">&quot;password&quot;</span>, record::getPassword)
+            .map(icon).toPropertyWhenPresent(<span class="hljs-string">&quot;icon&quot;</span>, record::getIcon)
+            .map(email).toPropertyWhenPresent(<span class="hljs-string">&quot;email&quot;</span>, record::getEmail)
+            .map(nickName).toPropertyWhenPresent(<span class="hljs-string">&quot;nickName&quot;</span>, record::getNickName)
+            .map(note).toPropertyWhenPresent(<span class="hljs-string">&quot;note&quot;</span>, record::getNote)
+            .map(createTime).toPropertyWhenPresent(<span class="hljs-string">&quot;createTime&quot;</span>, record::getCreateTime)
+            .map(loginTime).toPropertyWhenPresent(<span class="hljs-string">&quot;loginTime&quot;</span>, record::getLoginTime)
+            .map(status).toPropertyWhenPresent(<span class="hljs-string">&quot;status&quot;</span>, record::getStatus)
+        );
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> Optional&lt;UmsAdmin&gt; <span class="hljs-title">selectOne</span><span class="hljs-params">(SelectDSLCompleter completer)</span> </span>{
+        <span class="hljs-keyword">return</span> MyBatis3Utils.selectOne(<span class="hljs-keyword">this</span>::selectOne, selectList, umsAdmin, completer);
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> List&lt;UmsAdmin&gt; <span class="hljs-title">select</span><span class="hljs-params">(SelectDSLCompleter completer)</span> </span>{
+        <span class="hljs-keyword">return</span> MyBatis3Utils.selectList(<span class="hljs-keyword">this</span>::selectMany, selectList, umsAdmin, completer);
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> List&lt;UmsAdmin&gt; <span class="hljs-title">selectDistinct</span><span class="hljs-params">(SelectDSLCompleter completer)</span> </span>{
+        <span class="hljs-keyword">return</span> MyBatis3Utils.selectDistinct(<span class="hljs-keyword">this</span>::selectMany, selectList, umsAdmin, completer);
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> Optional&lt;UmsAdmin&gt; <span class="hljs-title">selectByPrimaryKey</span><span class="hljs-params">(Long id_)</span> </span>{
+        <span class="hljs-keyword">return</span> selectOne(c -&gt;
+            c.where(id, isEqualTo(id_))
+        );
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">update</span><span class="hljs-params">(UpdateDSLCompleter completer)</span> </span>{
+        <span class="hljs-keyword">return</span> MyBatis3Utils.update(<span class="hljs-keyword">this</span>::update, umsAdmin, completer);
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">static</span> UpdateDSL&lt;UpdateModel&gt; <span class="hljs-title">updateAllColumns</span><span class="hljs-params">(UmsAdmin record, UpdateDSL&lt;UpdateModel&gt; dsl)</span> </span>{
+        <span class="hljs-keyword">return</span> dsl.set(username).equalTo(record::getUsername)
+                .set(password).equalTo(record::getPassword)
+                .set(icon).equalTo(record::getIcon)
+                .set(email).equalTo(record::getEmail)
+                .set(nickName).equalTo(record::getNickName)
+                .set(note).equalTo(record::getNote)
+                .set(createTime).equalTo(record::getCreateTime)
+                .set(loginTime).equalTo(record::getLoginTime)
+                .set(status).equalTo(record::getStatus);
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">static</span> UpdateDSL&lt;UpdateModel&gt; <span class="hljs-title">updateSelectiveColumns</span><span class="hljs-params">(UmsAdmin record, UpdateDSL&lt;UpdateModel&gt; dsl)</span> </span>{
+        <span class="hljs-keyword">return</span> dsl.set(username).equalToWhenPresent(record::getUsername)
+                .set(password).equalToWhenPresent(record::getPassword)
+                .set(icon).equalToWhenPresent(record::getIcon)
+                .set(email).equalToWhenPresent(record::getEmail)
+                .set(nickName).equalToWhenPresent(record::getNickName)
+                .set(note).equalToWhenPresent(record::getNote)
+                .set(createTime).equalToWhenPresent(record::getCreateTime)
+                .set(loginTime).equalToWhenPresent(record::getLoginTime)
+                .set(status).equalToWhenPresent(record::getStatus);
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">updateByPrimaryKey</span><span class="hljs-params">(UmsAdmin record)</span> </span>{
+        <span class="hljs-keyword">return</span> update(c -&gt;
+            c.set(username).equalTo(record::getUsername)
+            .set(password).equalTo(record::getPassword)
+            .set(icon).equalTo(record::getIcon)
+            .set(email).equalTo(record::getEmail)
+            .set(nickName).equalTo(record::getNickName)
+            .set(note).equalTo(record::getNote)
+            .set(createTime).equalTo(record::getCreateTime)
+            .set(loginTime).equalTo(record::getLoginTime)
+            .set(status).equalTo(record::getStatus)
+            .where(id, isEqualTo(record::getId))
+        );
+    }
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">updateByPrimaryKeySelective</span><span class="hljs-params">(UmsAdmin record)</span> </span>{
+        <span class="hljs-keyword">return</span> update(c -&gt;
+            c.set(username).equalToWhenPresent(record::getUsername)
+            .set(password).equalToWhenPresent(record::getPassword)
+            .set(icon).equalToWhenPresent(record::getIcon)
+            .set(email).equalToWhenPresent(record::getEmail)
+            .set(nickName).equalToWhenPresent(record::getNickName)
+            .set(note).equalToWhenPresent(record::getNote)
+            .set(createTime).equalToWhenPresent(record::getCreateTime)
+            .set(loginTime).equalToWhenPresent(record::getLoginTime)
+            .set(status).equalToWhenPresent(record::getStatus)
+            .where(id, isEqualTo(record::getId))
+        );
+    }
+}
+</code></pre>
+<ul>
+<li>&#x751F;&#x6210;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x4E00;&#x4E9B;DynamicSqlSupport&#x7C7B;&#xFF0C;&#x6BD4;&#x5982;UmsAdminDynamicSqlSupport&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x628A;&#x6570;&#x636E;&#x5E93;&#x8868;&#x548C;&#x5B57;&#x6BB5;&#x62BD;&#x8C61;&#x6210;&#x4E86;SqlTable&#x548C;SqlColumn&#x5BF9;&#x8C61;&#xFF0C;&#x4F30;&#x8BA1;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x6211;&#x4EEC;&#x786C;&#x7F16;&#x7801;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminDynamicSqlSupport</span> </span>{
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> UmsAdmin umsAdmin = <span class="hljs-keyword">new</span> UmsAdmin();
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;Long&gt; id = umsAdmin.id;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; username = umsAdmin.username;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; password = umsAdmin.password;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; icon = umsAdmin.icon;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; email = umsAdmin.email;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; nickName = umsAdmin.nickName;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; note = umsAdmin.note;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;Date&gt; createTime = umsAdmin.createTime;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;Date&gt; loginTime = umsAdmin.loginTime;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SqlColumn&lt;Integer&gt; status = umsAdmin.status;
+
+    <span class="hljs-meta">@Generated</span>(<span class="hljs-string">&quot;org.mybatis.generator.api.MyBatisGenerator&quot;</span>)
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdmin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SqlTable</span> </span>{
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;Long&gt; id = column(<span class="hljs-string">&quot;id&quot;</span>, JDBCType.BIGINT);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; username = column(<span class="hljs-string">&quot;username&quot;</span>, JDBCType.VARCHAR);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; password = column(<span class="hljs-string">&quot;password&quot;</span>, JDBCType.VARCHAR);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; icon = column(<span class="hljs-string">&quot;icon&quot;</span>, JDBCType.VARCHAR);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; email = column(<span class="hljs-string">&quot;email&quot;</span>, JDBCType.VARCHAR);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; nickName = column(<span class="hljs-string">&quot;nick_name&quot;</span>, JDBCType.VARCHAR);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;String&gt; note = column(<span class="hljs-string">&quot;note&quot;</span>, JDBCType.VARCHAR);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;Date&gt; createTime = column(<span class="hljs-string">&quot;create_time&quot;</span>, JDBCType.TIMESTAMP);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;Date&gt; loginTime = column(<span class="hljs-string">&quot;login_time&quot;</span>, JDBCType.TIMESTAMP);
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> SqlColumn&lt;Integer&gt; status = column(<span class="hljs-string">&quot;status&quot;</span>, JDBCType.INTEGER);
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UmsAdmin</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">super</span>(<span class="hljs-string">&quot;ums_admin&quot;</span>);
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>&#x5229;&#x7528;&#x597D;MBG&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x5355;&#x8868;&#x7684;CRUD&#x64CD;&#x4F5C;&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x540E;&#x53F0;&#x7528;&#x6237;&#x7BA1;&#x7406;Service&#x5B9E;&#x73B0;&#x7C7B;
+ * Created by macro on 2020/12/8.
+ */</span>
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UmsAdminService</span> </span>{
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> UmsAdminMapper adminMapper;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">create</span><span class="hljs-params">(UmsAdmin entity)</span> </span>{
+        adminMapper.insert(entity);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(UmsAdmin entity)</span> </span>{
+        adminMapper.updateByPrimaryKeySelective(entity);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">(Long id)</span> </span>{
+        adminMapper.deleteByPrimaryKey(id);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> UmsAdmin <span class="hljs-title">select</span><span class="hljs-params">(Long id)</span> </span>{
+        Optional&lt;UmsAdmin&gt; optionalEntity = adminMapper.selectByPrimaryKey(id);
+        <span class="hljs-keyword">return</span> optionalEntity.orElse(<span class="hljs-keyword">null</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;UmsAdmin&gt; <span class="hljs-title">listAll</span><span class="hljs-params">(Integer pageNum, Integer pageSize)</span> </span>{
+        PageHelper.startPage(pageNum, pageSize);
+        <span class="hljs-keyword">return</span> adminMapper.select(SelectDSLCompleter.allRows());
+    }
+}
+</code></pre>
+<h2 id="&#x8FDB;&#x9636;&#x4F7F;&#x7528;">&#x8FDB;&#x9636;&#x4F7F;&#x7528;</h2>
+<blockquote>
+<p>&#x60F3;&#x8981;&#x7528;&#x597D;Dynamic SQL&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x57FA;&#x7840;&#x64CD;&#x4F5C;&#x662F;&#x4E0D;&#x591F;&#x7684;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x8FDB;&#x9636;&#x7684;&#x4F7F;&#x7528;&#x6280;&#x5DE7;&#x3002;</p>
+</blockquote>
+<h3 id="sqlbuilder">SqlBuilder</h3>
+<p>SqlBuilder&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x7C7B;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x53EF;&#x4EE5;&#x7075;&#x6D3B;&#x5730;&#x6784;&#x5EFA;SQL&#x8BED;&#x53E5;&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x6761;&#x4EF6;&#x6784;&#x5EFA;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x6761;&#x4EF6;</th>
+<th>&#x4F8B;&#x5B50;</th>
+<th>&#x5BF9;&#x5E94;SQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Between</td>
+<td>where(foo, isBetween(x).and(y))</td>
+<td>where foo between ? and ?</td>
+</tr>
+<tr>
+<td>Equals</td>
+<td>where(foo, isEqualTo(x))</td>
+<td>where foo = ?</td>
+</tr>
+<tr>
+<td>Greater Than</td>
+<td>where(foo, isGreaterThan(x))</td>
+<td>where foo &gt; ?</td>
+</tr>
+<tr>
+<td>In</td>
+<td>where(foo, isIn(x, y))</td>
+<td>where foo in (?,?)</td>
+</tr>
+<tr>
+<td>Like</td>
+<td>where(foo, isLike(x))</td>
+<td>where foo like ?</td>
+</tr>
+<tr>
+<td>Not Equals</td>
+<td>where(foo, isNotEqualTo(x))</td>
+<td>where foo &lt;&gt; ?</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>where(foo, isNull())</td>
+<td>where foo is null</td>
+</tr>
+<tr>
+<td>Present Equals</td>
+<td>where(foo, isEqualToWhenPresent(x))</td>
+<td>where foo = ? (will render if x is non-null)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="statementprovider">StatementProvider</h3>
+<p>&#x56DE;&#x60F3;&#x4E00;&#x4E0B;&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x5728;mapper.xml&#x4E2D;&#x5B9A;&#x4E49;select&#x6807;&#x7B7E;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5404;&#x4E2A;select&#x6807;&#x7B7E;&#x76F8;&#x5F53;&#x4E8E;Statement&#x3002;&#x800C;&#x8FD9;&#x91CC;&#x7684;StatementProvider&#x597D;&#x6BD4;&#x662F;Statement&#x4E2D;&#x53C2;&#x6570;&#x548C;SQL&#x8BED;&#x53E5;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x65B9;&#x4FBF;&#x4EE5;Java&#x7684;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;Statement&#x3002;</p>
+<h3 id="&#x6761;&#x4EF6;&#x67E5;&#x8BE2;">&#x6761;&#x4EF6;&#x67E5;&#x8BE2;</h3>
+<blockquote>
+<p>&#x4F7F;&#x7528;SqlBuilder&#x7C7B;&#x6784;&#x5EFA;StatementProvider&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;Mapper&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x8FD9;&#x91CC;&#x4EE5;&#x6309;&#x7528;&#x6237;&#x540D;&#x548C;&#x72B6;&#x6001;&#x67E5;&#x8BE2;&#x540E;&#x53F0;&#x7528;&#x6237;&#x5E76;&#x6309;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#x964D;&#x5E8F;&#x6392;&#x5217;&#x4E3A;&#x4F8B;&#xFF0C;SQL&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    <span class="hljs-keyword">id</span>,
+    username,
+    <span class="hljs-keyword">PASSWORD</span>,
+    icon,
+    email,
+    nick_name,
+    note,
+    create_time,
+    login_time,
+<span class="hljs-keyword">STATUS</span> 
+<span class="hljs-keyword">FROM</span>
+    ums_admin 
+<span class="hljs-keyword">WHERE</span>
+    ( username = <span class="hljs-string">&apos;macro&apos;</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">STATUS</span> <span class="hljs-keyword">IN</span> ( <span class="hljs-number">0</span>, <span class="hljs-number">1</span> ) ) 
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+    create_time <span class="hljs-keyword">DESC</span>;
+</code></pre>
+<ul>
+<li>&#x4F7F;&#x7528;Dynamic SQL&#x5BF9;&#x5E94;&#x7684;Java&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;SqlBuilder&#x7684;select&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x5217;&#xFF0C;&#x4F7F;&#x7528;from&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x8868;&#xFF0C;&#x4F7F;&#x7528;where&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6784;&#x5EFA;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528;orderBy&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x6392;&#x5E8F;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x540E;&#x53F0;&#x7528;&#x6237;&#x7BA1;&#x7406;Service&#x5B9E;&#x73B0;&#x7C7B;
+ * Created by macro on 2020/12/8.
+ */</span>
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UmsAdminService</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;UmsAdmin&gt; <span class="hljs-title">list</span><span class="hljs-params">(Integer pageNum, Integer pageSize, String username, List&lt;Integer&gt; statusList)</span> </span>{
+        PageHelper.startPage(pageNum, pageSize);
+        SelectStatementProvider selectStatement = SqlBuilder.select(UmsAdminMapper.selectList)
+                .from(UmsAdminDynamicSqlSupport.umsAdmin)
+                .where(UmsAdminDynamicSqlSupport.username, isEqualToWhenPresent(username))
+                .and(UmsAdminDynamicSqlSupport.status, isIn(statusList))
+                .orderBy(UmsAdminDynamicSqlSupport.createTime.descending())
+                .build()
+                .render(RenderingStrategies.MYBATIS3);
+        <span class="hljs-keyword">return</span> adminMapper.selectMany(selectStatement);
+    }
+}
+</code></pre>
+<h3 id="lambda&#x6761;&#x4EF6;&#x67E5;&#x8BE2;">Lambda&#x6761;&#x4EF6;&#x67E5;&#x8BE2;</h3>
+<blockquote>
+<p>&#x4F7F;&#x7528;Lambda&#x8868;&#x8FBE;&#x5F0F;&#x5B9E;&#x73B0;&#x5355;&#x8868;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#xFF0C;&#x5B9E;&#x73B0;&#x4E0A;&#x9762;&#x7684;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#xFF0C;&#x5BF9;&#x5E94;Java&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x540E;&#x53F0;&#x7528;&#x6237;&#x7BA1;&#x7406;Service&#x5B9E;&#x73B0;&#x7C7B;
+ * Created by macro on 2020/12/8.
+ */</span>
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UmsAdminService</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;UmsAdmin&gt; <span class="hljs-title">lambdaList</span><span class="hljs-params">(Integer pageNum, Integer pageSize, String username, List&lt;Integer&gt; statusList)</span> </span>{
+        PageHelper.startPage(pageNum, pageSize);
+        List&lt;UmsAdmin&gt; list = adminMapper.select(c -&gt; c.where(UmsAdminDynamicSqlSupport.username, isEqualToWhenPresent(username))
+                .and(UmsAdminDynamicSqlSupport.status, isIn(statusList))
+                .orderBy(UmsAdminDynamicSqlSupport.createTime.descending()));
+        <span class="hljs-keyword">return</span> list;
+    }
+}
+</code></pre>
+<h3 id="&#x5B50;&#x67E5;&#x8BE2;">&#x5B50;&#x67E5;&#x8BE2;</h3>
+<blockquote>
+<p>&#x4E4B;&#x524D;&#x4F7F;&#x7528;MBG&#x9700;&#x8981;&#x5728;mapper.xml&#x4E2D;&#x624B;&#x5199;SQL&#x624D;&#x80FD;&#x5B9E;&#x73B0;&#x5B50;&#x67E5;&#x8BE2;&#xFF0C;&#x4F7F;&#x7528;Dynamic SQL&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;Java&#x4EE3;&#x7801;&#x4E2D;&#x5B9E;&#x73B0;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x8FD9;&#x91CC;&#x4EE5;&#x6309;&#x89D2;&#x8272;ID&#x67E5;&#x8BE2;&#x540E;&#x53F0;&#x7528;&#x6237;&#x4E3A;&#x4F8B;&#xFF0C;SQL&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    * 
+<span class="hljs-keyword">FROM</span>
+    ums_admin 
+<span class="hljs-keyword">WHERE</span>
+    <span class="hljs-keyword">id</span> <span class="hljs-keyword">IN</span> ( <span class="hljs-keyword">SELECT</span> admin_id <span class="hljs-keyword">FROM</span> ums_admin_role_relation <span class="hljs-keyword">WHERE</span> role_id = <span class="hljs-number">1</span> )
+</code></pre>
+<ul>
+<li>&#x4F7F;&#x7528;Dynamic SQL&#x5BF9;&#x5E94;&#x7684;Java&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;SqlBuilder&#x7684;&#x6761;&#x4EF6;&#x6784;&#x9020;&#x65B9;&#x6CD5;isIn&#x4E2D;&#x8FD8;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;SqlBuilder&#x7684;&#x67E5;&#x8BE2;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x540E;&#x53F0;&#x7528;&#x6237;&#x7BA1;&#x7406;Service&#x5B9E;&#x73B0;&#x7C7B;
+ * Created by macro on 2020/12/8.
+ */</span>
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UmsAdminService</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;UmsAdmin&gt; <span class="hljs-title">subList</span><span class="hljs-params">(Long roleId)</span> </span>{
+        SelectStatementProvider selectStatement = SqlBuilder.select(UmsAdminMapper.selectList)
+                .from(UmsAdminDynamicSqlSupport.umsAdmin)
+                .where(UmsAdminDynamicSqlSupport.id, isIn(SqlBuilder.select(UmsAdminRoleRelationDynamicSqlSupport.adminId)
+                        .from(UmsAdminRoleRelationDynamicSqlSupport.umsAdminRoleRelation)
+                        .where(UmsAdminRoleRelationDynamicSqlSupport.roleId, isEqualTo(roleId))))
+                .build()
+                .render(RenderingStrategies.MYBATIS3);
+        <span class="hljs-keyword">return</span> adminMapper.selectMany(selectStatement);
+    }
+}
+</code></pre>
+<h3 id="group&#x548C;join&#x67E5;&#x8BE2;">Group&#x548C;Join&#x67E5;&#x8BE2;</h3>
+<blockquote>
+<p>&#x6D89;&#x53CA;&#x5230;&#x591A;&#x8868;&#x67E5;&#x8BE2;&#xFF0C;&#x4E4B;&#x524D;&#x4F7F;&#x7528;MBG&#x7684;&#x65F6;&#x5019;&#x57FA;&#x672C;&#x53EA;&#x80FD;&#x5728;mapper.xml&#x4E2D;&#x624B;&#x5199;SQL&#x5B9E;&#x73B0;&#xFF0C;&#x4F7F;&#x7528;Dynamic SQL&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x591A;&#x8868;&#x67E5;&#x8BE2;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x8FD9;&#x91CC;&#x4EE5;&#x6309;&#x89D2;&#x8272;&#x7EDF;&#x8BA1;&#x540E;&#x53F0;&#x7528;&#x6237;&#x6570;&#x91CF;&#x4E3A;&#x4F8B;&#xFF0C;SQL&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    ur.<span class="hljs-keyword">id</span> <span class="hljs-keyword">AS</span> roleId,
+    ur.<span class="hljs-keyword">NAME</span> <span class="hljs-keyword">AS</span> roleName,
+    <span class="hljs-keyword">count</span>( ua.<span class="hljs-keyword">id</span> ) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">count</span> 
+<span class="hljs-keyword">FROM</span>
+    ums_role ur
+    <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> ums_admin_role_relation uarr <span class="hljs-keyword">ON</span> ur.<span class="hljs-keyword">id</span> = uarr.role_id
+    <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> ums_admin ua <span class="hljs-keyword">ON</span> uarr.admin_id = ua.<span class="hljs-keyword">id</span> 
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+    ur.<span class="hljs-keyword">id</span>;
+</code></pre>
+<ul>
+<li>&#x5148;&#x5728;Dao&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;<code>groupList</code>&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;<code>@Results</code>&#x6CE8;&#x89E3;&#x5B9A;&#x4E49;&#x597D;resultMap&#xFF1B;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Created by macro on 2020/12/9.
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UmsAdminDao</span> </span>{
+    <span class="hljs-meta">@SelectProvider</span>(type = SqlProviderAdapter.class, method = <span class="hljs-string">&quot;select&quot;</span>)
+    <span class="hljs-meta">@Results</span>(id = <span class="hljs-string">&quot;RoleStatResult&quot;</span>, value = {
+            <span class="hljs-meta">@Result</span>(column = <span class="hljs-string">&quot;roleId&quot;</span>, property = <span class="hljs-string">&quot;roleId&quot;</span>, jdbcType = JdbcType.BIGINT, id = <span class="hljs-keyword">true</span>),
+            <span class="hljs-meta">@Result</span>(column = <span class="hljs-string">&quot;roleName&quot;</span>, property = <span class="hljs-string">&quot;roleName&quot;</span>, jdbcType = JdbcType.VARCHAR),
+            <span class="hljs-meta">@Result</span>(column = <span class="hljs-string">&quot;count&quot;</span>, property = <span class="hljs-string">&quot;count&quot;</span>, jdbcType = JdbcType.INTEGER)
+    })
+    <span class="hljs-function">List&lt;RoleStatDto&gt; <span class="hljs-title">groupList</span><span class="hljs-params">(SelectStatementProvider selectStatement)</span></span>;
+}
+</code></pre>
+<ul>
+<li>&#x7136;&#x540E;&#x5728;Service&#x4E2D;&#x8C03;&#x7528;<code>groupList</code>&#x65B9;&#x6CD5;&#x4F20;&#x5165;StatementProvider&#x5373;&#x53EF;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;Java&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x540E;&#x53F0;&#x7528;&#x6237;&#x7BA1;&#x7406;Service&#x5B9E;&#x73B0;&#x7C7B;
+ * Created by macro on 2020/12/8.
+ */</span>
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UmsAdminService</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;RoleStatDto&gt; <span class="hljs-title">groupList</span><span class="hljs-params">()</span> </span>{
+        SelectStatementProvider selectStatement = SqlBuilder.select(UmsRoleDynamicSqlSupport.id.as(<span class="hljs-string">&quot;roleId&quot;</span>), UmsRoleDynamicSqlSupport.name.as(<span class="hljs-string">&quot;roleName&quot;</span>), count(UmsAdminDynamicSqlSupport.id).as(<span class="hljs-string">&quot;count&quot;</span>))
+                .from(UmsRoleDynamicSqlSupport.umsRole)
+                .leftJoin(UmsAdminRoleRelationDynamicSqlSupport.umsAdminRoleRelation)
+                .on(UmsRoleDynamicSqlSupport.id, equalTo(UmsAdminRoleRelationDynamicSqlSupport.roleId))
+                .leftJoin(UmsAdminDynamicSqlSupport.umsAdmin)
+                .on(UmsAdminRoleRelationDynamicSqlSupport.adminId, equalTo(UmsAdminDynamicSqlSupport.id))
+                .groupBy(UmsRoleDynamicSqlSupport.id)
+                .build()
+                .render(RenderingStrategies.MYBATIS3);
+        <span class="hljs-keyword">return</span> adminDao.groupList(selectStatement);
+    }
+}
+</code></pre>
+<h3 id="&#x6761;&#x4EF6;&#x5220;&#x9664;">&#x6761;&#x4EF6;&#x5220;&#x9664;</h3>
+<blockquote>
+<p>&#x4F7F;&#x7528;Dynamic SQL&#x5B9E;&#x73B0;&#x6761;&#x4EF6;&#x5220;&#x9664;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;Mapper&#x63A5;&#x53E3;&#x4E2D;&#x751F;&#x6210;&#x597D;&#x7684;delete&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x8FD9;&#x91CC;&#x4EE5;&#x6309;&#x7528;&#x6237;&#x540D;&#x5220;&#x9664;&#x540E;&#x53F0;&#x7528;&#x6237;&#x4E3A;&#x4F8B;&#xFF0C;SQL&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-keyword">DELETE</span> 
+<span class="hljs-keyword">FROM</span>
+    ums_admin 
+<span class="hljs-keyword">WHERE</span>
+    username = <span class="hljs-string">&apos;andy&apos;</span>;
+</code></pre>
+<ul>
+<li>&#x4F7F;&#x7528;Dynamic SQL&#x5BF9;&#x5E94;Java&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x540E;&#x53F0;&#x7528;&#x6237;&#x7BA1;&#x7406;Service&#x5B9E;&#x73B0;&#x7C7B;
+ * Created by macro on 2020/12/8.
+ */</span>
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UmsAdminService</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deleteByUsername</span><span class="hljs-params">(String username)</span> </span>{
+        DeleteStatementProvider deleteStatement = SqlBuilder.deleteFrom(UmsAdminDynamicSqlSupport.umsAdmin)
+                .where(UmsAdminDynamicSqlSupport.username, isEqualTo(username))
+                .build()
+                .render(RenderingStrategies.MYBATIS3);
+        adminMapper.delete(deleteStatement);
+    }
+}
+</code></pre>
+<h3 id="&#x6761;&#x4EF6;&#x4FEE;&#x6539;">&#x6761;&#x4EF6;&#x4FEE;&#x6539;</h3>
+<blockquote>
+<p>&#x4F7F;&#x7528;Dynamic SQL&#x5B9E;&#x73B0;&#x6761;&#x4EF6;&#x4FEE;&#x6539;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;Mapper&#x63A5;&#x53E3;&#x4E2D;&#x751F;&#x6210;&#x597D;&#x7684;update&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x8FD9;&#x91CC;&#x4EE5;&#x6309;&#x6307;&#x5B9A;ID&#x4FEE;&#x6539;&#x540E;&#x53F0;&#x7528;&#x6237;&#x7684;&#x72B6;&#x6001;&#x4E3A;&#x4F8B;&#xFF0C;SQL&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-keyword">UPDATE</span> ums_admin 
+<span class="hljs-keyword">SET</span> <span class="hljs-keyword">STATUS</span> = <span class="hljs-number">1</span> 
+<span class="hljs-keyword">WHERE</span>
+    <span class="hljs-keyword">id</span> <span class="hljs-keyword">IN</span> ( <span class="hljs-number">1</span>, <span class="hljs-number">2</span> );
+</code></pre>
+<ul>
+<li>&#x4F7F;&#x7528;Dynamic SQL&#x5BF9;&#x5E94;Java&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x540E;&#x53F0;&#x7528;&#x6237;&#x7BA1;&#x7406;Service&#x5B9E;&#x73B0;&#x7C7B;
+ * Created by macro on 2020/12/8.
+ */</span>
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UmsAdminService</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateByIds</span><span class="hljs-params">(List&lt;Long&gt; ids, Integer status)</span> </span>{
+        UpdateStatementProvider updateStatement = SqlBuilder.update(UmsAdminDynamicSqlSupport.umsAdmin)
+                .set(UmsAdminDynamicSqlSupport.status).equalTo(status)
+                .where(UmsAdminDynamicSqlSupport.id, isIn(ids))
+                .build()
+                .render(RenderingStrategies.MYBATIS3);
+        adminMapper.update(updateStatement);
+    }
+}
+</code></pre>
+<h3 id="&#x4E00;&#x5BF9;&#x591A;&#x67E5;&#x8BE2;">&#x4E00;&#x5BF9;&#x591A;&#x67E5;&#x8BE2;</h3>
+<blockquote>
+<p>&#x4F7F;&#x7528;Dynamic SQL&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E00;&#x5BF9;&#x591A;&#x67E5;&#x8BE2;&#xFF0C;&#x53EA;&#x662F;&#x7531;&#x4E8E;Java&#x6CE8;&#x89E3;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x5BF9;&#x591A;&#x7684;resultMap&#x53EA;&#x80FD;&#x5728;mapper.xml&#x6765;&#x914D;&#x7F6E;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x662F;&#x552F;&#x4E00;&#x9700;&#x8981;&#x4F7F;&#x7528;mapper.xml&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x8FD9;&#x91CC;&#x4EE5;&#x6309;ID&#x67E5;&#x8BE2;&#x540E;&#x53F0;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF08;&#x5305;&#x542B;&#x5BF9;&#x5E94;&#x89D2;&#x8272;&#x5217;&#x8868;&#xFF09;&#x4E3A;&#x4F8B;&#xFF0C;SQL&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    ua.*,
+    ur.<span class="hljs-keyword">id</span> <span class="hljs-keyword">AS</span> role_id,
+    ur.<span class="hljs-keyword">NAME</span> <span class="hljs-keyword">AS</span> role_name,
+    ur.description <span class="hljs-keyword">AS</span> role_description,
+    ur.create_time <span class="hljs-keyword">AS</span> role_create_time,
+    ur.<span class="hljs-keyword">STATUS</span> <span class="hljs-keyword">AS</span> role_status,
+    ur.<span class="hljs-keyword">sort</span> <span class="hljs-keyword">AS</span> role_sort 
+<span class="hljs-keyword">FROM</span>
+    ums_admin ua
+    <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> ums_admin_role_relation uarr <span class="hljs-keyword">ON</span> ua.<span class="hljs-keyword">id</span> = uarr.admin_id
+    <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> ums_role ur <span class="hljs-keyword">ON</span> uarr.role_id = ur.<span class="hljs-keyword">id</span> 
+<span class="hljs-keyword">WHERE</span>
+    ua.<span class="hljs-keyword">id</span> = <span class="hljs-number">1</span>
+</code></pre>
+<ul>
+<li>&#x7136;&#x540E;&#x5728;Dao&#x63A5;&#x53E3;&#x4E2D;&#x6DFB;&#x52A0;<code>selectWithRoleList</code>&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;<code>@ResultMap</code>&#x6CE8;&#x89E3;&#x5F15;&#x7528;mapper.xml&#x4E2D;&#x5B9A;&#x4E49;&#x7684;resultMap&#xFF1B;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Created by macro on 2020/12/9.
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UmsAdminDao</span> </span>{
+
+    <span class="hljs-meta">@SelectProvider</span>(type = SqlProviderAdapter.class, method = <span class="hljs-string">&quot;select&quot;</span>)
+    <span class="hljs-meta">@ResultMap</span>(<span class="hljs-string">&quot;AdminRoleResult&quot;</span>)
+    <span class="hljs-function">AdminRoleDto <span class="hljs-title">selectWithRoleList</span><span class="hljs-params">(SelectStatementProvider selectStatement)</span></span>;
+}
+</code></pre>
+<ul>
+<li>&#x5728;mapper.xml&#x4E2D;&#x6DFB;&#x52A0;&#x540D;&#x79F0;&#x4E3A;<code>AdminRoleResult</code>&#x7684;resultMap&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x5C0F;&#x6280;&#x5DE7;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x5728;Mapper&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x597D;&#x7684;resultMap&#xFF1B;</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;AdminRoleResult&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;com.macro.mall.tiny.domain.AdminRoleDto&quot;</span>
+           <span class="hljs-attr">extends</span>=<span class="hljs-string">&quot;com.macro.mall.tiny.mbg.mapper.UmsAdminMapper.UmsAdminResult&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">collection</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;roleList&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;com.macro.mall.tiny.mbg.mapper.UmsRoleMapper.UmsRoleResult&quot;</span> <span class="hljs-attr">columnPrefix</span>=<span class="hljs-string">&quot;role_&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">collection</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x7136;&#x540E;&#x5728;Service&#x5B9E;&#x73B0;&#x7C7B;&#x4E2D;&#x8C03;&#x7528;&#x5373;&#x53EF;&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x7ED3;&#x679C;&#x96C6;&#x6620;&#x5C04;&#x7ED9;&#x67E5;&#x8BE2;&#x5217;&#x53D6;&#x4E86;&#x522B;&#x540D;&#x3002;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * &#x540E;&#x53F0;&#x7528;&#x6237;&#x7BA1;&#x7406;Service&#x5B9E;&#x73B0;&#x7C7B;
+ * Created by macro on 2020/12/8.
+ */</span>
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UmsAdminServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UmsAdminService</span> </span>{   
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> AdminRoleDto <span class="hljs-title">selectWithRoleList</span><span class="hljs-params">(Long id)</span> </span>{
+        List&lt;BasicColumn&gt; columnList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(CollUtil.toList(UmsAdminMapper.selectList));
+        columnList.add(UmsRoleDynamicSqlSupport.id.as(<span class="hljs-string">&quot;role_id&quot;</span>));
+        columnList.add(UmsRoleDynamicSqlSupport.name.as(<span class="hljs-string">&quot;role_name&quot;</span>));
+        columnList.add(UmsRoleDynamicSqlSupport.description.as(<span class="hljs-string">&quot;role_description&quot;</span>));
+        columnList.add(UmsRoleDynamicSqlSupport.createTime.as(<span class="hljs-string">&quot;role_create_time&quot;</span>));
+        columnList.add(UmsRoleDynamicSqlSupport.status.as(<span class="hljs-string">&quot;role_status&quot;</span>));
+        columnList.add(UmsRoleDynamicSqlSupport.sort.as(<span class="hljs-string">&quot;role_sort&quot;</span>));
+        SelectStatementProvider selectStatement = SqlBuilder.select(columnList)
+                .from(UmsAdminDynamicSqlSupport.umsAdmin)
+                .leftJoin(UmsAdminRoleRelationDynamicSqlSupport.umsAdminRoleRelation)
+                .on(UmsAdminDynamicSqlSupport.id, equalTo(UmsAdminRoleRelationDynamicSqlSupport.adminId))
+                .leftJoin(UmsRoleDynamicSqlSupport.umsRole)
+                .on(UmsAdminRoleRelationDynamicSqlSupport.roleId, equalTo(UmsRoleDynamicSqlSupport.id))
+                .where(UmsAdminDynamicSqlSupport.id, isEqualTo(id))
+                .build()
+                .render(RenderingStrategies.MYBATIS3);
+        <span class="hljs-keyword">return</span> adminDao.selectWithRoleList(selectStatement);
+    }
+}
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;MyBatis&#x5B98;&#x65B9;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5668;MBG&#x65F6;&#xFF0C;&#x914D;&#x7F6E;&#x7684;targetRuntime&#x51B3;&#x5B9A;&#x4E86;&#x4F7F;&#x7528;&#x5B83;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x3002;Dynamic SQL&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x4F7F;&#x7528;Java API&#x6765;&#x5B9E;&#x73B0;SQL&#x64CD;&#x4F5C;&#xFF0C;&#x4F20;&#x7EDF;&#x7684;&#x65B9;&#x5F0F;&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x5728;mapper.xml&#x4E2D;&#x624B;&#x5199;SQL&#x6765;&#x5B9E;&#x73B0;SQL&#x64CD;&#x4F5C;&#x3002;&#x867D;&#x7136;MyBatis&#x5B98;&#x65B9;&#x63A8;&#x8350;&#x4F7F;&#x7528;Dynamic SQL&#xFF0C;&#x4F46;&#x9009;&#x62E9;&#x90A3;&#x79CD;&#x65B9;&#x5F0F;&#x5168;&#x770B;&#x4E2A;&#x4EBA;&#x4E60;&#x60EF;&#x4E86;&#xFF01;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h2>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF1A;<a href="https://mybatis.org/mybatis-dynamic-sql/docs/introduction.html" target="_blank">https://mybatis.org/mybatis-dynamic-sql/docs/introduction.html</a></p>
+<h2 id="&#x9879;&#x76EE;&#x6E90;&#x7801;&#x5730;&#x5740;">&#x9879;&#x76EE;&#x6E90;&#x7801;&#x5730;&#x5740;</h2>
+<p><a href="https://github.com/macrozheng/mall-learning/tree/master/mall-tiny-dynamic-sql" target="_blank">https://github.com/macrozheng/mall-learning/tree/master/mall-tiny-dynamic-sql</a></p>
+<h2 id="&#x516C;&#x4F17;&#x53F7;">&#x516C;&#x4F17;&#x53F7;</h2>
+<p><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/banner/qrcode_for_macrozheng_258.jpg" alt="&#x516C;&#x4F17;&#x53F7;&#x56FE;&#x7247;"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lombok_start.html" class="navigation navigation-prev " aria-label="Previous page: Lombok有啥牛皮的？SpringBoot和IDEA官方都要支持它！">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="flyway_start.html" class="navigation navigation-next " aria-label="Next page: 数据库迁移搞炸了！没用这款开源神器的锅？">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"干掉mapper.xml！MyBatis新特性动态SQL真香！","level":"1.8.45","depth":2,"next":{"title":"数据库迁移搞炸了！没用这款开源神器的锅？","level":"1.8.46","depth":2,"path":"reference/flyway_start.md","ref":"reference/flyway_start.md","articles":[]},"previous":{"title":"Lombok有啥牛皮的？SpringBoot和IDEA官方都要支持它！","level":"1.8.44","depth":2,"path":"reference/lombok_start.md","ref":"reference/lombok_start.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/mybatis_dynamic_sql.md","mtime":"2021-08-23T04:11:11.569Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-23T04:32:57.691Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

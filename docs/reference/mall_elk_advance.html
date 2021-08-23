@@ -1,0 +1,2723 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>你居然还去服务器上捞日志，搭个日志收集系统难道不香么！ · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="efk_fluent.html" />
+    
+    
+    <link rel="prev" href="rabbitmq_start.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    序章
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../foreword/mall_foreword_01.html">
+            
+                <a href="../foreword/mall_foreword_01.html">
+            
+                    
+                    mall架构及功能概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../foreword/mall_foreword_02.html">
+            
+                <a href="../foreword/mall_foreword_02.html">
+            
+                    
+                    mall学习所需知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    架构篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architect/mall_arch_01.html">
+            
+                <a href="../architect/mall_arch_01.html">
+            
+                    
+                    mall整合SpringBoot+MyBatis搭建基本骨架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architect/mall_arch_02.html">
+            
+                <a href="../architect/mall_arch_02.html">
+            
+                    
+                    mall整合Swagger-UI实现在线API文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architect/mall_arch_03.html">
+            
+                <a href="../architect/mall_arch_03.html">
+            
+                    
+                    mall整合Redis实现缓存功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../architect/mall_arch_04.html">
+            
+                <a href="../architect/mall_arch_04.html">
+            
+                    
+                    mall整合SpringSecurity和JWT实现认证和授权（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../architect/mall_arch_05.html">
+            
+                <a href="../architect/mall_arch_05.html">
+            
+                    
+                    mall整合SpringSecurity和JWT实现认证和授权（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../architect/mall_arch_06.html">
+            
+                <a href="../architect/mall_arch_06.html">
+            
+                    
+                    mall整合SpringTask实现定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../architect/mall_arch_07.html">
+            
+                <a href="../architect/mall_arch_07.html">
+            
+                    
+                    mall整合Elasticsearch实现商品搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../architect/mall_arch_08.html">
+            
+                <a href="../architect/mall_arch_08.html">
+            
+                    
+                    mall整合Mongodb实现文档操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../architect/mall_arch_09.html">
+            
+                <a href="../architect/mall_arch_09.html">
+            
+                    
+                    mall整合RabbitMQ实现延迟消息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../architect/mall_arch_10.html">
+            
+                <a href="../architect/mall_arch_10.html">
+            
+                    
+                    mall整合OSS实现文件上传
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    业务篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../database/mall_database_overview.html">
+            
+                <a href="../database/mall_database_overview.html">
+            
+                    
+                    mall数据库表结构概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../database/mall_pms_01.html">
+            
+                <a href="../database/mall_pms_01.html">
+            
+                    
+                    商品模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../database/mall_pms_02.html">
+            
+                <a href="../database/mall_pms_02.html">
+            
+                    
+                    商品模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../database/mall_oms_01.html">
+            
+                <a href="../database/mall_oms_01.html">
+            
+                    
+                    订单模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../database/mall_oms_02.html">
+            
+                <a href="../database/mall_oms_02.html">
+            
+                    
+                    订单模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../database/mall_oms_03.html">
+            
+                <a href="../database/mall_oms_03.html">
+            
+                    
+                    订单模块数据库表解析（三）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../database/mall_sms_01.html">
+            
+                <a href="../database/mall_sms_01.html">
+            
+                    
+                    营销模块数据库表解析（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../database/mall_sms_02.html">
+            
+                <a href="../database/mall_sms_02.html">
+            
+                    
+                    营销模块数据库表解析（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../database/mall_sms_03.html">
+            
+                <a href="../database/mall_sms_03.html">
+            
+                    
+                    营销模块数据库表解析（三）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../database/mall_permission.html">
+            
+                <a href="../database/mall_permission.html">
+            
+                    
+                    权限管理功能设计与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../technology/product_sku.html">
+            
+                <a href="../technology/product_sku.html">
+            
+                    
+                    商品SKU功能设计与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    技术要点篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../technology/mybatis_mapper.html">
+            
+                <a href="../technology/mybatis_mapper.html">
+            
+                    
+                    MyBatis Generator使用过程中踩过的一个坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../technology/aop_log.html">
+            
+                <a href="../technology/aop_log.html">
+            
+                    
+                    SpringBoot应用中使用AOP记录接口访问日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../technology/mall_tiny_elk.html">
+            
+                <a href="../technology/mall_tiny_elk.html">
+            
+                    
+                    SpringBoot应用整合ELK实现日志收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../technology/springboot_cors.html">
+            
+                <a href="../technology/springboot_cors.html">
+            
+                    
+                    前后端分离项目，如何解决跨域问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../technology/java_stream.html">
+            
+                <a href="../technology/java_stream.html">
+            
+                    
+                    Java 8都出那么久了，Stream API了解下？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../technology/springsecurity_use.html">
+            
+                <a href="../technology/springsecurity_use.html">
+            
+                    
+                    仅需四步，整合SpringSecurity+JWT实现登录认证！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../technology/minio_use.html">
+            
+                <a href="../technology/minio_use.html">
+            
+                    
+                    前后端分离项目，如何优雅实现文件存储！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../technology/gateway_cors.html">
+            
+                <a href="../technology/gateway_cors.html">
+            
+                    
+                    前后端分离项目，引入Spring Cloud Gateway遇到的一个问题！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../technology/permission_back.html">
+            
+                <a href="../technology/permission_back.html">
+            
+                    
+                    手把手教你搞定权限管理，结合Spring Security实现接口的动态权限控制！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../technology/permission_front.html">
+            
+                <a href="../technology/permission_front.html">
+            
+                    
+                    手把手教你搞定权限管理，结合Vue实现菜单的动态权限控制！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../technology/springboot_validator.html">
+            
+                <a href="../technology/springboot_validator.html">
+            
+                    
+                    SpringBoot中处理校验逻辑的两种方式，真的很机智！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../technology/redis_permission.html">
+            
+                <a href="../technology/redis_permission.html">
+            
+                    
+                    使用Redis+AOP优化权限管理功能，这波操作贼爽！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../technology/product_search.html">
+            
+                <a href="../technology/product_search.html">
+            
+                    
+                    Elasticsearch项目实战，商品搜索功能设计与实现！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../technology/rabbitmq_delay.html">
+            
+                <a href="../technology/rabbitmq_delay.html">
+            
+                    
+                    RabbitMQ实现延迟消息居然如此简单，整个插件就完事了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../technology/swagger_upgrade.html">
+            
+                <a href="../technology/swagger_upgrade.html">
+            
+                    
+                    给Swagger升级了新版本，没想到居然有这么多坑！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../technology/elasticsearch_upgrade.html">
+            
+                <a href="../technology/elasticsearch_upgrade.html">
+            
+                    
+                    Elasticsearch 升级 7.x 版本后，我感觉掉坑里了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../technology/mall_permission_question.html">
+            
+                <a href="../technology/mall_permission_question.html">
+            
+                    
+                    搞定Mall项目中的权限管理功能，弄懂这些问题就妥了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    部署篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../deploy/mall_deploy_windows.html">
+            
+                <a href="../deploy/mall_deploy_windows.html">
+            
+                    
+                    mall在Windows环境下的部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../deploy/mall_deploy_docker.html">
+            
+                <a href="../deploy/mall_deploy_docker.html">
+            
+                    
+                    mall在Linux环境下的部署（基于Docker容器）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../deploy/mall_deploy_docker_compose.html">
+            
+                <a href="../deploy/mall_deploy_docker_compose.html">
+            
+                    
+                    mall在Linux环境下的部署（基于Docker Compose）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../deploy/mall_deploy_jenkins.html">
+            
+                <a href="../deploy/mall_deploy_jenkins.html">
+            
+                    
+                    mall在Linux环境下的自动化部署（基于Jenkins）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../deploy/mall_deploy_web.html">
+            
+                <a href="../deploy/mall_deploy_web.html">
+            
+                    
+                    mall前端项目的安装与部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../deploy/mall_swarm_deploy_windows.html">
+            
+                <a href="../deploy/mall_swarm_deploy_windows.html">
+            
+                    
+                    mall-swarm在Windows环境下的部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../deploy/mall_swarm_deploy_docker.html">
+            
+                <a href="../deploy/mall_swarm_deploy_docker.html">
+            
+                    
+                    mall-swarm在Linux环境下的部署（基于Docker容器）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../deploy/mall_swarm_deploy_jenkins.html">
+            
+                <a href="../deploy/mall_swarm_deploy_jenkins.html">
+            
+                    
+                    微服务架构下的自动化部署，使用Jenkins来实现！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../deploy/mall_swarm_deploy_k8s.html">
+            
+                <a href="../deploy/mall_swarm_deploy_k8s.html">
+            
+                    
+                    mall-swarm微服务项目在K8S下的实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../technology/springboot_auto_deploy.html">
+            
+                <a href="../technology/springboot_auto_deploy.html">
+            
+                    
+                    我常用的自动化部署技巧，贼好用，推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    进阶篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../cloud/springcloud.html">
+            
+                <a href="../cloud/springcloud.html">
+            
+                    
+                    Spring Cloud 整体架构概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../cloud/eureka.html">
+            
+                <a href="../cloud/eureka.html">
+            
+                    
+                    Spring Cloud Eureka：服务注册与发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../cloud/ribbon.html">
+            
+                <a href="../cloud/ribbon.html">
+            
+                    
+                    Spring Cloud Ribbon：负载均衡的服务调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../cloud/hystrix.html">
+            
+                <a href="../cloud/hystrix.html">
+            
+                    
+                    Spring Cloud Hystrix：服务容错保护
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../cloud/hystrix_dashboard.html">
+            
+                <a href="../cloud/hystrix_dashboard.html">
+            
+                    
+                    Hystrix Dashboard：断路器执行监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../cloud/feign.html">
+            
+                <a href="../cloud/feign.html">
+            
+                    
+                    Spring Cloud OpenFeign：基于Ribbon和Hystrix的声明式服务调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../cloud/zuul.html">
+            
+                <a href="../cloud/zuul.html">
+            
+                    
+                    Spring Cloud Zuul：API网关服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../cloud/config.html">
+            
+                <a href="../cloud/config.html">
+            
+                    
+                    Spring Cloud Config：外部集中化配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../cloud/bus.html">
+            
+                <a href="../cloud/bus.html">
+            
+                    
+                    Spring Cloud Bus：消息总线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../cloud/sleuth.html">
+            
+                <a href="../cloud/sleuth.html">
+            
+                    
+                    Spring Cloud Sleuth：分布式请求链路跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="../cloud/consul.html">
+            
+                <a href="../cloud/consul.html">
+            
+                    
+                    Spring Cloud Consul：服务治理与配置中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.12" data-path="../cloud/gateway.html">
+            
+                <a href="../cloud/gateway.html">
+            
+                    
+                    Spring Cloud Gateway：新一代API网关服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.13" data-path="../cloud/admin.html">
+            
+                <a href="../cloud/admin.html">
+            
+                    
+                    Spring Boot Admin：微服务应用监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.14" data-path="../cloud/oauth2.html">
+            
+                <a href="../cloud/oauth2.html">
+            
+                    
+                    Spring Cloud Security：Oauth2使用入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.15" data-path="../cloud/oauth2_jwt.html">
+            
+                <a href="../cloud/oauth2_jwt.html">
+            
+                    
+                    Spring Cloud Security：Oauth2结合JWT使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.16" data-path="../cloud/oauth2_sso.html">
+            
+                <a href="../cloud/oauth2_sso.html">
+            
+                    
+                    Spring Cloud Security：Oauth2实现单点登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.17" data-path="../cloud/nacos.html">
+            
+                <a href="../cloud/nacos.html">
+            
+                    
+                    Spring Cloud Alibaba：Nacos 作为注册中心和配置中心使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.18" data-path="../cloud/sentinel.html">
+            
+                <a href="../cloud/sentinel.html">
+            
+                    
+                    Spring Cloud Alibaba：Sentinel实现熔断与限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.19" data-path="../cloud/seata.html">
+            
+                <a href="../cloud/seata.html">
+            
+                    
+                    使用Seata彻底解决Spring Cloud中的分布式事务问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.20" data-path="../cloud/gateway_oauth2.html">
+            
+                <a href="../cloud/gateway_oauth2.html">
+            
+                    
+                    微服务权限终极解决方案，Spring Cloud Gateway + Oauth2 实现统一认证和鉴权！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.21" data-path="../cloud/oauth2_custom.html">
+            
+                <a href="../cloud/oauth2_custom.html">
+            
+                    
+                    我扒了半天源码，终于找到了Oauth2自定义处理结果的最佳方案！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.22" data-path="../cloud/knife4j_cloud.html">
+            
+                <a href="../cloud/knife4j_cloud.html">
+            
+                    
+                    微服务聚合Swagger文档，这波操作是真的香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    参考篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="mysql.html">
+            
+                <a href="mysql.html">
+            
+                    
+                    开发者必备Mysql命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="linux_command.html">
+            
+                <a href="linux_command.html">
+            
+                    
+                    还在百度Linux命令？推荐一套我用起来特顺手的命令！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="linux_firewall.html">
+            
+                <a href="linux_firewall.html">
+            
+                    
+                    Linux防火墙Firewall和Iptables的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="docker_command.html">
+            
+                <a href="docker_command.html">
+            
+                    
+                    还在百度Docker命令？推荐一套我用起来特顺手的命令！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="docker_maven.html">
+            
+                <a href="docker_maven.html">
+            
+                    
+                    使用Maven插件为SpringBoot应用构建Docker镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="docker_file.html">
+            
+                <a href="docker_file.html">
+            
+                    
+                    使用DockerFile为SpringBoot应用构建Docker镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="docker_compose.html">
+            
+                <a href="docker_compose.html">
+            
+                    
+                    使用Docker Compose部署SpringBoot应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="hutool.html">
+            
+                <a href="hutool.html">
+            
+                    
+                    Hutool中那些常用的工具类和方法 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="nginx.html">
+            
+                <a href="nginx.html">
+            
+                    
+                    Nginx的这些妙用，你肯定有不知道的！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="jenkins.html">
+            
+                <a href="jenkins.html">
+            
+                    
+                    使用Jenkins一键打包部署SpringBoot应用，就是这么6！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="jenkins_vue.html">
+            
+                <a href="jenkins_vue.html">
+            
+                    
+                    使用Jenkins一键打包部署前端应用，就是这么6！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="minio.html">
+            
+                <a href="minio.html">
+            
+                    
+                    Github标星19K+Star，10分钟自建对象存储服务！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.13" data-path="mysql_master_slave.html">
+            
+                <a href="mysql_master_slave.html">
+            
+                    
+                    MySql主从复制，从原理到实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.14" data-path="gaea.html">
+            
+                <a href="gaea.html">
+            
+                    
+                    你还在代码里做读写分离么，试试这个中间件吧！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.15" data-path="spring_data_redis.html">
+            
+                <a href="spring_data_redis.html">
+            
+                    
+                    Spring Data Redis 最佳实践！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.16" data-path="redis_cluster.html">
+            
+                <a href="redis_cluster.html">
+            
+                    
+                    Docker环境下秒建Redis集群，连SpringBoot也整上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.17" data-path="elasticsearch_start.html">
+            
+                <a href="elasticsearch_start.html">
+            
+                    
+                    Elasticsearch快速入门，掌握这些刚刚好！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.18" data-path="mongodb_start.html">
+            
+                <a href="mongodb_start.html">
+            
+                    
+                    MongoDB快速入门，掌握这些刚刚好！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.19" data-path="gogs_start.html">
+            
+                <a href="gogs_start.html">
+            
+                    
+                    Github标星34K+Star，这款开源项目助你秒建Git服务！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.20" data-path="rabbitmq_start.html">
+            
+                <a href="rabbitmq_start.html">
+            
+                    
+                    连RabbitMQ的5种核心消息模式都不懂，也敢说自己会用消息队列！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.21" data-path="mall_elk_advance.html">
+            
+                <a href="mall_elk_advance.html">
+            
+                    
+                    你居然还去服务器上捞日志，搭个日志收集系统难道不香么！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.22" data-path="efk_fluent.html">
+            
+                <a href="efk_fluent.html">
+            
+                    
+                    性能优越的轻量级日志收集工具，微软、亚马逊都在用！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.23" data-path="jose_jwt_start.html">
+            
+                <a href="jose_jwt_start.html">
+            
+                    
+                    听说你的JWT库用起来特别扭，推荐一款贼好用的！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.24" data-path="knife4j_start.html">
+            
+                <a href="knife4j_start.html">
+            
+                    
+                    给Swagger换了个新皮肤，瞬间高大上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.25" data-path="docker_protect_socket.html">
+            
+                <a href="docker_protect_socket.html">
+            
+                    
+                    Docker服务开放了这个端口，服务器分分钟变肉机！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.26" data-path="elk_security.html">
+            
+                <a href="elk_security.html">
+            
+                    
+                    居然有人想白嫖我的日志，赶紧开启安全保护压压惊！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.27" data-path="filebeat_start.html">
+            
+                <a href="filebeat_start.html">
+            
+                    
+                    面对成百上千台服务器产生的日志，试试这款轻量级日志搬运神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.28" data-path="maven_docker_fabric8.html">
+            
+                <a href="maven_docker_fabric8.html">
+            
+                    
+                    还在手动部署SpringBoot应用？试试这个自动化插件！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.29" data-path="hutool_start.html">
+            
+                <a href="hutool_start.html">
+            
+                    
+                    不要再重复造轮子了，这款开源工具类库贼好使！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.30" data-path="mybatis_plus_start.html">
+            
+                <a href="mybatis_plus_start.html">
+            
+                    
+                    还在手写CRUD代码？这款开源框架助你解放双手！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.31" data-path="power_job_start.html">
+            
+                <a href="power_job_start.html">
+            
+                    
+                    还在手写任务调度代码？试试这款可视化分布式调度框架！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.32" data-path="elastic_apm_start.html">
+            
+                <a href="elastic_apm_start.html">
+            
+                    
+                    微服务应用性能如何？APM监控工具来告诉你！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.33" data-path="rabbitmq_mqtt_start.html">
+            
+                <a href="rabbitmq_mqtt_start.html">
+            
+                    
+                    RabbitMQ实现即时通讯居然如此简单！连后端代码都省得写了？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.34" data-path="quartz_start.html">
+            
+                <a href="quartz_start.html">
+            
+                    
+                    SpringBoot官方支持任务调度框架，轻量级用起来也挺香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.35" data-path="nginx_https_start.html">
+            
+                <a href="nginx_https_start.html">
+            
+                    
+                    Nginx如何支持HTTPS？手把手教贼简单！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.36" data-path="swagger_starter.html">
+            
+                <a href="swagger_starter.html">
+            
+                    
+                    还在手动整合Swagger？Swagger官方Starter是真的香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.37" data-path="canal_start.html">
+            
+                <a href="canal_start.html">
+            
+                    
+                    MySQL如何实时同步数据到ES？试试这款阿里开源的神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.38" data-path="springboot_start.html">
+            
+                <a href="springboot_start.html">
+            
+                    
+                    肝了一周总结的SpringBoot实战教程，太实用了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.39" data-path="elasticsearch_sql_start.html">
+            
+                <a href="elasticsearch_sql_start.html">
+            
+                    
+                    Elasticsearch官方已支持SQL查询，用起来贼方便！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.40" data-path="springboot_docker_plugin.html">
+            
+                <a href="springboot_docker_plugin.html">
+            
+                    
+                    还在使用第三方Docker插件？SpringBoot官方插件真香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.41" data-path="yapi_start.html">
+            
+                <a href="yapi_start.html">
+            
+                    
+                    当Swagger遇上YApi，瞬间高大上了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.42" data-path="harbor_start.html">
+            
+                <a href="harbor_start.html">
+            
+                    
+                    DockerHub访问慢怎么破？自建个企业级镜像仓库试试！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.43" data-path="mybatis_generator_start.html">
+            
+                <a href="mybatis_generator_start.html">
+            
+                    
+                    解放双手！MyBatis官方代码生成工具给力！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.44" data-path="lombok_start.html">
+            
+                <a href="lombok_start.html">
+            
+                    
+                    Lombok有啥牛皮的？SpringBoot和IDEA官方都要支持它！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.45" data-path="mybatis_dynamic_sql.html">
+            
+                <a href="mybatis_dynamic_sql.html">
+            
+                    
+                    干掉mapper.xml！MyBatis新特性动态SQL真香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.46" data-path="flyway_start.html">
+            
+                <a href="flyway_start.html">
+            
+                    
+                    数据库迁移搞炸了！没用这款开源神器的锅？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    工具篇
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="idea.html">
+            
+                <a href="idea.html">
+            
+                    
+                    IDEA常用设置及推荐插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="navicat.html">
+            
+                <a href="navicat.html">
+            
+                    
+                    Navicat实用功能：数据备份与结构同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="postman.html">
+            
+                <a href="postman.html">
+            
+                    
+                    Postman：API接口调试利器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="gitlab.html">
+            
+                <a href="gitlab.html">
+            
+                    
+                    10分钟搭建自己的Git仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="idea_git.html">
+            
+                <a href="idea_git.html">
+            
+                    
+                    IDEA中的Git操作，看这一篇就够了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="linux_install.html">
+            
+                <a href="linux_install.html">
+            
+                    
+                    虚拟机安装及使用Linux，看这一篇就够了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="zentao.html">
+            
+                <a href="zentao.html">
+            
+                    
+                    推荐一个项目管理工具，落地基于Scrum的敏捷开发！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="idea_springboot.html">
+            
+                <a href="idea_springboot.html">
+            
+                    
+                    IDEA中创建和启动SpringBoot应用的正确姿势
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="my_tools.html">
+            
+                <a href="my_tools.html">
+            
+                    
+                    盘点下我用的顺手的那些工具！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="navicat_designer.html">
+            
+                <a href="navicat_designer.html">
+            
+                    
+                    我用起来顺手的数据库设计工具，这次推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="idea_plugins.html">
+            
+                <a href="idea_plugins.html">
+            
+                    
+                    我常用的IDEA插件大公开，个个是精品！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="datagrip_start.html">
+            
+                <a href="datagrip_start.html">
+            
+                    
+                    IDEA同款数据库管理工具，提示太全了，用起来贼香！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="my_web_tools.html">
+            
+                <a href="my_web_tools.html">
+            
+                    
+                    写了100多篇原创文章，我常用的在线工具网站推荐给大家！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="arthas_start.html">
+            
+                <a href="arthas_start.html">
+            
+                    
+                    线上项目出BUG没法调试？推荐这款阿里开源的诊断神器！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="my_debug_skill.html">
+            
+                <a href="my_debug_skill.html">
+            
+                    
+                    被我用烂的DEBUG调试技巧，专治各种搜索不到的问题！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="redis_desktop_start.html">
+            
+                <a href="redis_desktop_start.html">
+            
+                    
+                    Github标星 8K+，免费又好用的Redis客户端工具！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="swagger_postman.html">
+            
+                <a href="swagger_postman.html">
+            
+                    
+                    Swagger界面丑、功能弱怎么破？用Postman增强下就给力了！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="mysql_workbench.html">
+            
+                <a href="mysql_workbench.html">
+            
+                    
+                    干掉Navicat！MySQL官方客户端到底行不行？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >你居然还去服务器上捞日志，搭个日志收集系统难道不香么！</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x5B66;&#x4E60;&#x4E0D;&#x8D70;&#x5F2F;&#x8DEF;&#xFF0C;<a href="#&#x516C;&#x4F17;&#x53F7;">&#x5173;&#x6CE8;&#x516C;&#x4F17;&#x53F7;</a> &#x56DE;&#x590D;&#x300C;&#x5B66;&#x4E60;&#x8DEF;&#x7EBF;&#x300D;&#xFF0C;&#x83B7;&#x53D6;mall&#x9879;&#x76EE;&#x4E13;&#x5C5E;&#x5B66;&#x4E60;&#x8DEF;&#x7EBF;&#xFF01;</p>
+<h1 id="&#x4F60;&#x5C45;&#x7136;&#x8FD8;&#x53BB;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x635E;&#x65E5;&#x5FD7;&#xFF0C;&#x642D;&#x4E2A;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7CFB;&#x7EDF;&#x96BE;&#x9053;&#x4E0D;&#x9999;&#x4E48;&#xFF01;">&#x4F60;&#x5C45;&#x7136;&#x8FD8;&#x53BB;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x635E;&#x65E5;&#x5FD7;&#xFF0C;&#x642D;&#x4E2A;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7CFB;&#x7EDF;&#x96BE;&#x9053;&#x4E0D;&#x9999;&#x4E48;&#xFF01;</h1>
+<blockquote>
+<p>ELK&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7CFB;&#x7EDF;&#x8FDB;&#x9636;&#x4F7F;&#x7528;&#xFF0C;&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x6253;&#x9020;&#x4E00;&#x4E2A;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;&#x771F;&#x5B9E;&#x53EF;&#x7528;&#x7684;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7CFB;&#x7EDF;&#x3002;&#x6709;&#x4E86;&#x5B83;&#xFF0C;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x548C;&#x53BB;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x635E;&#x65E5;&#x5FD7;&#x8BF4;&#x518D;&#x89C1;&#x4E86;&#xFF01;</p>
+</blockquote>
+<h2 id="elk&#x73AF;&#x5883;&#x5B89;&#x88C5;">ELK&#x73AF;&#x5883;&#x5B89;&#x88C5;</h2>
+<blockquote>
+<p>ELK&#x662F;&#x6307;Elasticsearch&#x3001;Kibana&#x3001;Logstash&#x8FD9;&#x4E09;&#x79CD;&#x670D;&#x52A1;&#x642D;&#x5EFA;&#x7684;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7CFB;&#x7EDF;&#xFF0C;&#x5177;&#x4F53;&#x642D;&#x5EFA;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="https://mp.weixin.qq.com/s/ll_A6ddBaU99LSYmKdttYw" target="_blank">&#x300A;SpringBoot&#x5E94;&#x7528;&#x6574;&#x5408;ELK&#x5B9E;&#x73B0;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x300B;</a>&#x3002;&#x8FD9;&#x91CC;&#x4EC5;&#x63D0;&#x4F9B;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;docker-compose&#x811A;&#x672C;&#x548C;&#x4E00;&#x4E9B;&#x5B89;&#x88C5;&#x8981;&#x70B9;&#x3002;</p>
+</blockquote>
+<h3 id="docker-compose&#x811A;&#x672C;">docker-compose&#x811A;&#x672C;</h3>
+<pre><code class="lang-yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&apos;3&apos;</span>
+<span class="hljs-attr">services:</span>
+<span class="hljs-attr">  elasticsearch:</span>
+<span class="hljs-attr">    image:</span> elasticsearch:<span class="hljs-number">6.4</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">    container_name:</span> elasticsearch
+<span class="hljs-attr">    environment:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;cluster.name=elasticsearch&quot;</span> <span class="hljs-comment">#&#x8BBE;&#x7F6E;&#x96C6;&#x7FA4;&#x540D;&#x79F0;&#x4E3A;elasticsearch</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;discovery.type=single-node&quot;</span> <span class="hljs-comment">#&#x4EE5;&#x5355;&#x4E00;&#x8282;&#x70B9;&#x6A21;&#x5F0F;&#x542F;&#x52A8;</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;</span> <span class="hljs-comment">#&#x8BBE;&#x7F6E;&#x4F7F;&#x7528;jvm&#x5185;&#x5B58;&#x5927;&#x5C0F;</span>
+<span class="hljs-bullet">      -</span> TZ=Asia/Shanghai
+<span class="hljs-attr">    volumes:</span>
+<span class="hljs-bullet">      -</span> /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins <span class="hljs-comment">#&#x63D2;&#x4EF6;&#x6587;&#x4EF6;&#x6302;&#x8F7D;</span>
+<span class="hljs-bullet">      -</span> /mydata/elasticsearch/data:/usr/share/elasticsearch/data <span class="hljs-comment">#&#x6570;&#x636E;&#x6587;&#x4EF6;&#x6302;&#x8F7D;</span>
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">9200</span>:<span class="hljs-number">9200</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">9300</span>:<span class="hljs-number">9300</span>
+<span class="hljs-attr">  kibana:</span>
+<span class="hljs-attr">    image:</span> kibana:<span class="hljs-number">6.4</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">    container_name:</span> kibana
+<span class="hljs-attr">    links:</span>
+<span class="hljs-attr">      - elasticsearch:</span>es <span class="hljs-comment">#&#x53EF;&#x4EE5;&#x7528;es&#x8FD9;&#x4E2A;&#x57DF;&#x540D;&#x8BBF;&#x95EE;elasticsearch&#x670D;&#x52A1;</span>
+<span class="hljs-attr">    depends_on:</span>
+<span class="hljs-bullet">      -</span> elasticsearch <span class="hljs-comment">#kibana&#x5728;elasticsearch&#x542F;&#x52A8;&#x4E4B;&#x540E;&#x518D;&#x542F;&#x52A8;</span>
+<span class="hljs-attr">    environment:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;elasticsearch.hosts=http://es:9200&quot;</span> <span class="hljs-comment">#&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;elasticsearch&#x7684;&#x5730;&#x5740;</span>
+<span class="hljs-bullet">      -</span> TZ=Asia/Shanghai
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">5601</span>:<span class="hljs-number">5601</span>
+<span class="hljs-attr">  logstash:</span>
+<span class="hljs-attr">    image:</span> logstash:<span class="hljs-number">6.4</span><span class="hljs-number">.0</span>
+<span class="hljs-attr">    container_name:</span> logstash
+<span class="hljs-attr">    environment:</span>
+<span class="hljs-bullet">      -</span> TZ=Asia/Shanghai
+<span class="hljs-attr">    volumes:</span>
+<span class="hljs-bullet">      -</span> /mydata/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf <span class="hljs-comment">#&#x6302;&#x8F7D;logstash&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="hljs-attr">    depends_on:</span>
+<span class="hljs-bullet">      -</span> elasticsearch <span class="hljs-comment">#kibana&#x5728;elasticsearch&#x542F;&#x52A8;&#x4E4B;&#x540E;&#x518D;&#x542F;&#x52A8;</span>
+<span class="hljs-attr">    links:</span>
+<span class="hljs-attr">      - elasticsearch:</span>es <span class="hljs-comment">#&#x53EF;&#x4EE5;&#x7528;es&#x8FD9;&#x4E2A;&#x57DF;&#x540D;&#x8BBF;&#x95EE;elasticsearch&#x670D;&#x52A1;</span>
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">4560</span>:<span class="hljs-number">4560</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">4561</span>:<span class="hljs-number">4561</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">4562</span>:<span class="hljs-number">4562</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">4563</span>:<span class="hljs-number">4563</span>
+</code></pre>
+<h3 id="&#x5B89;&#x88C5;&#x8981;&#x70B9;">&#x5B89;&#x88C5;&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x4F7F;&#x7528;<code>docker-compose</code>&#x547D;&#x4EE4;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x670D;&#x52A1;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-bash">docker-compose up <span class="hljs-_">-d</span>
+</code></pre>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x73B0;Elasticsearch<code>&#x65E0;&#x6CD5;&#x542F;&#x52A8;</code>&#xFF0C;&#x90A3;&#x662F;&#x56E0;&#x4E3A;<code>/usr/share/elasticsearch/data</code>&#x76EE;&#x5F55;&#x6CA1;&#x6709;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x4FEE;&#x6539;<code>/mydata/elasticsearch/dat</code>a&#x76EE;&#x5F55;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x518D;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-bash">chmod 777 /mydata/elasticsearch/data/
+</code></pre>
+<ul>
+<li>Logstash&#x9700;&#x8981;&#x5B89;&#x88C5;<code>json_lines</code>&#x63D2;&#x4EF6;&#x3002;</li>
+</ul>
+<pre><code class="lang-bash">logstash-plugin install logstash-codec-json_lines
+</code></pre>
+<h2 id="&#x5206;&#x573A;&#x666F;&#x6536;&#x96C6;&#x65E5;&#x5FD7;">&#x5206;&#x573A;&#x666F;&#x6536;&#x96C6;&#x65E5;&#x5FD7;</h2>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x6211;&#x4EEC;&#x67E5;&#x770B;&#x65E5;&#x5FD7;&#xFF0C;&#x63D0;&#x51FA;&#x4E00;&#x4E2A;&#x5206;&#x573A;&#x666F;&#x6536;&#x96C6;&#x65E5;&#x5FD7;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x628A;&#x65E5;&#x5FD7;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x56DB;&#x79CD;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x8C03;&#x8BD5;&#x65E5;&#x5FD7;&#xFF1A;&#x6700;&#x5168;&#x65E5;&#x5FD7;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x5E94;&#x7528;&#x4E2D;&#x6240;&#x6709;<code>DEBUG</code>&#x7EA7;&#x522B;&#x4EE5;&#x4E0A;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x4EC5;&#x5728;&#x5F00;&#x53D1;&#x3001;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x4E2D;&#x5F00;&#x542F;&#x6536;&#x96C6;&#xFF1B;</li>
+<li>&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#xFF1A;&#x53EA;&#x5305;&#x542B;&#x5E94;&#x7528;&#x4E2D;&#x6240;&#x6709;<code>ERROR</code>&#x7EA7;&#x522B;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x6240;&#x6709;&#x73AF;&#x5883;&#x53EA;&#x90FD;&#x5F00;&#x542F;&#x6536;&#x96C6;&#xFF1B;</li>
+<li>&#x4E1A;&#x52A1;&#x65E5;&#x5FD7;&#xFF1A;&#x5728;&#x6211;&#x4EEC;&#x5E94;&#x7528;<code>&#x5BF9;&#x5E94;&#x5305;&#x4E0B;</code>&#x6253;&#x5370;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x67E5;&#x770B;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x6253;&#x5370;&#x7684;&#x4E1A;&#x52A1;&#x65E5;&#x5FD7;&#xFF1B;</li>
+<li>&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#xFF1A;&#x6BCF;&#x4E2A;&#x63A5;&#x53E3;&#x7684;<code>&#x8BBF;&#x95EE;&#x8BB0;&#x5F55;</code>&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x67E5;&#x770B;&#x63A5;&#x53E3;&#x6267;&#x884C;&#x6548;&#x7387;&#xFF0C;&#x83B7;&#x53D6;&#x63A5;&#x53E3;&#x8BBF;&#x95EE;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<h2 id="logback&#x914D;&#x7F6E;&#x8BE6;&#x89E3;">Logback&#x914D;&#x7F6E;&#x8BE6;&#x89E3;</h2>
+<blockquote>
+<p>&#x8981;&#x5B9E;&#x73B0;&#x4E0A;&#x9762;&#x7684;&#x5206;&#x573A;&#x666F;&#x6536;&#x96C6;&#x65E5;&#x5FD7;&#xFF0C;&#x4E3B;&#x8981;&#x901A;&#x8FC7;Logback&#x7684;&#x914D;&#x7F6E;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x4E86;&#x89E3;&#x4E0B;Logback&#x7684;&#x914D;&#x7F6E;&#x5427;&#xFF01;</p>
+</blockquote>
+<h3 id="&#x5B8C;&#x5168;&#x914D;&#x7F6E;">&#x5B8C;&#x5168;&#x914D;&#x7F6E;</h3>
+<blockquote>
+<p>&#x5728;SpringBoot&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x81EA;&#x5B9A;&#x4E49;Logback&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x9700;&#x8981;&#x81EA;&#x884C;&#x7F16;&#x5199;<code>logback-spring.xml</code>&#x6587;&#x4EF6;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x6211;&#x4EEC;&#x8FD9;&#x6B21;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x5B8C;&#x5168;&#x914D;&#x7F6E;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE configuration&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--&#x5F15;&#x7528;&#x9ED8;&#x8BA4;&#x65E5;&#x5FD7;&#x914D;&#x7F6E;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;org/springframework/boot/logging/logback/defaults.xml&quot;</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!--&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x63A7;&#x5236;&#x53F0;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5B9E;&#x73B0;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;org/springframework/boot/logging/logback/console-appender.xml&quot;</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!--&#x5E94;&#x7528;&#x540D;&#x79F0;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">springProperty</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;context&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;APP_NAME&quot;</span> <span class="hljs-attr">source</span>=<span class="hljs-string">&quot;spring.application.name&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;springBoot&quot;</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!--&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x8DEF;&#x5F84;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LOG_FILE_PATH&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/logs}&quot;</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!--LogStash&#x8BBF;&#x95EE;host--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">springProperty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LOG_STASH_HOST&quot;</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;context&quot;</span> <span class="hljs-attr">source</span>=<span class="hljs-string">&quot;logstash.host&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;localhost&quot;</span>/&gt;</span>
+
+    <span class="hljs-comment">&lt;!--DEBUG&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;FILE_DEBUG&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x8F93;&#x51FA;DEBUG&#x4EE5;&#x4E0A;&#x7EA7;&#x522B;&#x65E5;&#x5FD7;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">level</span>&gt;</span>DEBUG<span class="hljs-tag">&lt;/<span class="hljs-name">level</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684;&#x6587;&#x4EF6;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>${FILE_LOG_PATTERN}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">charset</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">charset</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">rollingPolicy</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&quot;</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x683C;&#x5F0F;--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">fileNamePattern</span>&gt;</span>${LOG_FILE_PATH}/debug/${APP_NAME}-%d{yyyy-MM-dd}-%i.log<span class="hljs-tag">&lt;/<span class="hljs-name">fileNamePattern</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x8BBE;&#x7F6E;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#xFF0C;&#x8D85;&#x8FC7;&#x5C31;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x6587;&#x4EF6;&#xFF0C;&#x9ED8;&#x8BA4;10M--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">maxFileSize</span>&gt;</span>${LOG_FILE_MAX_SIZE:-10MB}<span class="hljs-tag">&lt;/<span class="hljs-name">maxFileSize</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4FDD;&#x7559;&#x5929;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;30&#x5929;--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">maxHistory</span>&gt;</span>${LOG_FILE_MAX_HISTORY:-30}<span class="hljs-tag">&lt;/<span class="hljs-name">maxHistory</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">rollingPolicy</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--ERROR&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;FILE_ERROR&quot;</span>
+              <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x53EA;&#x8F93;&#x51FA;ERROR&#x7EA7;&#x522B;&#x7684;&#x65E5;&#x5FD7;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.filter.LevelFilter&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">level</span>&gt;</span>ERROR<span class="hljs-tag">&lt;/<span class="hljs-name">level</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">onMatch</span>&gt;</span>ACCEPT<span class="hljs-tag">&lt;/<span class="hljs-name">onMatch</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">onMismatch</span>&gt;</span>DENY<span class="hljs-tag">&lt;/<span class="hljs-name">onMismatch</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684;&#x6587;&#x4EF6;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>${FILE_LOG_PATTERN}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">charset</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">charset</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">rollingPolicy</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&quot;</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x683C;&#x5F0F;--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">fileNamePattern</span>&gt;</span>${LOG_FILE_PATH}/error/${APP_NAME}-%d{yyyy-MM-dd}-%i.log<span class="hljs-tag">&lt;/<span class="hljs-name">fileNamePattern</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x8BBE;&#x7F6E;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#xFF0C;&#x8D85;&#x8FC7;&#x5C31;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x6587;&#x4EF6;&#xFF0C;&#x9ED8;&#x8BA4;10M--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">maxFileSize</span>&gt;</span>${LOG_FILE_MAX_SIZE:-10MB}<span class="hljs-tag">&lt;/<span class="hljs-name">maxFileSize</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4FDD;&#x7559;&#x5929;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;30&#x5929;--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">maxHistory</span>&gt;</span>${LOG_FILE_MAX_HISTORY:-30}<span class="hljs-tag">&lt;/<span class="hljs-name">maxHistory</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">rollingPolicy</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--DEBUG&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;LogStash--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LOG_STASH_DEBUG&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.appender.LogstashTcpSocketAppender&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">level</span>&gt;</span>DEBUG<span class="hljs-tag">&lt;/<span class="hljs-name">level</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">destination</span>&gt;</span>${LOG_STASH_HOST}:4560<span class="hljs-tag">&lt;/<span class="hljs-name">destination</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">providers</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">timestamp</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">timeZone</span>&gt;</span>Asia/Shanghai<span class="hljs-tag">&lt;/<span class="hljs-name">timeZone</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">timestamp</span>&gt;</span>
+                <span class="hljs-comment">&lt;!--&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x683C;&#x5F0F;--&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                        {
+                        &quot;project&quot;: &quot;mall-tiny&quot;,
+                        &quot;level&quot;: &quot;%level&quot;,
+                        &quot;service&quot;: &quot;${APP_NAME:-}&quot;,
+                        &quot;pid&quot;: &quot;${PID:-}&quot;,
+                        &quot;thread&quot;: &quot;%thread&quot;,
+                        &quot;class&quot;: &quot;%logger&quot;,
+                        &quot;message&quot;: &quot;%message&quot;,
+                        &quot;stack_trace&quot;: &quot;%exception{20}&quot;
+                        }
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">providers</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x5F53;&#x6709;&#x591A;&#x4E2A;LogStash&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4E3A;&#x8F6E;&#x8BE2;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">connectionStrategy</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">roundRobin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">connectionTTL</span>&gt;</span>5 minutes<span class="hljs-tag">&lt;/<span class="hljs-name">connectionTTL</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">roundRobin</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">connectionStrategy</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--ERROR&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;LogStash--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LOG_STASH_ERROR&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.appender.LogstashTcpSocketAppender&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.filter.LevelFilter&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">level</span>&gt;</span>ERROR<span class="hljs-tag">&lt;/<span class="hljs-name">level</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">onMatch</span>&gt;</span>ACCEPT<span class="hljs-tag">&lt;/<span class="hljs-name">onMatch</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">onMismatch</span>&gt;</span>DENY<span class="hljs-tag">&lt;/<span class="hljs-name">onMismatch</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">destination</span>&gt;</span>${LOG_STASH_HOST}:4561<span class="hljs-tag">&lt;/<span class="hljs-name">destination</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">providers</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">timestamp</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">timeZone</span>&gt;</span>Asia/Shanghai<span class="hljs-tag">&lt;/<span class="hljs-name">timeZone</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">timestamp</span>&gt;</span>
+                <span class="hljs-comment">&lt;!--&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x683C;&#x5F0F;--&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                        {
+                        &quot;project&quot;: &quot;mall-tiny&quot;,
+                        &quot;level&quot;: &quot;%level&quot;,
+                        &quot;service&quot;: &quot;${APP_NAME:-}&quot;,
+                        &quot;pid&quot;: &quot;${PID:-}&quot;,
+                        &quot;thread&quot;: &quot;%thread&quot;,
+                        &quot;class&quot;: &quot;%logger&quot;,
+                        &quot;message&quot;: &quot;%message&quot;,
+                        &quot;stack_trace&quot;: &quot;%exception{20}&quot;
+                        }
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">providers</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x5F53;&#x6709;&#x591A;&#x4E2A;LogStash&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4E3A;&#x8F6E;&#x8BE2;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">connectionStrategy</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">roundRobin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">connectionTTL</span>&gt;</span>5 minutes<span class="hljs-tag">&lt;/<span class="hljs-name">connectionTTL</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">roundRobin</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">connectionStrategy</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--&#x4E1A;&#x52A1;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;LogStash--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LOG_STASH_BUSINESS&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.appender.LogstashTcpSocketAppender&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">destination</span>&gt;</span>${LOG_STASH_HOST}:4562<span class="hljs-tag">&lt;/<span class="hljs-name">destination</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">providers</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">timestamp</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">timeZone</span>&gt;</span>Asia/Shanghai<span class="hljs-tag">&lt;/<span class="hljs-name">timeZone</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">timestamp</span>&gt;</span>
+                <span class="hljs-comment">&lt;!--&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x683C;&#x5F0F;--&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                        {
+                        &quot;project&quot;: &quot;mall-tiny&quot;,
+                        &quot;level&quot;: &quot;%level&quot;,
+                        &quot;service&quot;: &quot;${APP_NAME:-}&quot;,
+                        &quot;pid&quot;: &quot;${PID:-}&quot;,
+                        &quot;thread&quot;: &quot;%thread&quot;,
+                        &quot;class&quot;: &quot;%logger&quot;,
+                        &quot;message&quot;: &quot;%message&quot;,
+                        &quot;stack_trace&quot;: &quot;%exception{20}&quot;
+                        }
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">providers</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x5F53;&#x6709;&#x591A;&#x4E2A;LogStash&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4E3A;&#x8F6E;&#x8BE2;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">connectionStrategy</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">roundRobin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">connectionTTL</span>&gt;</span>5 minutes<span class="hljs-tag">&lt;/<span class="hljs-name">connectionTTL</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">roundRobin</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">connectionStrategy</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--&#x63A5;&#x53E3;&#x8BBF;&#x95EE;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;LogStash--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LOG_STASH_RECORD&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.appender.LogstashTcpSocketAppender&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">destination</span>&gt;</span>${LOG_STASH_HOST}:4563<span class="hljs-tag">&lt;/<span class="hljs-name">destination</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">providers</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">timestamp</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">timeZone</span>&gt;</span>Asia/Shanghai<span class="hljs-tag">&lt;/<span class="hljs-name">timeZone</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">timestamp</span>&gt;</span>
+                <span class="hljs-comment">&lt;!--&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x683C;&#x5F0F;--&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                        {
+                        &quot;project&quot;: &quot;mall-tiny&quot;,
+                        &quot;level&quot;: &quot;%level&quot;,
+                        &quot;service&quot;: &quot;${APP_NAME:-}&quot;,
+                        &quot;class&quot;: &quot;%logger&quot;,
+                        &quot;message&quot;: &quot;%message&quot;
+                        }
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">providers</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x5F53;&#x6709;&#x591A;&#x4E2A;LogStash&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4E3A;&#x8F6E;&#x8BE2;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">connectionStrategy</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">roundRobin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">connectionTTL</span>&gt;</span>5 minutes<span class="hljs-tag">&lt;/<span class="hljs-name">connectionTTL</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">roundRobin</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">connectionStrategy</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--&#x63A7;&#x5236;&#x6846;&#x67B6;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.slf4j&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;springfox&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;io.swagger&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.springframework&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.hibernate.validator&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;DEBUG&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;CONSOLE&quot;</span>/&gt;</span>
+        <span class="hljs-comment">&lt;!--&lt;appender-ref ref=&quot;FILE_DEBUG&quot;/&gt;--&gt;</span>
+        <span class="hljs-comment">&lt;!--&lt;appender-ref ref=&quot;FILE_ERROR&quot;/&gt;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;LOG_STASH_DEBUG&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;LOG_STASH_ERROR&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;com.macro.mall.tiny.component&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;DEBUG&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;LOG_STASH_RECORD&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">logger</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;com.macro.mall&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;DEBUG&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;LOG_STASH_BUSINESS&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">logger</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+</code></pre>
+<h3 id="&#x914D;&#x7F6E;&#x8981;&#x70B9;&#x89E3;&#x6790;">&#x914D;&#x7F6E;&#x8981;&#x70B9;&#x89E3;&#x6790;</h3>
+<h4 id="&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x65E5;&#x5FD7;&#x914D;&#x7F6E;">&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x65E5;&#x5FD7;&#x914D;&#x7F6E;</h4>
+<blockquote>
+<p>&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;&#xFF0C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#xFF0C;&#x5177;&#x4F53;&#x914D;&#x7F6E;&#x53C2;&#x8003;<code>console-appender.xml</code>&#xFF0C;&#x8BE5;&#x6587;&#x4EF6;&#x5728;<code>spring-boot-${version}.jar</code>&#x4E0B;&#x9762;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!--&#x5F15;&#x7528;&#x9ED8;&#x8BA4;&#x65E5;&#x5FD7;&#x914D;&#x7F6E;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;org/springframework/boot/logging/logback/defaults.xml&quot;</span>/&gt;</span>
+<span class="hljs-comment">&lt;!--&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x63A7;&#x5236;&#x53F0;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5B9E;&#x73B0;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;org/springframework/boot/logging/logback/console-appender.xml&quot;</span>/&gt;</span>
+</code></pre>
+<h4 id="springproperty">springProperty</h4>
+<blockquote>
+<p>&#x8BE5;&#x6807;&#x7B7E;&#x53EF;&#x4EE5;&#x4ECE;SpringBoot&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x83B7;&#x53D6;&#x914D;&#x7F6E;&#x5C5E;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;&#x5728;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x4E0B;&#x6211;&#x4EEC;&#x7684;Logstash&#x670D;&#x52A1;&#x5730;&#x5740;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x8BE5;&#x5730;&#x5740;&#x5B9A;&#x4E49;&#x5728;<code>application.yml</code>&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
+</blockquote>
+<p>&#x4F8B;&#x5982;&#x5728;<code>application-dev.yml</code>&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">logstash:</span>
+<span class="hljs-attr">  host:</span> localhost
+</code></pre>
+<p>&#x5728;<code>logback-spring.xml</code>&#x4E2D;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!--&#x5E94;&#x7528;&#x540D;&#x79F0;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">springProperty</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;context&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;APP_NAME&quot;</span> <span class="hljs-attr">source</span>=<span class="hljs-string">&quot;spring.application.name&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;springBoot&quot;</span>/&gt;</span>
+<span class="hljs-comment">&lt;!--LogStash&#x8BBF;&#x95EE;host--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">springProperty</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LOG_STASH_HOST&quot;</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;context&quot;</span> <span class="hljs-attr">source</span>=<span class="hljs-string">&quot;logstash.host&quot;</span> <span class="hljs-attr">defaultValue</span>=<span class="hljs-string">&quot;localhost&quot;</span>/&gt;</span>
+</code></pre>
+<h4 id="filter">filter</h4>
+<blockquote>
+<p>&#x5728;Logback&#x4E2D;&#x6709;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x7528;&#x6765;&#x8FC7;&#x6EE4;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x3002;</p>
+</blockquote>
+<p>ThresholdFilter&#xFF1A;&#x4E34;&#x754C;&#x503C;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x8FC7;&#x6EE4;&#x6389;&#x4F4E;&#x4E8E;&#x6307;&#x5B9A;&#x4E34;&#x754C;&#x503C;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5C06;&#x8FC7;&#x6EE4;&#x6389;&#x6240;&#x6709;&#x4F4E;&#x4E8E;INFO&#x7EA7;&#x522B;&#x7684;&#x65E5;&#x5FD7;&#x3002;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">level</span>&gt;</span>INFO<span class="hljs-tag">&lt;/<span class="hljs-name">level</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span>
+</code></pre>
+<p>LevelFilter&#xFF1A;&#x7EA7;&#x522B;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x6839;&#x636E;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x914D;&#x7F6E;&#x5C06;&#x8FC7;&#x6EE4;&#x6389;&#x6240;&#x6709;&#x975E;ERROR&#x7EA7;&#x522B;&#x7684;&#x65E5;&#x5FD7;&#x3002;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">filter</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.filter.LevelFilter&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">level</span>&gt;</span>ERROR<span class="hljs-tag">&lt;/<span class="hljs-name">level</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">onMatch</span>&gt;</span>ACCEPT<span class="hljs-tag">&lt;/<span class="hljs-name">onMatch</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">onMismatch</span>&gt;</span>DENY<span class="hljs-tag">&lt;/<span class="hljs-name">onMismatch</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span>
+</code></pre>
+<h4 id="appender">appender</h4>
+<blockquote>
+<p>Appender&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x63A7;&#x5236;&#x65E5;&#x5FD7;&#x7684;&#x8F93;&#x51FA;&#x5F62;&#x5F0F;&#xFF0C;&#x4E3B;&#x8981;&#x6709;&#x4E0B;&#x9762;&#x4E09;&#x79CD;&#x3002;</p>
+</blockquote>
+<ul>
+<li>ConsoleAppender&#xFF1A;&#x63A7;&#x5236;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982;&#x5728;<code>console-appender.xml</code>&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x9ED8;&#x8BA4;&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;&#x3002;</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;CONSOLE&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>${CONSOLE_LOG_PATTERN}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+</code></pre>
+<ul>
+<li>RollingFileAppender&#xFF1A;&#x63A7;&#x5236;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x751F;&#x6210;&#x7B56;&#x7565;&#xFF0C;&#x6BD4;&#x5982;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x683C;&#x5F0F;&#x3001;&#x8D85;&#x8FC7;&#x591A;&#x5927;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x6587;&#x4EF6;&#x4EE5;&#x53CA;&#x5220;&#x9664;&#x8D85;&#x8FC7;&#x591A;&#x5C11;&#x5929;&#x7684;&#x6587;&#x4EF6;&#x3002;</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!--ERROR&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;FILE_ERROR&quot;</span>
+          <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">rollingPolicy</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&quot;</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x683C;&#x5F0F;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fileNamePattern</span>&gt;</span>${LOG_FILE_PATH}/error/${APP_NAME}-%d{yyyy-MM-dd}-%i.log<span class="hljs-tag">&lt;/<span class="hljs-name">fileNamePattern</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x8BBE;&#x7F6E;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#xFF0C;&#x8D85;&#x8FC7;&#x5C31;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x6587;&#x4EF6;&#xFF0C;&#x9ED8;&#x8BA4;10M--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">maxFileSize</span>&gt;</span>${LOG_FILE_MAX_SIZE:-10MB}<span class="hljs-tag">&lt;/<span class="hljs-name">maxFileSize</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4FDD;&#x7559;&#x5929;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;30&#x5929;--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">maxHistory</span>&gt;</span>${LOG_FILE_MAX_HISTORY:-30}<span class="hljs-tag">&lt;/<span class="hljs-name">maxHistory</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">rollingPolicy</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+</code></pre>
+<ul>
+<li>LogstashTcpSocketAppender&#xFF1A;&#x63A7;&#x5236;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;Logstash&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x914D;&#x7F6E;Logstash&#x7684;&#x5730;&#x5740;&#x3001;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4EE5;&#x53CA;&#x65E5;&#x5FD7;&#x7684;&#x683C;&#x5F0F;&#x3002;</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!--ERROR&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x5230;LogStash--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LOG_STASH_ERROR&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.appender.LogstashTcpSocketAppender&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">destination</span>&gt;</span>${LOG_STASH_HOST}:4561<span class="hljs-tag">&lt;/<span class="hljs-name">destination</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">providers</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">timestamp</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">timeZone</span>&gt;</span>Asia/Shanghai<span class="hljs-tag">&lt;/<span class="hljs-name">timeZone</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">timestamp</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x683C;&#x5F0F;--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+                    {
+                    &quot;project&quot;: &quot;mall-tiny&quot;,
+                    &quot;level&quot;: &quot;%level&quot;,
+                    &quot;service&quot;: &quot;${APP_NAME:-}&quot;,
+                    &quot;pid&quot;: &quot;${PID:-}&quot;,
+                    &quot;thread&quot;: &quot;%thread&quot;,
+                    &quot;class&quot;: &quot;%logger&quot;,
+                    &quot;message&quot;: &quot;%message&quot;,
+                    &quot;stack_trace&quot;: &quot;%exception{20}&quot;
+                    }
+                <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">providers</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--&#x5F53;&#x6709;&#x591A;&#x4E2A;LogStash&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4E3A;&#x8F6E;&#x8BE2;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">connectionStrategy</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">roundRobin</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">connectionTTL</span>&gt;</span>5 minutes<span class="hljs-tag">&lt;/<span class="hljs-name">connectionTTL</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">roundRobin</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">connectionStrategy</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+</code></pre>
+<h4 id="logger">logger</h4>
+<blockquote>
+<p>&#x53EA;&#x6709;&#x914D;&#x7F6E;&#x5230;logger&#x8282;&#x70B9;&#x4E0A;&#x7684;appender&#x624D;&#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;logger&#x7528;&#x4E8E;&#x914D;&#x7F6E;&#x54EA;&#x79CD;&#x6761;&#x4EF6;&#x4E0B;&#x7684;&#x65E5;&#x5FD7;&#x88AB;&#x6253;&#x5370;&#xFF0C;root&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;appender&#xFF0C;&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x4E0B;&#x65E5;&#x5FD7;&#x5212;&#x5206;&#x7684;&#x6761;&#x4EF6;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x8C03;&#x8BD5;&#x65E5;&#x5FD7;&#xFF1A;&#x6240;&#x6709;&#x7684;DEBUG&#x7EA7;&#x522B;&#x4EE5;&#x4E0A;&#x65E5;&#x5FD7;&#xFF1B;</li>
+<li>&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#xFF1A;&#x6240;&#x6709;&#x7684;ERROR&#x7EA7;&#x522B;&#x65E5;&#x5FD7;&#xFF1B;</li>
+<li>&#x4E1A;&#x52A1;&#x65E5;&#x5FD7;&#xFF1A;<code>com.macro.mall</code>&#x5305;&#x4E0B;&#x7684;&#x6240;&#x6709;DEBUG&#x7EA7;&#x522B;&#x4EE5;&#x4E0A;&#x65E5;&#x5FD7;&#xFF1B;</li>
+<li>&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#xFF1A;<code>com.macro.mall.tiny.component.WebLogAspect</code>&#x7C7B;&#x4E0B;&#x6240;&#x6709;DEBUG&#x7EA7;&#x522B;&#x4EE5;&#x4E0A;&#x65E5;&#x5FD7;&#xFF0C;&#x8BE5;&#x7C7B;&#x662F;&#x7EDF;&#x8BA1;&#x63A5;&#x53E3;&#x8BBF;&#x95EE;&#x4FE1;&#x606F;&#x7684;AOP&#x5207;&#x9762;&#x7C7B;&#x3002;</li>
+</ul>
+<h4 id="&#x63A7;&#x5236;&#x6846;&#x67B6;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;">&#x63A7;&#x5236;&#x6846;&#x67B6;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;</h4>
+<blockquote>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x4F7F;&#x7528;&#x6846;&#x67B6;&#x5185;&#x90E8;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;DEBUG&#x7EA7;&#x522B;&#x7684;&#x65E5;&#x5FD7;&#x5BF9;&#x6211;&#x4EEC;&#x5E76;&#x6CA1;&#x6709;&#x5565;&#x7528;&#x5904;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E86;INFO&#x4EE5;&#x4E0A;&#x7EA7;&#x522B;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!--&#x63A7;&#x5236;&#x6846;&#x67B6;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.slf4j&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;springfox&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;io.swagger&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.springframework&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.hibernate.validator&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>/&gt;</span>
+</code></pre>
+<h2 id="logstash&#x914D;&#x7F6E;&#x8BE6;&#x89E3;">Logstash&#x914D;&#x7F6E;&#x8BE6;&#x89E3;</h2>
+<blockquote>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E0B;Logstash&#xFF0C;&#x8BA9;&#x5B83;&#x53EF;&#x4EE5;&#x5206;&#x573A;&#x666F;&#x6536;&#x96C6;&#x4E0D;&#x540C;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x4E0B;&#x9762;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E0B;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
+</blockquote>
+<h3 id="&#x5B8C;&#x5168;&#x914D;&#x7F6E;">&#x5B8C;&#x5168;&#x914D;&#x7F6E;</h3>
+<pre><code>input {
+  tcp {
+    mode =&gt; &quot;server&quot;
+    host =&gt; &quot;0.0.0.0&quot;
+    port =&gt; 4560
+    codec =&gt; json_lines
+    type =&gt; &quot;debug&quot;
+  }
+  tcp {
+    mode =&gt; &quot;server&quot;
+    host =&gt; &quot;0.0.0.0&quot;
+    port =&gt; 4561
+    codec =&gt; json_lines
+    type =&gt; &quot;error&quot;
+  }
+  tcp {
+    mode =&gt; &quot;server&quot;
+    host =&gt; &quot;0.0.0.0&quot;
+    port =&gt; 4562
+    codec =&gt; json_lines
+    type =&gt; &quot;business&quot;
+  }
+  tcp {
+    mode =&gt; &quot;server&quot;
+    host =&gt; &quot;0.0.0.0&quot;
+    port =&gt; 4563
+    codec =&gt; json_lines
+    type =&gt; &quot;record&quot;
+  }
+}
+filter{
+  if [type] == &quot;record&quot; {
+    mutate {
+      remove_field =&gt; &quot;port&quot;
+      remove_field =&gt; &quot;host&quot;
+      remove_field =&gt; &quot;@version&quot;
+    }
+    json {
+      source =&gt; &quot;message&quot;
+      remove_field =&gt; [&quot;message&quot;]
+    }
+  }
+}
+output {
+  elasticsearch {
+    hosts =&gt; [&quot;es:9200&quot;]
+    action =&gt; &quot;index&quot;
+    codec =&gt; json
+    index =&gt; &quot;mall-tiny-%{type}-%{+YYYY.MM.dd}&quot;
+    template_name =&gt; &quot;mall-tiny&quot;
+  }
+}
+</code></pre><h3 id="&#x914D;&#x7F6E;&#x8981;&#x70B9;">&#x914D;&#x7F6E;&#x8981;&#x70B9;</h3>
+<ul>
+<li>input&#xFF1A;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7AEF;&#x53E3;&#x6536;&#x96C6;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x4ECE;4560~4563&#x5F00;&#x542F;&#x56DB;&#x4E2A;&#x7AEF;&#x53E3;&#xFF1B;</li>
+<li>filter&#xFF1A;&#x5BF9;&#x4E8E;&#x8BB0;&#x5F55;&#x7C7B;&#x578B;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x76F4;&#x63A5;&#x5C06;JSON&#x683C;&#x5F0F;&#x7684;message&#x8F6C;&#x5316;&#x5230;source&#x4E2D;&#x53BB;&#xFF0C;&#x4FBF;&#x4E8E;&#x641C;&#x7D22;&#x67E5;&#x770B;&#xFF1B;</li>
+<li>output&#xFF1A;&#x6309;&#x7C7B;&#x578B;&#x3001;&#x65F6;&#x95F4;&#x81EA;&#x5B9A;&#x4E49;&#x7D22;&#x5F15;&#x683C;&#x5F0F;&#x3002;</li>
+</ul>
+<h2 id="springboot&#x914D;&#x7F6E;">SpringBoot&#x914D;&#x7F6E;</h2>
+<blockquote>
+<p>&#x5728;SpringBoot&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;&#x6765;&#x8986;&#x76D6;Logback&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x6BD4;&#x5982;<code>logging.level.root</code>&#x5C31;&#x53EF;&#x4EE5;&#x8986;&#x76D6;<code>&lt;root&gt;</code>&#x8282;&#x70B9;&#x4E2D;&#x7684;<code>level</code>&#x914D;&#x7F6E;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#xFF1A;application-dev.yml</li>
+</ul>
+<pre><code class="lang-yaml"><span class="hljs-attr">logstash:</span>
+<span class="hljs-attr">  host:</span> localhost
+<span class="hljs-attr">logging:</span>
+<span class="hljs-attr">  level:</span>
+<span class="hljs-attr">    root:</span> debug
+</code></pre>
+<ul>
+<li>&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#xFF1A;application-test.yml</li>
+</ul>
+<pre><code class="lang-yaml"><span class="hljs-attr">logstash:</span>
+<span class="hljs-attr">  host:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.3</span><span class="hljs-number">.101</span>
+<span class="hljs-attr">logging:</span>
+<span class="hljs-attr">  level:</span>
+<span class="hljs-attr">    root:</span> debug
+</code></pre>
+<ul>
+<li>&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#xFF1A;application-prod.yml</li>
+</ul>
+<pre><code class="lang-yaml"><span class="hljs-attr">logstash:</span>
+<span class="hljs-attr">  host:</span> logstash-prod
+<span class="hljs-attr">logging:</span>
+<span class="hljs-attr">  level:</span>
+<span class="hljs-attr">    root:</span> info
+</code></pre>
+<h2 id="kibana&#x8FDB;&#x9636;&#x4F7F;&#x7528;">Kibana&#x8FDB;&#x9636;&#x4F7F;&#x7528;</h2>
+<blockquote>
+<p>&#x8FDB;&#x8FC7;&#x4E0A;&#x9762;ELK&#x73AF;&#x5883;&#x7684;&#x642D;&#x5EFA;&#x548C;&#x914D;&#x7F6E;&#x4EE5;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7CFB;&#x7EDF;&#x7EC8;&#x4E8E;&#x53EF;&#x4EE5;&#x7528;&#x8D77;&#x6765;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x4E0B;&#x5728;Kibana&#x4E2D;&#x7684;&#x4F7F;&#x7528;&#x6280;&#x5DE7;&#xFF01;</p>
+</blockquote>
+<ul>
+<li>&#x9996;&#x5148;&#x542F;&#x52A8;&#x6211;&#x4EEC;&#x7684;&#x6D4B;&#x8BD5;Demo&#xFF0C;&#x7136;&#x540E;&#x901A;&#x7528;&#x8C03;&#x7528;&#x63A5;&#x53E3;&#xFF08;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Swagger&#xFF09;&#xFF0C;&#x4EA7;&#x751F;&#x4E00;&#x4E9B;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#xFF1B;</li>
+</ul>
+<p><img src="../images/elk_advance_01.png" alt=""></p>
+<ul>
+<li>&#x8C03;&#x7528;&#x5B8C;&#x6210;&#x540E;&#x5728;<code>Management-&gt;Kibana-&gt;Index Patterns</code>&#x4E2D;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;<code>Index Patterns</code>&#xFF0C;Kibana&#x670D;&#x52A1;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF1A;<a href="http://192.168.3.101:5601" target="_blank">http://192.168.3.101:5601</a></li>
+</ul>
+<p><img src="../images/elk_advance_02.png" alt=""></p>
+<ul>
+<li>&#x521B;&#x5EFA;&#x5B8C;&#x6210;&#x540E;&#x53EF;&#x4EE5;&#x5728;<code>Discover</code>&#x4E2D;&#x67E5;&#x770B;&#x6240;&#x6709;&#x65E5;&#x5FD7;&#xFF0C;&#x8C03;&#x8BD5;&#x65E5;&#x5FD7;&#x53EA;&#x9700;&#x76F4;&#x63A5;&#x67E5;&#x770B;<code>mall-tiny-debug*</code>&#x6A21;&#x5F0F;&#x7684;&#x65E5;&#x5FD7;&#x5373;&#x53EF;&#xFF1B;</li>
+</ul>
+<p><img src="../images/elk_advance_03.png" alt=""></p>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x65E5;&#x5FD7;&#x641C;&#x7D22;&#xFF0C;kibana&#x6709;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x7684;&#x63D0;&#x793A;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x641C;&#x7D22;&#x680F;&#x53F3;&#x4FA7;&#x7684;<code>Options</code>&#x6309;&#x94AE;&#x6253;&#x5F00;&#xFF1B;</li>
+</ul>
+<p><img src="../images/elk_advance_04.png" alt=""></p>
+<ul>
+<li>&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x53EA;&#x9700;&#x76F4;&#x63A5;&#x67E5;&#x770B;<code>mall-tiny-record*</code>&#x6A21;&#x5F0F;&#x7684;&#x65E5;&#x5FD7;&#x5373;&#x53EF;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x641C;&#x7D22;uri&#x4E3A;<code>/brand/listAll</code>&#x7684;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#xFF0C;&#x53EA;&#x9700;&#x5728;&#x641C;&#x7D22;&#x680F;&#x4E2D;&#x8F93;&#x5165;<code>uri : &quot;/brand/listAll&quot;</code>&#xFF1B;</li>
+</ul>
+<p><img src="../images/elk_advance_05.png" alt=""></p>
+<ul>
+<li>&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#xFF0C;&#x53EA;&#x9700;&#x76F4;&#x63A5;&#x67E5;&#x770B;<code>mall-tiny-error*</code>&#x6A21;&#x5F0F;&#x7684;&#x65E5;&#x5FD7;&#x5373;&#x53EF;&#xFF1B;</li>
+</ul>
+<p><img src="../images/elk_advance_06.png" alt=""></p>
+<ul>
+<li>&#x4E1A;&#x52A1;&#x65E5;&#x5FD7;&#xFF0C;&#x53EA;&#x9700;&#x76F4;&#x63A5;&#x67E5;&#x770B;<code>mall-tiny-business*</code>&#x6A21;&#x5F0F;&#x7684;&#x65E5;&#x5FD7;&#x5373;&#x53EF;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x4E00;&#x4E9B;SQL&#x65E5;&#x5FD7;&#x7684;&#x8F93;&#x51FA;&#xFF1B;</li>
+</ul>
+<p><img src="../images/elk_advance_07.png" alt=""></p>
+<ul>
+<li>&#x5982;&#x679C;&#x65E5;&#x5FD7;&#x592A;&#x5927;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>Elasticsearch-&gt;Index Management</code>&#x9009;&#x62E9;&#x5220;&#x9664;&#x5373;&#x53EF;&#x3002;</li>
+</ul>
+<p><img src="../images/elk_advance_08.png" alt=""></p>
+<h2 id="&#x9879;&#x76EE;&#x6E90;&#x7801;&#x5730;&#x5740;">&#x9879;&#x76EE;&#x6E90;&#x7801;&#x5730;&#x5740;</h2>
+<p><a href="https://github.com/macrozheng/mall-learning/tree/master/mall-tiny-log" target="_blank">https://github.com/macrozheng/mall-learning/tree/master/mall-tiny-log</a></p>
+<h2 id="&#x516C;&#x4F17;&#x53F7;">&#x516C;&#x4F17;&#x53F7;</h2>
+<p><img src="http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/banner/qrcode_for_macrozheng_258.jpg" alt="&#x516C;&#x4F17;&#x53F7;&#x56FE;&#x7247;"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="rabbitmq_start.html" class="navigation navigation-prev " aria-label="Previous page: 连RabbitMQ的5种核心消息模式都不懂，也敢说自己会用消息队列！">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="efk_fluent.html" class="navigation navigation-next " aria-label="Next page: 性能优越的轻量级日志收集工具，微软、亚马逊都在用！">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"你居然还去服务器上捞日志，搭个日志收集系统难道不香么！","level":"1.8.21","depth":2,"next":{"title":"性能优越的轻量级日志收集工具，微软、亚马逊都在用！","level":"1.8.22","depth":2,"path":"reference/efk_fluent.md","ref":"reference/efk_fluent.md","articles":[]},"previous":{"title":"连RabbitMQ的5种核心消息模式都不懂，也敢说自己会用消息队列！","level":"1.8.20","depth":2,"path":"reference/rabbitmq_start.md","ref":"reference/rabbitmq_start.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/mall_elk_advance.md","mtime":"2021-08-23T04:11:11.561Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-23T04:32:57.691Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
